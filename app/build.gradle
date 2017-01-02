@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.1"
+    buildToolsVersion "24.0.2"
     defaultConfig {
         applicationId "com.yongf.rorder"
         minSdkVersion 19
@@ -27,4 +27,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
     compile 'com.orhanobut:logger:1.15'
+    compile 'com.google.guava:guava:20.0'
 }

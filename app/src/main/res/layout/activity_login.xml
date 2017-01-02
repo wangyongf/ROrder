@@ -4,4 +4,68 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <ImageView
+        android:layout_width="@dimen/app_size90"
+        android:layout_height="@dimen/app_size90"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/app_size30"
+        android:src="@drawable/playstore_icon" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_size45"
+        android:layout_marginLeft="@dimen/app_size16"
+        android:layout_marginRight="@dimen/app_size16"
+        android:layout_marginTop="@dimen/app_size30"
+        android:background="@drawable/bg_edittext"
+        android:hint="请输入用户名"
+        android:padding="@dimen/app_size10"
+        android:textColorHint="@android:color/darker_gray" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_size45"
+        android:layout_marginLeft="@dimen/app_size16"
+        android:layout_marginRight="@dimen/app_size16"
+        android:layout_marginTop="@dimen/app_size15"
+        android:background="@drawable/bg_edittext"
+        android:hint="请输入密码"
+        android:inputType="textPassword"
+        android:padding="@dimen/app_size10"
+        android:textColorHint="@android:color/darker_gray" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_size50"
+        android:layout_marginLeft="@dimen/app_size16"
+        android:layout_marginRight="@dimen/app_size16"
+        android:layout_marginTop="@dimen/app_size15"
+        android:background="@color/app_color_login_blue"
+        android:text="登录"
+        android:textColor="@color/app_color_white"
+        android:textSize="@dimen/app_txt_size18" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/app_size16"
+        android:layout_marginRight="@dimen/app_size16"
+        android:layout_marginTop="@dimen/app_size15">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="注册账户"
+            android:textColor="@color/app_color_login_gray"
+            android:textSize="@dimen/app_size15" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="找回密码"
+            android:textColor="@color/app_color_login_gray"
+            android:textSize="@dimen/app_size15" />
+    </RelativeLayout>
 </LinearLayout>
