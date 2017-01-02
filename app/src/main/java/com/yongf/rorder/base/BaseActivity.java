@@ -11,7 +11,7 @@
 package com.yongf.rorder.base;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 /**
@@ -22,43 +22,62 @@ import android.support.v7.app.AppCompatActivity;
  * @see
  * @since ROder V0.1
  */
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     private static final String TAG = "BaseActivity";
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(getLayoutId());
 
         onInit();
-        initView();
+        initPresenter();
         initData();
         initEvent();
         onInited();
     }
 
     /**
-     * 用于
+     * 获取布局文件的id
+     *
+     * @return 布局文件的id
+     */
+    protected abstract int getLayoutId();
+
+    /**
+     * 用于initView, initData, initEvent之前的初始化工作
      */
     protected void onInit() {
 
     }
 
-    protected void initView() {
+    /**
+     * 初始化视图
+     */
+    protected void initPresenter() {
 
     }
 
+    /**
+     * 初始化数据
+     */
     protected void initData() {
 
     }
 
+    /**
+     * 初始化事件
+     */
     protected void initEvent() {
 
     }
 
+    /**
+     * 用于initView, initData, initEvent之后的初始化工作
+     */
     protected void onInited() {
 
     }
-
-
 }

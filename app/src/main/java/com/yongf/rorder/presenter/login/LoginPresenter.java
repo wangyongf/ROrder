@@ -18,9 +18,18 @@ package com.yongf.rorder.presenter.login;
  * @see
  * @since ROder V0.1
  */
-public class LoginPresenter {
+public class LoginPresenter implements LoginContract.Presenter {
 
     private static final String TAG = "LoginPresenter";
 
 
+    @Override
+    public void subscribe() {
+
+    }
+
+    @Override
+    public void unsubscribe() {
+
+    }
 }

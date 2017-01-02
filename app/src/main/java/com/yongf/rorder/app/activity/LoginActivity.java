@@ -13,8 +13,10 @@ package com.yongf.rorder.app.activity;
 import android.support.annotation.NonNull;
 
 import com.google.common.base.Preconditions;
+import com.yongf.rorder.R;
 import com.yongf.rorder.base.BaseActivity;
 import com.yongf.rorder.presenter.login.LoginContract;
+import com.yongf.rorder.presenter.login.LoginPresenter;
 
 /**
  * LoginActivity
@@ -29,6 +31,19 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
     private static final String TAG = "LoginActivity";
 
     private LoginContract.Presenter mPresenter;
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_login;
+    }
+
+    @Override
+    protected void initPresenter() {
+        super.initPresenter();
+
+        LoginPresenter presenter = new LoginPresenter();
+        setPresenter(presenter);
+    }
 
     @Override
     public void setPresenter(@NonNull LoginContract.Presenter presenter) {
