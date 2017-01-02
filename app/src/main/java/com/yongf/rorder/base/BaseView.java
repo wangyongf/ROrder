@@ -11,15 +11,14 @@
 package com.yongf.rorder.base;
 
 /**
- * ${description}
+ * BaseView
  *
  * @author Scott Wang
  * @version 1.0, 17-1-1
  * @see
- * @since WuZhi V0.1
+ * @since ROrder V0.1
  */
-public class BaseView {
+public interface BaseView<T> {
 
-    private static final String TAG = "BaseView";
-
+    void setPresenter(T presenter);
 }
