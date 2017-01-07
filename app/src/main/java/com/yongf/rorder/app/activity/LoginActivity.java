@@ -12,11 +12,12 @@ package com.yongf.rorder.app.activity;
 
 import android.support.annotation.NonNull;
 
-import com.google.common.base.Preconditions;
 import com.yongf.rorder.R;
 import com.yongf.rorder.base.BaseActivity;
 import com.yongf.rorder.presenter.login.LoginContract;
 import com.yongf.rorder.presenter.login.LoginPresenter;
+
+import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * LoginActivity
@@ -47,6 +48,6 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
 
     @Override
     public void setPresenter(@NonNull LoginContract.Presenter presenter) {
-        mPresenter = Preconditions.checkNotNull(presenter);
+        mPresenter = checkNotNull(presenter);
     }
 }

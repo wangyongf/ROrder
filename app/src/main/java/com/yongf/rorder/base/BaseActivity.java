@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import butterknife.ButterKnife;
+
 /**
  * BaseActivity
  *
@@ -32,11 +34,14 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         setContentView(getLayoutId());
 
-        onInit();
+        ButterKnife.bind(this);
+
+        beforeInit();
         initPresenter();
+        initView();
         initData();
         initEvent();
-        onInited();
+        afterInit();
     }
 
     /**
@@ -49,7 +54,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 用于initView, initData, initEvent之前的初始化工作
      */
-    protected void onInit() {
+    protected void beforeInit() {
 
     }
 
@@ -57,6 +62,13 @@ public abstract class BaseActivity extends AppCompatActivity {
      * 初始化视图
      */
     protected void initPresenter() {
+
+    }
+
+    /**
+     * 初始化视图
+     */
+    protected void initView() {
 
     }
 
@@ -77,7 +89,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 用于initView, initData, initEvent之后的初始化工作
      */
-    protected void onInited() {
+    protected void afterInit() {
 
     }
 }

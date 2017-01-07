@@ -23,6 +23,10 @@
 
     <dimen name="app_txt_size5">5sp</dimen>
     <dimen name="app_txt_size10">10sp</dimen>
+    <dimen name="app_txt_size11">11sp</dimen>
+    <dimen name="app_txt_size12">12sp</dimen>
+    <dimen name="app_txt_size13">13sp</dimen>
+    <dimen name="app_txt_size14">14sp</dimen>
     <dimen name="app_txt_size15">15sp</dimen>
     <dimen name="app_txt_size18">18sp</dimen>
     <dimen name="app_txt_size20">20sp</dimen>

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">点菜宝</string>
+    <string name="app_version_name">版本: v</string>
 </resources>

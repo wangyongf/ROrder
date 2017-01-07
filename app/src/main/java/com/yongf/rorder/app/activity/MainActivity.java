@@ -4,6 +4,10 @@ import android.os.Bundle;
 
 import com.yongf.rorder.R;
 import com.yongf.rorder.base.BaseActivity;
+import com.yongf.rorder.presenter.main.MainContract;
+import com.yongf.rorder.presenter.main.MainPresenter;
+
+import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * 应用主页
@@ -13,9 +17,12 @@ import com.yongf.rorder.base.BaseActivity;
  * @see
  * @since ROder V1.0
  */
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements MainContract.View {
 
-    @Override
+    private static final String TAG = "MainActivity";
+
+    private MainContract.Presenter mPresenter;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -24,5 +31,18 @@ public class MainActivity extends BaseActivity {
     @Override
     public int getLayoutId() {
         return R.layout.activity_main;
+    }
+
+    @Override
+    protected void initPresenter() {
+        super.initPresenter();
+
+        MainPresenter presenter = new MainPresenter();
+        setPresenter(presenter);
+    }
+
+    @Override
+    public void setPresenter(MainContract.Presenter presenter) {
+        mPresenter = checkNotNull(presenter);
     }
 }
