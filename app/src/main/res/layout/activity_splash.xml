@@ -16,6 +16,7 @@
     <com.zhy.android.percent.support.PercentRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/app_color_white"
         app:layout_heightPercent="15%h">
 
         <ImageView
@@ -53,12 +54,12 @@
 
         <Button
             android:id="@+id/btn_splash_skip_ad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/app_size55"
+            android:layout_height="@dimen/app_size40"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/app_size16"
-            android:background="@drawable/shape_round_btn"
+            android:background="@drawable/shape_splash_round_btn"
             android:text="跳过"
             android:textSize="@dimen/app_txt_size15" />
     </com.zhy.android.percent.support.PercentRelativeLayout>

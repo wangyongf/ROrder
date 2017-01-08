@@ -10,6 +10,10 @@
 
 package com.yongf.rorder.presenter.login;
 
+import rx.subscriptions.CompositeSubscription;
+
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * LoginPresenter
  *
@@ -22,14 +26,24 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     private static final String TAG = "LoginPresenter";
 
+    private final LoginContract.View mView;
 
-    @Override
+    private CompositeSubscription mSubscription;
+
+    public LoginPresenter(LoginContract.View view) {
+        mView = checkNotNull(view);
+        mSubscription = new CompositeSubscription();
+    }
+
+    /**
+     * 可以考虑做一些网络请求的事
+     */
     public void subscribe() {
 
     }
 
     @Override
     public void unsubscribe() {
-
+        mSubscription.clear();
     }
 }

@@ -37,8 +37,11 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 public class SplashActivity extends BaseActivity implements SplashContract.View {
 
+    /**
+     * 广告时间, in milliseconds
+     */
+    public static final int SHOW_AD_TIME = 2000;
     private static final String TAG = "SplashActivity";
-
     @BindView(R.id.iv_splash_ad)
     ImageView mIvSplashAd;
 
@@ -71,6 +74,13 @@ public class SplashActivity extends BaseActivity implements SplashContract.View 
     }
 
     @Override
+    protected void afterInit() {
+        super.afterInit();
+
+        mPresenter.go2HomeWithInterval(SHOW_AD_TIME);
+    }
+
+    @Override
     public void setPresenter(@NonNull SplashContract.Presenter presenter) {
         mPresenter = checkNotNull(presenter);
     }
@@ -84,14 +94,12 @@ public class SplashActivity extends BaseActivity implements SplashContract.View 
     @Override
     @OnClick(R.id.btn_splash_skip_ad)
     public void go2Home() {
+        if (isFinishing() || isDestroyed()) {
+            return;
+        }
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
-    }
-
-    @Override
-    public void go2HomeWithInterval(int interval) {
-        // TODO: 17-1-8 添加延时自动跳转的逻辑
     }
 
     @Override

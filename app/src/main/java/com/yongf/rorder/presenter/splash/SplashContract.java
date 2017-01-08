@@ -28,12 +28,10 @@ public interface SplashContract {
 
         void go2Home();                 //直接进入主页
 
-        void go2HomeWithInterval(int interval);             //经过一定的时间间隔后进入主页
-
         void setVersion();                      //设置Splash界面的版本号字段
     }
 
     interface Presenter extends BasePresenter {
-
+        void go2HomeWithInterval(int interval);             //经过一定的时间间隔后进入主页
     }
 }

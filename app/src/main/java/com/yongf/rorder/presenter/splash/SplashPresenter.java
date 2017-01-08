@@ -10,6 +10,8 @@
 
 package com.yongf.rorder.presenter.splash;
 
+import com.yongf.rorder.util.UIUtils;
+
 import rx.subscriptions.CompositeSubscription;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -26,7 +28,7 @@ public class SplashPresenter implements SplashContract.Presenter {
 
     private static final String TAG = "SplashPresenter";
 
-    private SplashContract.View mView;
+    private final SplashContract.View mView;
 
     private CompositeSubscription mSubscription;
 
@@ -43,5 +45,10 @@ public class SplashPresenter implements SplashContract.Presenter {
     @Override
     public void unsubscribe() {
         mSubscription.clear();
+    }
+
+    @Override
+    public void go2HomeWithInterval(int interval) {
+        UIUtils.getMainHandler().postDelayed(() -> mView.go2Home(), interval);
     }
 }
