@@ -36,7 +36,7 @@ public class LoginPresenter implements LoginContract.Presenter {
     }
 
     /**
-     * 可以考虑做一些网络请求的事
+     * 可以考虑做一些网络请求的事情
      */
     public void subscribe() {
 

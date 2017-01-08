@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">点菜宝</string>
     <string name="app_version_name">版本: v</string>
+    <string name="app_text_register">注册</string>
+    <string name="app_text_login">登录</string>
+    <string name="register_account">注册账户</string>
+    <string name="retrieve_password">找回密码</string>
+    <string name="input_password">请输入密码</string>
+    <string name="input_username">请输入用户名</string>
+    <string name="input_email">请输入邮箱</string>
 </resources>

@@ -27,7 +27,7 @@ import com.yongf.rorder.app.application.BaseApplication;
  * @see
  * @since GooglePlay1.0
  */
-public class UIUtils {
+public class UIUtil {
 
     /**
      * 得到Assets资源

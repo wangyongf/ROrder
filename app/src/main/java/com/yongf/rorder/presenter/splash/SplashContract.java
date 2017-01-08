@@ -27,8 +27,6 @@ public interface SplashContract {
         void go2Ad();                   //跳转到广告处（一般是一个WebView）
 
         void go2Home();                 //直接进入主页
-
-        void setVersion();                      //设置Splash界面的版本号字段
     }
 
     interface Presenter extends BasePresenter {

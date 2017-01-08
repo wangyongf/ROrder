@@ -42,7 +42,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
     protected void initPresenter() {
         super.initPresenter();
 
-        LoginPresenter presenter = new LoginPresenter();
+        LoginPresenter presenter = new LoginPresenter(this);
         setPresenter(presenter);
     }
 

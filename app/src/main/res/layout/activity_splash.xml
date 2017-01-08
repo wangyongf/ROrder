@@ -16,7 +16,7 @@
     <com.zhy.android.percent.support.PercentRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/app_color_white"
+        android:background="@color/app_color_lily_white"
         app:layout_heightPercent="15%h">
 
         <ImageView

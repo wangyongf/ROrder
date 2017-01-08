@@ -10,7 +10,7 @@
 
 package com.yongf.rorder.presenter.splash;
 
-import com.yongf.rorder.util.UIUtils;
+import com.yongf.rorder.util.UIUtil;
 
 import rx.subscriptions.CompositeSubscription;
 
@@ -26,6 +26,11 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 public class SplashPresenter implements SplashContract.Presenter {
 
+    /**
+     * 广告时间, in milliseconds
+     */
+    public static final int SHOW_AD_TIME = 4000;
+
     private static final String TAG = "SplashPresenter";
 
     private final SplashContract.View mView;
@@ -39,7 +44,7 @@ public class SplashPresenter implements SplashContract.Presenter {
 
     @Override
     public void subscribe() {
-
+        go2HomeWithInterval(SHOW_AD_TIME);
     }
 
     @Override
@@ -49,6 +54,6 @@ public class SplashPresenter implements SplashContract.Presenter {
 
     @Override
     public void go2HomeWithInterval(int interval) {
-        UIUtils.getMainHandler().postDelayed(() -> mView.go2Home(), interval);
+        UIUtil.getMainHandler().postDelayed(() -> mView.go2Home(), interval);
     }
 }

@@ -37,11 +37,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 public class SplashActivity extends BaseActivity implements SplashContract.View {
 
-    /**
-     * 广告时间, in milliseconds
-     */
-    public static final int SHOW_AD_TIME = 2000;
     private static final String TAG = "SplashActivity";
+
     @BindView(R.id.iv_splash_ad)
     ImageView mIvSplashAd;
 
@@ -73,16 +70,31 @@ public class SplashActivity extends BaseActivity implements SplashContract.View 
         setVersion();
     }
 
-    @Override
-    protected void afterInit() {
-        super.afterInit();
-
-        mPresenter.go2HomeWithInterval(SHOW_AD_TIME);
+    /**
+     * 设置启动页面的版本号字段
+     */
+    public void setVersion() {
+        String versionName = PackageUtil.getVersionName(this);
+        mTvSplashAppVersion.setText(getString(R.string.app_version_name) + versionName);
     }
 
     @Override
     public void setPresenter(@NonNull SplashContract.Presenter presenter) {
         mPresenter = checkNotNull(presenter);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        mPresenter.subscribe();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        mPresenter.unsubscribe();
     }
 
     @Override
@@ -100,11 +112,5 @@ public class SplashActivity extends BaseActivity implements SplashContract.View 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
-    }
-
-    @Override
-    public void setVersion() {
-        String versionName = PackageUtil.getVersionName(this);
-        mTvSplashAppVersion.setText(getString(R.string.app_version_name) + versionName);
     }
 }

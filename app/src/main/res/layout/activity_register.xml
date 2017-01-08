@@ -44,6 +44,17 @@
         android:layout_marginRight="@dimen/app_size16"
         android:layout_marginTop="@dimen/app_size15"
         android:background="@drawable/bg_edittext"
+        android:hint="@string/input_email"
+        android:padding="@dimen/app_size10"
+        android:textColorHint="@android:color/darker_gray" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_size45"
+        android:layout_marginLeft="@dimen/app_size16"
+        android:layout_marginRight="@dimen/app_size16"
+        android:layout_marginTop="@dimen/app_size15"
+        android:background="@drawable/bg_edittext"
         android:hint="@string/input_password"
         android:inputType="textPassword"
         android:padding="@dimen/app_size10"
@@ -56,31 +67,7 @@
         android:layout_marginRight="@dimen/app_size16"
         android:layout_marginTop="@dimen/app_size15"
         android:background="@color/app_color_login_blue"
-        android:text="@string/app_text_login"
+        android:text="@string/app_text_register"
         android:textColor="@color/app_color_white"
         android:textSize="@dimen/app_txt_size18" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/app_size16"
-        android:layout_marginRight="@dimen/app_size16"
-        android:layout_marginTop="@dimen/app_size15">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:text="@string/register_account"
-            android:textColor="@color/app_color_login_gray"
-            android:textSize="@dimen/app_size15" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="@string/retrieve_password"
-            android:textColor="@color/app_color_login_gray"
-            android:textSize="@dimen/app_size15" />
-    </RelativeLayout>
 </LinearLayout>
