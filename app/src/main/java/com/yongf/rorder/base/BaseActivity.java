@@ -13,6 +13,9 @@ package com.yongf.rorder.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
+
+import com.yongf.rorder.app.activity.MainActivity;
 
 import butterknife.ButterKnife;
 
@@ -26,7 +29,14 @@ import butterknife.ButterKnife;
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
+    public static final int LAST_EXIT_DURATION = 2000;
+
     private static final String TAG = "BaseActivity";
+
+    /**
+     * 上一次在主页点击返回按钮的时刻
+     */
+    private long mLastExitTime = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -91,5 +101,20 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     protected void afterInit() {
 
+    }
+
+    /**
+     * 在主页点击退出按钮提示
+     */
+    @Override
+    public void onBackPressed() {
+        if (this instanceof MainActivity
+                && System.currentTimeMillis() - mLastExitTime > LAST_EXIT_DURATION) {
+            mLastExitTime = System.currentTimeMillis();
+            Toast.makeText(this, "再按一次退出点菜宝", Toast.LENGTH_LONG).show();
+            return;
+        } else {
+            super.onBackPressed();
+        }
     }
 }
