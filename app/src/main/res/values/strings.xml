@@ -8,4 +8,5 @@
     <string name="input_password">请输入密码</string>
     <string name="input_username">请输入用户名</string>
     <string name="input_email">请输入邮箱</string>
+    <string name="reclick_to_exit">再按一次退出点菜宝</string>
 </resources>
