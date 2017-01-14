@@ -67,13 +67,13 @@ public class SplashActivity extends BaseActivity implements SplashContract.View 
     protected void initView() {
         super.initView();
 
-        setVersion();
+        setVersionName();
     }
 
     /**
      * 设置启动页面的版本号字段
      */
-    public void setVersion() {
+    public void setVersionName() {
         String versionName = PackageUtil.getVersionName(this);
         mTvSplashAppVersion.setText(getString(R.string.app_version_name) + versionName);
     }
