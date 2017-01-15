@@ -13,6 +13,11 @@
         android:src="@drawable/splash_year_rooster"
         app:layout_heightPercent="85%h" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_size1"
+        android:background="@color/app_color_divider" />
+
     <com.zhy.android.percent.support.PercentRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -48,13 +53,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/app_size5"
                 android:text="版本：V0.1"
-                android:textColor="@color/app_color_black"
+                android:textColor="@color/app_color_gray"
                 android:textSize="@dimen/app_txt_size15" />
         </LinearLayout>
 
         <Button
             android:id="@+id/btn_splash_skip_ad"
-            android:layout_width="@dimen/app_size55"
+            android:layout_width="@dimen/app_size65"
             android:layout_height="@dimen/app_size40"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
