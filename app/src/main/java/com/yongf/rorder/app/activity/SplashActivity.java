@@ -17,7 +17,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yongf.rorder.R;
-import com.yongf.rorder.base.BaseActivity;
 import com.yongf.rorder.presenter.splash.SplashContract;
 import com.yongf.rorder.presenter.splash.SplashPresenter;
 import com.yongf.rorder.util.PackageUtil;

@@ -24,9 +24,9 @@ import android.os.Looper;
  * @see
  * @since GooglePlay1.0
  */
-public class BaseApplication extends Application {
+public class MyApplication extends Application {
 
-    private static final String TAG = "BaseApplication";
+    private static final String TAG = "MyApplication";
     private static Context mContext;
     private static Thread mMainThread;
     private static long mMainThreadID;

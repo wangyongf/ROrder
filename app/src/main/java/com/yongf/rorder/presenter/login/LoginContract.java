@@ -10,8 +10,8 @@
 
 package com.yongf.rorder.presenter.login;
 
-import com.yongf.rorder.base.BasePresenter;
-import com.yongf.rorder.base.BaseView;
+import com.yongf.rorder.presenter.BasePresenter;
+import com.yongf.rorder.presenter.BaseView;
 
 /**
  * LoginContract
@@ -24,10 +24,16 @@ import com.yongf.rorder.base.BaseView;
 public interface LoginContract {
 
     interface View extends BaseView<Presenter> {
+        void showInputError();                  //输入错误提示
 
+        void showNetworkError();            //网络异常提示
+
+        void showLoginError();              //登录失败提示
+
+        void loginSuccess(String uid);          //登录成功，跳转到首页（暂时）
     }
 
     interface Presenter extends BasePresenter {
-
+        void login(String username, String password);           //登录
     }
 }

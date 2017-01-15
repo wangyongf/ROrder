@@ -3,21 +3,25 @@
     package="com.yongf.rorder">
 
     <application
-        android:name=".app.application.BaseApplication"
+        android:name=".app.application.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".app.activity.LoginActivity"></activity>
-        <activity android:name=".app.activity.SplashActivity">
+        <activity android:name=".app.activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".app.activity.SplashActivity">
+
+        </activity>
         <activity android:name=".app.activity.MainActivity"></activity>
+        <activity android:name=".app.activity.RegisterActivity"></activity>
+        <activity android:name=".app.activity.FindPwdActivity"></activity>
     </application>
 
 </manifest>

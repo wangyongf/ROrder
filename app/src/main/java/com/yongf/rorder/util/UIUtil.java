@@ -17,7 +17,7 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Handler;
 
-import com.yongf.rorder.app.application.BaseApplication;
+import com.yongf.rorder.app.application.MyApplication;
 
 /**
  * 和UI相关的工具类
@@ -44,7 +44,7 @@ public class UIUtil {
      * @return
      */
     public static Context getContext() {
-        return BaseApplication.getContext();
+        return MyApplication.getContext();
     }
 
     /**
@@ -134,7 +134,7 @@ public class UIUtil {
      * @return 主线程的ID
      */
     public static long getMainThreadID() {
-        return BaseApplication.getMainThreadID();
+        return MyApplication.getMainThreadID();
     }
 
     /**
@@ -143,7 +143,7 @@ public class UIUtil {
      * @return 主线程的Handler
      */
     public static Handler getMainHandler() {
-        return BaseApplication.getHandler();
+        return MyApplication.getHandler();
     }
 
     /**

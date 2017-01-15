@@ -3,7 +3,6 @@ package com.yongf.rorder.app.activity;
 import android.os.Bundle;
 
 import com.yongf.rorder.R;
-import com.yongf.rorder.base.BaseActivity;
 import com.yongf.rorder.presenter.main.MainContract;
 import com.yongf.rorder.presenter.main.MainPresenter;
 
@@ -20,6 +19,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class MainActivity extends BaseActivity implements MainContract.View {
 
     private static final String TAG = "MainActivity";
+
+    public static final String UID = "uid";
 
     private MainContract.Presenter mPresenter;
 

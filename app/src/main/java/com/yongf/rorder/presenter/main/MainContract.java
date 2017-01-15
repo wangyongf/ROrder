@@ -10,8 +10,8 @@
 
 package com.yongf.rorder.presenter.main;
 
-import com.yongf.rorder.base.BasePresenter;
-import com.yongf.rorder.base.BaseView;
+import com.yongf.rorder.presenter.BasePresenter;
+import com.yongf.rorder.presenter.BaseView;
 
 /**
  * MainContract

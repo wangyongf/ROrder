@@ -10,8 +10,8 @@
 
 package com.yongf.rorder.presenter.splash;
 
-import com.yongf.rorder.base.BasePresenter;
-import com.yongf.rorder.base.BaseView;
+import com.yongf.rorder.presenter.BasePresenter;
+import com.yongf.rorder.presenter.BaseView;
 
 /**
  * SplashContract

@@ -8,7 +8,7 @@
  *  0.1         Scott Wang     17-1-1       新增：Create	
  */
 
-package com.yongf.rorder.base;
+package com.yongf.rorder.app.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,7 +16,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.yongf.rorder.R;
-import com.yongf.rorder.app.activity.MainActivity;
 
 import butterknife.ButterKnife;
 
@@ -47,12 +46,12 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        beforeInit();
+        before();
         initPresenter();
         initView();
         initData();
         initEvent();
-        afterInit();
+        after();
     }
 
     /**
@@ -65,7 +64,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 用于initView, initData, initEvent之前的初始化工作
      */
-    protected void beforeInit() {
+    protected void before() {
 
     }
 
@@ -100,7 +99,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 用于initView, initData, initEvent之后的初始化工作
      */
-    protected void afterInit() {
+    protected void after() {
 
     }
 
