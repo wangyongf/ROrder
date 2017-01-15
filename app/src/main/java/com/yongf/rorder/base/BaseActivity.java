@@ -15,6 +15,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.yongf.rorder.R;
 import com.yongf.rorder.app.activity.MainActivity;
 
 import butterknife.ButterKnife;
@@ -111,7 +112,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (this instanceof MainActivity
                 && System.currentTimeMillis() - mLastExitTime > LAST_EXIT_DURATION) {
             mLastExitTime = System.currentTimeMillis();
-            Toast.makeText(this, "再按一次退出点菜宝", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.reclick_to_exit, Toast.LENGTH_LONG).show();
             return;
         } else {
             super.onBackPressed();
