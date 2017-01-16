@@ -9,4 +9,13 @@
     <string name="input_username">请输入用户名</string>
     <string name="input_email">请输入邮箱</string>
     <string name="reclick_to_exit">再按一次退出点菜宝</string>
+    <string name="feedback">意见反馈</string>
+    <string name="submit">提交</string>
+    <string name="choose_feedback_type">选择反馈类型:</string>
+    <string name="product_suggestion">产品建议</string>
+    <string name="program_bug">程序错误</string>
+    <string name="other">其他反馈</string>
+    <string name="feedback_content_hint">请输入反馈，我们将为你不断改进</string>
+    <string name="fillin_your_email">填写你的邮箱</string>
+    <string name="common_problem">常见问题:</string>
 </resources>

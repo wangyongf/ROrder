@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_color_white_smoke">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_color_white_smoke"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar_default" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/app_size10"
+            android:layout_marginTop="@dimen/app_size10"
+            android:text="@string/choose_feedback_type"
+            android:textColor="@color/app_color_gray"
+            android:textSize="@dimen/app_txt_size14" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_size10"
+            android:background="@color/app_color_white"
+            android:padding="@dimen/app_size10">
+
+            <RadioGroup
+                android:id="@+id/rg_feedback_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_type_suggestion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="@string/product_suggestion" />
+
+                <RadioButton
+                    android:id="@+id/rb_type_bug"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/program_bug" />
+
+                <RadioButton
+                    android:id="@+id/rb_type_other"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/other" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/et_feedback_content"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_size150"
+            android:layout_marginTop="@dimen/app_size10"
+            android:background="@color/app_color_white"
+            android:gravity="left|top"
+            android:hint="@string/feedback_content_hint"
+            android:inputType="textMultiLine"
+            android:maxLines="6"
+            android:padding="@dimen/app_size13"
+            android:textSize="@dimen/app_txt_size17" />
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_size15"
+            android:background="@color/app_color_white"
+            android:hint="@string/fillin_your_email"
+            android:maxLines="1"
+            android:padding="@dimen/app_size13"
+            android:textSize="@dimen/app_txt_size17" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/app_size10"
+            android:layout_marginTop="@dimen/app_size20"
+            android:text="@string/common_problem"
+            android:textColor="@color/app_color_gray"
+            android:textSize="@dimen/app_txt_size14" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_size10"
+            android:background="@color/app_color_white"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/app_size0.5"
+                android:background="@color/app_color_divider" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/app_size13"
+                android:text="手机锁屏时，停止播放或闪退"
+                android:textColor="@color/app_color_black"
+                android:textSize="@dimen/app_txt_size17" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/app_size0.5"
+                android:background="@color/app_color_divider" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/app_size13"
+                android:text="在3G/4G网络下没法使用点菜宝"
+                android:textColor="@color/app_color_black"
+                android:textSize="@dimen/app_txt_size17" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/app_size0.5"
+                android:background="@color/app_color_divider" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/app_size13"
+                android:text="不想看到未关注的动态，怎么关闭?"
+                android:textColor="@color/app_color_black"
+                android:textSize="@dimen/app_txt_size17" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/app_size0.5"
+                android:background="@color/app_color_divider" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
