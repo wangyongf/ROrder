@@ -44,6 +44,23 @@ public class DataObservable {
      */
     private static Observable<? extends BaseBean> buildObservable(String url, int mode, BaseBean bean) {
         // TODO: 17-1-15 完成网络层，网络请求队列
+        // TODO: 17-1-16 考虑加入Rx三级缓存
+        switch (mode) {
+            case TYPE_CACHE_MEMORY:
+                // TODO: 17-1-16 return getObservableFromMemory
+                break;
+            case TYPE_CACHE_DISK:
+                // TODO: 17-1-16 return getObservableFromDisk
+                // TODO: 17-1-16 updateMemory
+                break;
+            case TYPE_NETWORK:
+                // TODO: 17-1-16 return getObservableFromNetwork
+                // TODO: 17-1-16 updateDisk
+                // TODO: 17-1-16 updateMemory
+                break;
+            default:
+                throw new IllegalArgumentException("illegal argument type!");
+        }
         return Observable.empty();
     }
 
