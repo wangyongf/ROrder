@@ -23,4 +23,9 @@
     <string name="latest_version">最新版本</string>
     <string name="no_new_version">无新版</string>
     <string name="tutorial">新手教程</string>
+    <string name="help_and_feedback">帮助与反馈</string>
+    <string name="rating">给软件评分</string>
+    <string name="about_description">使用点菜宝网页版，电脑客户端，手机客户端，强大的多端同步，音乐随身听！请访问：blog.54yongf.com</string>
+    <string name="rules">《<u>点菜宝管理细则</u>》</string>
+    <string name="terms">《<u>点菜宝服务条款</u>》</string>
 </resources>

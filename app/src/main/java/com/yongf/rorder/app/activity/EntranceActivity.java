@@ -32,6 +32,11 @@ public class EntranceActivity extends BaseActivity {
         return R.layout.activity_entrance;
     }
 
+    @OnClick(R.id.about_activity)
+    public void go2About() {
+        IntentHelper.simpleJump(this, AboutActivity.class);
+    }
+
     @OnClick(R.id.entrance_activity)
     public void go2Entrance() {
         IntentHelper.simpleJump(this, EntranceActivity.class);

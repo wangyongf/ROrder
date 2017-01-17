@@ -73,6 +73,8 @@ public class TitleLayout extends RelativeLayout {
         mRightText = typedArray.getString(R.styleable.TitleLayout_rightText);
         mRightVisible = typedArray.getBoolean(R.styleable.TitleLayout_rightVisible, true);
         typedArray.recycle();
+
+        setWillNotDraw(false);
     }
 
     /**

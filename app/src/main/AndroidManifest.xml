@@ -18,6 +18,7 @@
         <activity android:name=".app.activity.MainActivity"></activity>
         <activity android:name=".app.activity.RegisterActivity"></activity>
         <activity android:name=".app.activity.FindPwdActivity"></activity>
+        <activity android:name=".app.activity.AboutActivity" />
         <activity android:name=".app.activity.FeedbackActivity">
 
         </activity>

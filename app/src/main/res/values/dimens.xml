@@ -18,6 +18,7 @@
     <dimen name="app_size18">18dp</dimen>
     <dimen name="app_size19">19dp</dimen>
     <dimen name="app_size20">20dp</dimen>
+    <dimen name="app_size25">25dp</dimen>
     <dimen name="app_size30">30dp</dimen>
     <dimen name="app_size40">40dp</dimen>
     <dimen name="app_size45">45dp</dimen>
