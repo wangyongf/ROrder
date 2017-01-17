@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="TitleLayout">
+        <attr name="leftImage" format="reference" />
+        <attr name="titleText" format="string" />
+        <attr name="rightText" format="string" />
+        <attr name="rightVisible" format="boolean" />
+    </declare-styleable>
+
+</resources>

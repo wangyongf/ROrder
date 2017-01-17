@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_color_white_smoke">
@@ -9,7 +10,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <include layout="@layout/toolbar_default" />
+        <com.yongf.rorder.widget.TitleLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftImage="@drawable/back"
+            app:rightText="@string/submit"
+            app:rightVisible="true"
+            app:titleText="@string/feedback" />
 
         <TextView
             android:layout_width="wrap_content"
