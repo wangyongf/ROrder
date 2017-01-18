@@ -2,6 +2,7 @@
 <resources>
 
     <declare-styleable name="TitleLayout">
+        <attr name="tl_leftVisible" format="boolean" />
         <attr name="tl_leftImage" format="reference" />
         <attr name="tl_titleText" format="string" />
         <attr name="tl_rightText" format="string" />

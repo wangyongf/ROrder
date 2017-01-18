@@ -1,12 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/app_color_white_smoke">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="设置界面"
-        android:textSize="@dimen/app_txt_size40" />
-</RelativeLayout>
+        android:orientation="vertical">
+
+        <com.yongf.rorder.widget.TitleLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tl_leftVisible="false"
+            app:tl_rightVisible="false"
+            app:tl_titleText="帐号" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_size130"
+            android:background="@color/app_color_white" />
+
+        <com.yongf.rorder.widget.DisplayItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_size10"
+            app:div_leftIcon="@drawable/email"
+            app:div_leftMode="text_icon"
+            app:div_leftText="@string/my_message"
+            app:div_rightMode="icon" />
+
+        <com.yongf.rorder.widget.DisplayItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_size10"
+            app:div_leftIcon="@drawable/setting"
+            app:div_leftMode="text_icon"
+            app:div_leftText="@string/setting"
+            app:div_rightMode="icon" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_size0.5"
+            android:background="@color/app_color_divider" />
+
+        <com.yongf.rorder.widget.DisplayItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:div_leftIcon="@drawable/scanning"
+            app:div_leftMode="text_icon"
+            app:div_leftText="@string/scan"
+            app:div_rightMode="icon" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_size0.5"
+            android:background="@color/app_color_divider" />
+
+        <com.yongf.rorder.widget.DisplayItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:div_leftIcon="@drawable/skin"
+            app:div_leftMode="text_icon"
+            app:div_leftText="@string/skin_theme"
+            app:div_rightText="@string/big_fish"
+            app:div_rightMode="text_icon" />
+    </LinearLayout>
+</ScrollView>

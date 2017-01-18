@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.yongf.rorder.R;
 import com.yongf.rorder.presenter.login.LoginContract;
 import com.yongf.rorder.presenter.login.LoginPresenter;
+import com.yongf.rorder.util.IntentHelper;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -119,13 +120,11 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
 
     @OnClick(R.id.tv_register)
     public void onRegister() {
-        Intent intent = new Intent(this, RegisterActivity.class);
-        startActivity(intent);
+        IntentHelper.simpleJump(this, RegisterActivity.class);
     }
 
     @OnClick(R.id.tv_find_pwd)
     public void onFindPwd() {
-        Intent intent = new Intent(this, FindPwdActivity.class);
-        startActivity(intent);
+        IntentHelper.simpleJump(this, FindPwdActivity.class);
     }
 }

@@ -16,6 +16,7 @@ import android.graphics.Canvas;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -36,7 +37,12 @@ public class TitleLayout extends RelativeLayout {
     /**
      * 左侧图片资源Id
      */
-    private int mLeftImage;
+    private int mLeftIcon;
+
+    /**
+     * 左侧是否可见
+     */
+    private boolean mLeftVisible;
 
     /**
      * 标题文字
@@ -71,8 +77,9 @@ public class TitleLayout extends RelativeLayout {
         LayoutInflater.from(context).inflate(R.layout.toolbar_default, this);
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.TitleLayout);
-        mLeftImage = typedArray.getResourceId(R.styleable.TitleLayout_tl_leftImage,
+        mLeftIcon = typedArray.getResourceId(R.styleable.TitleLayout_tl_leftImage,
                 R.drawable.back);
+        mLeftVisible = typedArray.getBoolean(R.styleable.TitleLayout_tl_leftVisible, true);
         mTitleText = typedArray.getString(R.styleable.TitleLayout_tl_titleText);
         mRightText = typedArray.getString(R.styleable.TitleLayout_tl_rightText);
         mRightVisible = typedArray.getBoolean(R.styleable.TitleLayout_tl_rightVisible, true);
@@ -86,8 +93,8 @@ public class TitleLayout extends RelativeLayout {
      *
      * @param resId 图片资源Id
      */
-    public void setLeftImage(int resId) {
-        mLeftImage = resId;
+    public void setLeftIcon(int resId) {
+        mLeftIcon = resId;
         invalidate();
     }
 
@@ -129,14 +136,20 @@ public class TitleLayout extends RelativeLayout {
                 getContext().getString(R.string.feedback) : mTitleText;
         mRightText = TextUtils.isEmpty(mRightText) ?
                 getContext().getString(R.string.submit) : mRightText;
-        findViewById(R.id.iv_left).setBackgroundResource(mLeftImage);
+        ImageView leftIcon = (ImageView) findViewById(R.id.iv_left);
         ((TextView) findViewById(R.id.tv_title)).setText(mTitleText);
-        TextView view = (TextView) findViewById(R.id.tv_right);
-        if (mRightVisible) {
-            view.setVisibility(VISIBLE);
-            view.setText(mRightText);
+        TextView rightText = (TextView) findViewById(R.id.tv_right);
+        if (mLeftVisible) {
+            leftIcon.setVisibility(VISIBLE);
+            leftIcon.setBackgroundResource(mLeftIcon);
         } else {
-            view.setVisibility(INVISIBLE);
+            leftIcon.setVisibility(GONE);
+        }
+        if (mRightVisible) {
+            rightText.setVisibility(VISIBLE);
+            rightText.setText(mRightText);
+        } else {
+            rightText.setVisibility(GONE);
         }
     }
 }

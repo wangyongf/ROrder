@@ -24,7 +24,6 @@ public class SettingActivity extends BaseActivity {
 
     private static final String TAG = "SettingActivity";
 
-    // TODO: 17-1-17 重构ITEM_LAYOUT条目界面，参考安全卫士项目
     // TODO: 17-1-17 完成设置界面
 
     @Override
