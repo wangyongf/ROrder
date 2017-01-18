@@ -52,5 +52,10 @@
             android:id="@+id/splash_activity"
             style="@style/EntranceButton"
             android:text="SplashActivity" />
+
+        <Button
+            android:id="@+id/setting_activity"
+            style="@style/EntranceButton"
+            android:text="SettingActivity" />
     </LinearLayout>
 </ScrollView>

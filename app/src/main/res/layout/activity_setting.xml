@@ -2,11 +2,13 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/app_color_white_smoke">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <com.yongf.rorder.widget.TitleLayout
             android:layout_width="match_parent"
@@ -14,6 +16,121 @@
             app:tl_rightVisible="false"
             app:tl_titleText="@string/setting" />
 
+        <com.yongf.rorder.widget.DisplayItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_size10"
+            app:div_leftMode="text"
+            app:div_leftText="在线播放音质"
+            app:div_rightMode="text_icon"
+            app:div_rightText="自动" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_size0.5"
+            android:background="@color/app_color_divider" />
+
+        <com.yongf.rorder.widget.DisplayItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:div_leftMode="text"
+            app:div_leftText="下载音质"
+            app:div_rightMode="text_icon"
+            app:div_rightText="极高" />
+
+        <com.yongf.rorder.widget.DisplayItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_size10"
+            app:div_leftMode="text"
+            app:div_leftText="使用2G/3G/4G网络播放"
+            app:div_rightMode="switch_button" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_size0.5"
+            android:background="@color/app_color_white_smoke" />
+
+        <com.yongf.rorder.widget.DisplayItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:div_leftMode="text"
+            app:div_leftText="使用2G/3G/4G网络下载"
+            app:div_rightMode="switch_button" />
+
+        <com.yongf.rorder.widget.DisplayItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_size10"
+            app:div_leftMode="text"
+            app:div_leftText="帐号和绑定设置"
+            app:div_rightMode="icon" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_size0.5"
+            android:background="@color/app_color_divider" />
+
+        <com.yongf.rorder.widget.DisplayItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:div_leftMode="text"
+            app:div_leftText="寻找并邀请好友"
+            app:div_rightMode="icon" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_size0.5"
+            android:background="@color/app_color_divider" />
+
+        <com.yongf.rorder.widget.DisplayItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:div_leftMode="text"
+            app:div_leftText="消息和隐私设置"
+            app:div_rightMode="icon" />
+
+        <com.yongf.rorder.widget.DisplayItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_size10"
+            app:div_leftMode="text_subtext"
+            app:div_leftSubText="外文歌词有翻译时，允许显示中文翻译"
+            app:div_leftText="歌词翻译"
+            app:div_rightMode="switch_button" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_size0.5"
+            android:background="@color/app_color_divider" />
+
+        <com.yongf.rorder.widget.DisplayItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:div_leftMode="text_subtext"
+            app:div_leftSubText="连接Wi-Fi时，会自动缓存跑步歌曲"
+            app:div_leftText="跑步FM离线包"
+            app:div_rightMode="switch_button" />
+
+        <com.yongf.rorder.widget.DisplayItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_size10"
+            app:div_leftMode="text"
+            app:div_leftText="清除缓存"
+            app:div_rightMode="icon" />
+
+        <com.yongf.rorder.widget.DisplayItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_size10"
+            app:div_leftMode="text"
+            app:div_leftText="联通炫铃包月"
+            app:div_rightMode="icon" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_size20"
+            android:background="@color/app_color_white_smoke" />
     </LinearLayout>
 </ScrollView>

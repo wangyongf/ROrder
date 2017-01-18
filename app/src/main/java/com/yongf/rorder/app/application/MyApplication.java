@@ -26,7 +26,12 @@ import android.os.Looper;
  */
 public class MyApplication extends Application {
 
+    // TODO: 17-1-19 研究主页MainActivity底部菜单栏
+    // TODO: 17-1-19 研究首页的布局
+    // TODO: 17-1-19 收拾回家的东西
+
     private static final String TAG = "MyApplication";
+    
     private static Context mContext;
     private static Thread mMainThread;
     private static long mMainThreadID;
