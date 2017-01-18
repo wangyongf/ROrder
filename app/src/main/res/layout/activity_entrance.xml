@@ -44,6 +44,11 @@
             android:text="RegisterActivity" />
 
         <Button
+            android:id="@+id/setting_activity"
+            style="@style/EntranceButton"
+            android:text="SettingActivity" />
+
+        <Button
             android:id="@+id/splash_activity"
             style="@style/EntranceButton"
             android:text="SplashActivity" />

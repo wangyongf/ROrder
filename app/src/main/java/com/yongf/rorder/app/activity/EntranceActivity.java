@@ -67,6 +67,11 @@ public class EntranceActivity extends BaseActivity {
         IntentHelper.simpleJump(this, RegisterActivity.class);
     }
 
+    @OnClick(R.id.setting_activity)
+    public void go2Setting() {
+        IntentHelper.simpleJump(this, SettingActivity.class);
+    }
+
     @OnClick(R.id.splash_activity)
     public void go2Splash() {
         IntentHelper.simpleJump(this, SplashActivity.class);

@@ -13,10 +13,10 @@
         <com.yongf.rorder.widget.TitleLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:leftImage="@drawable/back"
-            app:rightText="@string/submit"
-            app:rightVisible="true"
-            app:titleText="@string/feedback" />
+            app:tl_leftImage="@drawable/back"
+            app:tl_rightText="@string/submit"
+            app:tl_rightVisible="true"
+            app:tl_titleText="@string/feedback" />
 
         <TextView
             android:layout_width="wrap_content"

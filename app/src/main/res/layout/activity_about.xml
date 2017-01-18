@@ -13,8 +13,8 @@
         <com.yongf.rorder.widget.TitleLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:rightVisible="false"
-            app:titleText="@string/about_app" />
+            app:tl_rightVisible="false"
+            app:tl_titleText="@string/about_app" />
 
         <ImageView
             android:layout_width="@dimen/app_size70"
@@ -35,58 +35,26 @@
                 android:layout_height="@dimen/app_size0.5"
                 android:background="@color/app_color_divider" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:padding="@dimen/app_size13"
-                    android:text="@string/current_version"
-                    android:textColor="@color/app_color_black"
-                    android:textSize="@dimen/app_txt_size17" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:padding="@dimen/app_size13"
-                    android:text="3.7.5"
-                    android:textColor="@color/app_color_gray"
-                    android:textSize="@dimen/app_size15" />
-            </RelativeLayout>
+            <com.yongf.rorder.widget.DisplayItemView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:div_leftMode="text"
+                app:div_leftText="@string/current_version"
+                app:div_rightMode="text"
+                app:div_rightText="3.7.5" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/app_size0.5"
                 android:background="@color/app_color_divider" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:padding="@dimen/app_size13"
-                    android:text="@string/latest_version"
-                    android:textColor="@color/app_color_black"
-                    android:textSize="@dimen/app_txt_size17" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:padding="@dimen/app_size13"
-                    android:text="@string/no_new_version"
-                    android:textColor="@color/app_color_gray"
-                    android:textSize="@dimen/app_size15" />
-            </RelativeLayout>
+            <com.yongf.rorder.widget.DisplayItemView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:div_leftMode="text"
+                app:div_leftText="@string/latest_version"
+                app:div_rightMode="text"
+                app:div_rightText="@string/no_new_version" />
 
             <View
                 android:layout_width="match_parent"
@@ -106,81 +74,39 @@
                 android:layout_height="@dimen/app_size0.5"
                 android:background="@color/app_color_divider" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:padding="@dimen/app_size13"
-                    android:text="@string/tutorial"
-                    android:textColor="@color/app_color_black"
-                    android:textSize="@dimen/app_txt_size17" />
-
-                <ImageView
-                    android:layout_width="@dimen/app_size25"
-                    android:layout_height="@dimen/app_size25"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/app_size8"
-                    android:src="@drawable/more" />
-            </RelativeLayout>
+            <com.yongf.rorder.widget.DisplayItemView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:div_leftMode="text"
+                app:div_leftText="@string/tutorial"
+                app:div_rightIcon="@drawable/more"
+                app:div_rightMode="icon" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/app_size0.5"
                 android:background="@color/app_color_divider" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:padding="@dimen/app_size13"
-                    android:text="@string/help_and_feedback"
-                    android:textColor="@color/app_color_black"
-                    android:textSize="@dimen/app_txt_size17" />
-
-                <ImageView
-                    android:layout_width="@dimen/app_size25"
-                    android:layout_height="@dimen/app_size25"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/app_size8"
-                    android:src="@drawable/more" />
-            </RelativeLayout>
+            <com.yongf.rorder.widget.DisplayItemView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:div_leftMode="text"
+                app:div_leftText="@string/help_and_feedback"
+                app:div_rightIcon="@drawable/more"
+                app:div_rightMode="icon" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/app_size0.5"
                 android:background="@color/app_color_divider" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:padding="@dimen/app_size13"
-                    android:text="@string/rating"
-                    android:textColor="@color/app_color_black"
-                    android:textSize="@dimen/app_txt_size17" />
-
-                <ImageView
-                    android:layout_width="@dimen/app_size25"
-                    android:layout_height="@dimen/app_size25"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/app_size8"
-                    android:src="@drawable/more" />
-            </RelativeLayout>
+            <com.yongf.rorder.widget.DisplayItemView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:div_leftMode="text"
+                app:div_leftText="@string/rating"
+                app:div_rightIcon="@drawable/more"
+                app:div_rightMode="icon" />
 
             <View
                 android:layout_width="match_parent"

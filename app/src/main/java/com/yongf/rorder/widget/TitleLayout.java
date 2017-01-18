@@ -64,14 +64,18 @@ public class TitleLayout extends RelativeLayout {
     public TitleLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
+        initView(context, attrs);
+    }
+
+    private void initView(Context context, AttributeSet attrs) {
         LayoutInflater.from(context).inflate(R.layout.toolbar_default, this);
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.TitleLayout);
-        mLeftImage = typedArray.getResourceId(R.styleable.TitleLayout_leftImage,
+        mLeftImage = typedArray.getResourceId(R.styleable.TitleLayout_tl_leftImage,
                 R.drawable.back);
-        mTitleText = typedArray.getString(R.styleable.TitleLayout_titleText);
-        mRightText = typedArray.getString(R.styleable.TitleLayout_rightText);
-        mRightVisible = typedArray.getBoolean(R.styleable.TitleLayout_rightVisible, true);
+        mTitleText = typedArray.getString(R.styleable.TitleLayout_tl_titleText);
+        mRightText = typedArray.getString(R.styleable.TitleLayout_tl_rightText);
+        mRightVisible = typedArray.getBoolean(R.styleable.TitleLayout_tl_rightVisible, true);
         typedArray.recycle();
 
         setWillNotDraw(false);
@@ -121,10 +125,10 @@ public class TitleLayout extends RelativeLayout {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        mTitleText = TextUtils.isEmpty(mTitleText) ? getContext().getString(R.string.feedback)
-                : mTitleText;
-        mRightText = TextUtils.isEmpty(mRightText) ? getContext().getString(R.string.submit)
-                : mRightText;
+        mTitleText = TextUtils.isEmpty(mTitleText) ?
+                getContext().getString(R.string.feedback) : mTitleText;
+        mRightText = TextUtils.isEmpty(mRightText) ?
+                getContext().getString(R.string.submit) : mRightText;
         findViewById(R.id.iv_left).setBackgroundResource(mLeftImage);
         ((TextView) findViewById(R.id.tv_title)).setText(mTitleText);
         TextView view = (TextView) findViewById(R.id.tv_right);
