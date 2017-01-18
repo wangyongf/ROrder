@@ -20,7 +20,7 @@
             <enum name="text" value="0" />
             <enum name="icon" value="1" />
             <enum name="text_icon" value="2" />
-            <enum name="checkbox" value="3" />
+            <enum name="switch_button" value="3" />
             <enum name="none" value="4" />
         </attr>
         <attr name="div_leftIcon" format="reference" />

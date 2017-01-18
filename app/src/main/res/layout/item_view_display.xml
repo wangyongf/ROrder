@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/app_color_white">
 
     <LinearLayout
@@ -75,7 +76,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ll_checkbox"
+        android:id="@+id/ll_switch_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -83,9 +84,16 @@
         android:layout_marginRight="@dimen/app_size12"
         android:orientation="vertical">
 
-        <CheckBox
-            android:id="@+id/checkbox"
-            android:layout_width="@dimen/app_size40"
-            android:layout_height="@dimen/app_size20" />
+        <com.kyleduo.switchbutton.SwitchButton
+            android:id="@+id/switch_button"
+            style="@style/SwitchButtonStyle"
+            android:layout_gravity="center"
+            app:kswBackDrawable="@drawable/miui_back_drawable"
+            app:kswThumbDrawable="@drawable/miui_thumb_drawable"
+            app:kswBackMeasureRatio="2"
+            app:kswThumbHeight="@dimen/app_size20"
+            app:kswThumbWidth="@dimen/app_size20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </RelativeLayout>

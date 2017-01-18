@@ -16,12 +16,12 @@ import android.graphics.Canvas;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.kyleduo.switchbutton.SwitchButton;
 import com.yongf.rorder.R;
 
 /**
@@ -43,7 +43,7 @@ public class DisplayItemView extends RelativeLayout {
     public static final int RIGHTMODE_TEXT = 0;
     public static final int RIGHTMODE_ICON = 1;
     public static final int RIGHTMODE_TEXT_ICON = 2;
-    public static final int RIGHTMODE_CHECKBOX = 3;
+    public static final int RIGHTMODE_SWITCH_BUTTON = 3;
     public static final int RIGHTMODE_NONE = 4;
 
     private static final String TAG = "DisplayItemView";
@@ -121,10 +121,10 @@ public class DisplayItemView extends RelativeLayout {
 
         LinearLayout leftLlTextIcon = (LinearLayout) findViewById(R.id.ll_left_text_icon);
         LinearLayout rightLlTextIcon = (LinearLayout) findViewById(R.id.ll_text_icon);
-        LinearLayout rightLlCheckbox = (LinearLayout) findViewById(R.id.ll_checkbox);
+        LinearLayout rightLlSwitchBtn = (LinearLayout) findViewById(R.id.ll_switch_button);
         TextView rightText = (TextView) findViewById(R.id.tv_right_text);
         ImageView rightIcon = (ImageView) findViewById(R.id.iv_right_icon);
-        CheckBox checkBox = (CheckBox) findViewById(R.id.checkbox);
+        SwitchButton switchButton = (SwitchButton) findViewById(R.id.switch_button);
 
         switch (mLeftMode) {
             case LEFTMODE_TEXT:
@@ -168,7 +168,7 @@ public class DisplayItemView extends RelativeLayout {
                 rightLlTextIcon.setVisibility(VISIBLE);
                 rightText.setVisibility(VISIBLE);
                 rightIcon.setVisibility(GONE);
-                rightLlCheckbox.setVisibility(GONE);
+                rightLlSwitchBtn.setVisibility(GONE);
 
                 rightText.setText(mRightText);
 
@@ -177,7 +177,7 @@ public class DisplayItemView extends RelativeLayout {
                 rightLlTextIcon.setVisibility(VISIBLE);
                 rightIcon.setVisibility(VISIBLE);
                 rightText.setVisibility(GONE);
-                rightLlCheckbox.setVisibility(GONE);
+                rightLlSwitchBtn.setVisibility(GONE);
 
                 rightIcon.setImageResource(mRightIcon);
 
@@ -186,21 +186,21 @@ public class DisplayItemView extends RelativeLayout {
                 rightLlTextIcon.setVisibility(VISIBLE);
                 rightText.setVisibility(VISIBLE);
                 rightIcon.setVisibility(VISIBLE);
-                rightLlCheckbox.setVisibility(GONE);
+                rightLlSwitchBtn.setVisibility(GONE);
 
                 rightText.setText(mRightText);
                 rightIcon.setImageResource(mRightIcon);
 
                 break;
-            case RIGHTMODE_CHECKBOX:
-                rightLlCheckbox.setVisibility(VISIBLE);
-                checkBox.setVisibility(VISIBLE);
+            case RIGHTMODE_SWITCH_BUTTON:
+                rightLlSwitchBtn.setVisibility(VISIBLE);
+                switchButton.setVisibility(VISIBLE);
                 rightLlTextIcon.setVisibility(GONE);
 
                 break;
             case RIGHTMODE_NONE:
                 rightLlTextIcon.setVisibility(GONE);
-                rightLlCheckbox.setVisibility(GONE);
+                rightLlSwitchBtn.setVisibility(GONE);
 
                 break;
             default:

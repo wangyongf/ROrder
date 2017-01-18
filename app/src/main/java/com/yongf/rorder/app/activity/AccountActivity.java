@@ -5,7 +5,7 @@
  * 描述: 								
  * 修改历史: 
  * 版本号    作者                日期              简要介绍相关操作
- *  0.1         Scott Wang     17-1-18       新增：Create	
+ *  0.1         Scott Wang     17-1-17       新增：Create	
  */
 
 package com.yongf.rorder.app.activity;
@@ -13,19 +13,19 @@ package com.yongf.rorder.app.activity;
 import com.yongf.rorder.R;
 
 /**
- * 设置页面
+ * 个人中心界面
  *
  * @author Scott Wang
- * @version 1.0, 17-1-18
+ * @version 1.0, 17-1-17
  * @see
  * @since ROder V0.1
  */
-public class SettingActivity extends BaseActivity {
+public class AccountActivity extends BaseActivity {
 
-    private static final String TAG = "SettingActivity";
+    private static final String TAG = "AccountActivity";
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_setting;
+        return R.layout.activity_account;
     }
 }
