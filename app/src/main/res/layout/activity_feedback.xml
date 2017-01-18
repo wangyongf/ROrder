@@ -109,39 +109,36 @@
                 android:layout_height="@dimen/app_size0.5"
                 android:background="@color/app_color_divider" />
 
-            <TextView
-                android:layout_width="match_parent"
+            <com.yongf.rorder.widget.DisplayItemView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/app_size13"
-                android:text="手机锁屏时，停止播放或闪退"
-                android:textColor="@color/app_color_black"
-                android:textSize="@dimen/app_txt_size17" />
+                app:div_leftMode="text"
+                app:div_leftText="手机锁屏时，停止播放或闪退"
+                app:div_rightMode="none" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/app_size0.5"
                 android:background="@color/app_color_divider" />
 
-            <TextView
-                android:layout_width="match_parent"
+            <com.yongf.rorder.widget.DisplayItemView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/app_size13"
-                android:text="在3G/4G网络下没法使用点菜宝"
-                android:textColor="@color/app_color_black"
-                android:textSize="@dimen/app_txt_size17" />
+                app:div_leftMode="text"
+                app:div_leftText="在3G/4G网络下没法使用点菜宝"
+                app:div_rightMode="none" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/app_size0.5"
                 android:background="@color/app_color_divider" />
 
-            <TextView
-                android:layout_width="match_parent"
+            <com.yongf.rorder.widget.DisplayItemView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/app_size13"
-                android:text="不想看到未关注的动态，怎么关闭?"
-                android:textColor="@color/app_color_black"
-                android:textSize="@dimen/app_txt_size17" />
+                app:div_leftMode="text"
+                app:div_leftText="不想看到未关注的动态，怎么关闭?"
+                app:div_rightMode="none" />
 
             <View
                 android:layout_width="match_parent"

@@ -38,12 +38,16 @@ public class DisplayItemView extends RelativeLayout {
     public static final int LEFTMODE_TEXT = 0;
     public static final int LEFTMODE_TEXT_ICON = 1;
     public static final int LEFTMODE_TEXT_SUBTEXT = 2;
+    public static final int LEFTMODE_NONE = 3;
     //Right Mode
     public static final int RIGHTMODE_TEXT = 0;
     public static final int RIGHTMODE_ICON = 1;
     public static final int RIGHTMODE_TEXT_ICON = 2;
     public static final int RIGHTMODE_CHECKBOX = 3;
+    public static final int RIGHTMODE_NONE = 4;
+
     private static final String TAG = "DisplayItemView";
+
     /**
      * 左侧显示模式(LeftMode)
      */
@@ -115,6 +119,7 @@ public class DisplayItemView extends RelativeLayout {
         ImageView leftIcon = (ImageView) findViewById(R.id.iv_left_icon);
         TextView leftSubText = (TextView) findViewById(R.id.tv_left_subtext);
 
+        LinearLayout leftLlTextIcon = (LinearLayout) findViewById(R.id.ll_left_text_icon);
         LinearLayout rightLlTextIcon = (LinearLayout) findViewById(R.id.ll_text_icon);
         LinearLayout rightLlCheckbox = (LinearLayout) findViewById(R.id.ll_checkbox);
         TextView rightText = (TextView) findViewById(R.id.tv_right_text);
@@ -123,6 +128,7 @@ public class DisplayItemView extends RelativeLayout {
 
         switch (mLeftMode) {
             case LEFTMODE_TEXT:
+                leftLlTextIcon.setVisibility(VISIBLE);
                 leftText.setVisibility(VISIBLE);
                 leftIcon.setVisibility(GONE);
                 leftSubText.setVisibility(GONE);
@@ -131,6 +137,7 @@ public class DisplayItemView extends RelativeLayout {
 
                 break;
             case LEFTMODE_TEXT_ICON:
+                leftLlTextIcon.setVisibility(VISIBLE);
                 leftText.setVisibility(VISIBLE);
                 leftIcon.setVisibility(VISIBLE);
                 leftSubText.setVisibility(GONE);
@@ -140,12 +147,17 @@ public class DisplayItemView extends RelativeLayout {
 
                 break;
             case LEFTMODE_TEXT_SUBTEXT:
+                leftLlTextIcon.setVisibility(VISIBLE);
                 leftText.setVisibility(VISIBLE);
                 leftSubText.setVisibility(VISIBLE);
                 leftIcon.setVisibility(GONE);
 
                 leftText.setText(mLeftText);
                 leftSubText.setText(mLeftSubText);
+
+                break;
+            case LEFTMODE_NONE:
+                leftLlTextIcon.setVisibility(GONE);
 
                 break;
             default:
@@ -184,6 +196,11 @@ public class DisplayItemView extends RelativeLayout {
                 rightLlCheckbox.setVisibility(VISIBLE);
                 checkBox.setVisibility(VISIBLE);
                 rightLlTextIcon.setVisibility(GONE);
+
+                break;
+            case RIGHTMODE_NONE:
+                rightLlTextIcon.setVisibility(GONE);
+                rightLlCheckbox.setVisibility(GONE);
 
                 break;
             default:

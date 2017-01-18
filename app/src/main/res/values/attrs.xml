@@ -13,12 +13,14 @@
             <enum name="text" value="0" />
             <enum name="text_icon" value="1" />
             <enum name="text_subtext" value="2" />
+            <enum name="none" value="3" />
         </attr>
         <attr name="div_rightMode">
             <enum name="text" value="0" />
             <enum name="icon" value="1" />
             <enum name="text_icon" value="2" />
             <enum name="checkbox" value="3" />
+            <enum name="none" value="4" />
         </attr>
         <attr name="div_leftIcon" format="reference" />
         <attr name="div_leftText" format="string" />
