@@ -29,4 +29,18 @@
         <item name="android:paddingBottom">4dp</item>
     </style>
 
+    <!-- RadioButton的样式抽取-->
+    <style name="radioButtonStyle">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:button">@null</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/rb_colors_selector</item>
+    </style>
+
 </resources>
