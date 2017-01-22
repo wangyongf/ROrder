@@ -26,9 +26,6 @@ import android.os.Looper;
  */
 public class MyApplication extends Application {
 
-    // TODO: 17-1-20 完善BottomNavigationView的Tab的点击事件
-    // TODO: 17-1-20 考虑BottomNavigationView的滑动时间！！！
-
     private static final String TAG = "MyApplication";
 
     private static Context mContext;

@@ -1,7 +1,8 @@
 package com.yongf.rorder.app.activity;
 
 import android.support.v7.widget.Toolbar;
-import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.yongf.rorder.R;
 import com.yongf.rorder.presenter.main.MainContract;
@@ -31,12 +32,17 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     Toolbar mToolbar;
 
     @BindView(R.id.fl_content)
-    FrameLayout mContent;
+    RelativeLayout mContent;
+
+    @BindView(R.id.tv)
+    TextView mTv;
 
     @BindView(R.id.nav_view)
     BottomNavigationView mNavigationView;
 
     private MainContract.Presenter mPresenter;
+
+    private String[] text = {"首页", "热门", "搜索", "我的"};
 
     @Override
     public int getLayoutId() {
@@ -83,6 +89,10 @@ public class MainActivity extends BaseActivity implements MainContract.View {
                         .setUnselectedTextColor(R.color.app_color_gray))
                 .setDefaultTab(0)
                 .build();
+
+        mNavigationView.setOnTabSelectedListener(position -> {
+            mTv.setText(text[position]);
+        });
     }
 
     @Override

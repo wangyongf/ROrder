@@ -38,6 +38,8 @@ public class BottomNavigationView extends LinearLayout {
 
     private int mSelectedTab;
 
+    private BottomNavigationTab.OnTabSelectedListener mOnTabSelectedListener;
+
     private List<BottomNavigationItem> mBottomNavigationItems = new ArrayList<>();
     private List<BottomNavigationTab> mBottomNavigationTabs = new ArrayList<>();
 
@@ -80,7 +82,7 @@ public class BottomNavigationView extends LinearLayout {
         for (int i = 0; i < mBottomNavigationItems.size(); i++) {
             BottomNavigationItem item = mBottomNavigationItems.get(i);
             View view = LayoutInflater.from(getContext()).inflate(R.layout.bottom_nav_tab, null);
-            BottomNavigationTab tab = new BottomNavigationTab(getContext(), view);
+            BottomNavigationTab tab = new BottomNavigationTab(this, getContext(), view, i);
             mBottomNavigationTabs.add(tab);
             BottomNavigationHelper.bindTabWithItem(tab, item);
             LayoutParams params = new LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1);
@@ -105,6 +107,14 @@ public class BottomNavigationView extends LinearLayout {
         for (int i = 0; i < mBottomNavigationTabs.size(); i++) {
             BottomNavigationTab tab = mBottomNavigationTabs.get(i);
             tab.setSelected(i == mSelectedTab ? true : false);          //初始化tab之后再设置状态！
+        }
+    }
+
+    public void setOnTabSelectedListener(BottomNavigationTab.OnTabSelectedListener onTabSelectedListener) {
+        mOnTabSelectedListener = onTabSelectedListener;
+
+        for (BottomNavigationTab tab : mBottomNavigationTabs) {
+            tab.setOnTabSelectedListener(mOnTabSelectedListener);
         }
     }
 }

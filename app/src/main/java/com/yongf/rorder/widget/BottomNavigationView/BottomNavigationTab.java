@@ -30,6 +30,10 @@ public class BottomNavigationTab {
 
     private static final String TAG = "BottomNavigationTab";
 
+    private BottomNavigationView mNavView;
+
+    private int mIndex;          //标记当前是第几个Tab
+
     private Context mContext;
 
     private LinearLayout mTab;
@@ -48,12 +52,23 @@ public class BottomNavigationTab {
     private int mSelectedTextColor;
     private int mUnselectedTextColor;
 
-    public BottomNavigationTab(Context context, View view) {
+    private OnTabSelectedListener mOnTabSelectedListener;
+
+    public BottomNavigationTab(BottomNavigationView bottomNavigationView, Context context, View view, int index) {
+        mNavView = bottomNavigationView;
         mContext = context;
+        mIndex = index;
 
         initView(context, view);
+        initEvent();
     }
 
+    /**
+     * 初始化视图
+     *
+     * @param context
+     * @param view
+     */
     private void initView(Context context, View view) {
         if (view instanceof LinearLayout) {
             mTab = (LinearLayout) view;
@@ -63,6 +78,18 @@ public class BottomNavigationTab {
 
         mIvNavTab = (ImageView) mTab.findViewById(R.id.iv_nav_tab);
         mTvNavTab = (TextView) mTab.findViewById(R.id.tv_nav_tab);
+    }
+
+    /**
+     * 初始化事件
+     */
+    private void initEvent() {
+        mTab.setOnClickListener(v -> {
+            if (mOnTabSelectedListener != null) {
+                mOnTabSelectedListener.onTabSelected(mIndex);
+                mNavView.setSelectedTab(mIndex);
+            }
+        });
     }
 
     public LinearLayout getTab() {
@@ -150,5 +177,11 @@ public class BottomNavigationTab {
         }
     }
 
+    public void setOnTabSelectedListener(OnTabSelectedListener onTabSelectedListener) {
+        mOnTabSelectedListener = onTabSelectedListener;
+    }
 
+    public interface OnTabSelectedListener {
+        void onTabSelected(int position);
+    }
 }
