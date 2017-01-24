@@ -14,6 +14,17 @@
         android:src="@drawable/back" />
 
     <TextView
+        android:id="@+id/tv_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/app_size16"
+        android:text="@string/submit"
+        android:textColor="@color/app_color_white"
+        android:textSize="@dimen/app_txt_size18"
+        android:visibility="gone" />
+
+    <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,4 +43,14 @@
         android:text="@string/submit"
         android:textColor="@color/app_color_white"
         android:textSize="@dimen/app_txt_size18" />
+
+    <ImageView
+        android:id="@+id/iv_right"
+        android:layout_width="@dimen/app_size30"
+        android:layout_height="@dimen/app_size30"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/app_size16"
+        android:src="@drawable/information"
+        android:visibility="gone" />
 </RelativeLayout>

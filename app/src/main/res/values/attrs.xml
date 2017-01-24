@@ -2,11 +2,21 @@
 <resources>
 
     <declare-styleable name="TitleLayout">
-        <attr name="tl_leftVisible" format="boolean" />
-        <attr name="tl_leftImage" format="reference" />
+        <attr name="tl_leftMode">
+            <enum name="icon" value="0" />
+            <enum name="text" value="1" />
+            <enum name="none" value="2" />
+        </attr>
+        <attr name="tl_rightMode">
+            <enum name="text" value="0" />
+            <enum name="icon" value="1" />
+            <enum name="none" value="2" />
+        </attr>
+        <attr name="tl_leftIcon" format="reference" />
+        <attr name="tl_leftText" format="string" />
         <attr name="tl_titleText" format="string" />
+        <attr name="tl_rightIcon" format="reference" />
         <attr name="tl_rightText" format="string" />
-        <attr name="tl_rightVisible" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="DisplayItemView">

@@ -34,14 +34,24 @@ public class TitleLayout extends RelativeLayout {
     private static final String TAG = "TitleLayout";
 
     /**
-     * 左侧图片资源Id
+     * 左侧显示模式(LeftMode)
      */
-    private int mLeftIcon;
+    private int mLeftMode;
 
     /**
-     * 左侧是否可见
+     * 右侧显示模式(RightMode)
      */
-    private boolean mLeftVisible;
+    private int mRightMode;
+
+    /**
+     * 右侧图标资源Id
+     */
+    private int mRightIcon;
+
+    /**
+     * 左侧图标资源Id
+     */
+    private int mLeftIcon;
 
     /**
      * 标题文字
@@ -54,12 +64,17 @@ public class TitleLayout extends RelativeLayout {
     private String mRightText;
 
     /**
-     * 右侧是否可见
+     * 左侧文字
      */
-    private boolean mRightVisible;
-    private ImageView mLeftIcon1;
+    private String mLeftText;
+
+    private ImageView mIvLeft;
 
     private OnLeftIconClickListener mOnLeftIconClickListener;
+    private TextView mTvLeft;
+    private TextView mTvTitle;
+    private ImageView mIvRight;
+    private TextView mTvRight;
 
     public TitleLayout(Context context) {
         this(context, null);
@@ -77,45 +92,88 @@ public class TitleLayout extends RelativeLayout {
     }
 
     private void initView(Context context, AttributeSet attrs) {
-        LayoutInflater.from(context).inflate(R.layout.toolbar_default, this);
+        LayoutInflater.from(context).inflate(R.layout.layout_title, this);
+
+        mIvLeft = (ImageView) findViewById(R.id.iv_left);
+        mTvLeft = (TextView) findViewById(R.id.tv_left);
+        mTvTitle = (TextView) findViewById(R.id.tv_title);
+        mIvRight = (ImageView) findViewById(R.id.iv_right);
+        mTvRight = (TextView) findViewById(R.id.tv_right);
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.TitleLayout);
-        mLeftIcon = typedArray.getResourceId(R.styleable.TitleLayout_tl_leftImage,
+        mLeftMode = typedArray.getInt(R.styleable.TitleLayout_tl_leftMode, 0);
+        mRightMode = typedArray.getInt(R.styleable.TitleLayout_tl_rightMode, 0);
+        mLeftText = typedArray.getString(R.styleable.TitleLayout_tl_leftText);
+        mLeftIcon = typedArray.getResourceId(R.styleable.TitleLayout_tl_leftIcon,
                 R.drawable.back);
-        mLeftVisible = typedArray.getBoolean(R.styleable.TitleLayout_tl_leftVisible, true);
         mTitleText = typedArray.getString(R.styleable.TitleLayout_tl_titleText);
         mRightText = typedArray.getString(R.styleable.TitleLayout_tl_rightText);
-        mRightVisible = typedArray.getBoolean(R.styleable.TitleLayout_tl_rightVisible, true);
+        mRightIcon = typedArray.getResourceId(R.styleable.TitleLayout_tl_rightIcon,
+                R.drawable.information);
         typedArray.recycle();
 
+        mLeftText = TextUtils.isEmpty(mLeftText) ?
+                getContext().getString(R.string.goback) : mLeftText;
         mTitleText = TextUtils.isEmpty(mTitleText) ?
                 getContext().getString(R.string.feedback) : mTitleText;
         mRightText = TextUtils.isEmpty(mRightText) ?
                 getContext().getString(R.string.submit) : mRightText;
-        mLeftIcon1 = (ImageView) findViewById(R.id.iv_left);
-        ((TextView) findViewById(R.id.tv_title)).setText(mTitleText);
-        TextView rightText = (TextView) findViewById(R.id.tv_right);
-        if (mLeftVisible) {
-            mLeftIcon1.setVisibility(VISIBLE);
-            mLeftIcon1.setBackgroundResource(mLeftIcon);
-        } else {
-            mLeftIcon1.setVisibility(GONE);
-        }
-        if (mRightVisible) {
-            rightText.setVisibility(VISIBLE);
-            rightText.setText(mRightText);
-        } else {
-            rightText.setVisibility(GONE);
-        }
 
-        setWillNotDraw(false);
+        mTvTitle.setText(mTitleText);
+
+        switch (mLeftMode) {
+            case 0:
+                mIvLeft.setVisibility(VISIBLE);
+                mTvLeft.setVisibility(GONE);
+
+                mIvLeft.setImageResource(mLeftIcon);
+
+                break;
+            case 1:
+                mTvLeft.setVisibility(VISIBLE);
+                mIvLeft.setVisibility(GONE);
+
+                mTvLeft.setText(mLeftText);
+
+                break;
+            case 2:
+                mTvLeft.setVisibility(GONE);
+                mIvLeft.setVisibility(GONE);
+
+                break;
+            default:
+                throw new IllegalArgumentException("Illegal argument mLeftMode!");
+        }
+        switch (mRightMode) {
+            case 0:
+                mTvRight.setVisibility(VISIBLE);
+                mIvRight.setVisibility(GONE);
+
+                mTvRight.setText(mRightText);
+
+                break;
+            case 1:
+                mIvRight.setVisibility(VISIBLE);
+                mTvRight.setVisibility(GONE);
+
+                mIvRight.setImageResource(mRightIcon);
+
+                break;
+            case 2:
+                mIvRight.setVisibility(GONE);
+                mTvRight.setVisibility(GONE);
+
+                break;
+            default:
+                throw new IllegalArgumentException("Illegal argument mRightMode");
+        }
     }
 
     /**
      * 初始化各种点击事件
      */
     private void initEvent() {
-        mLeftIcon1.setOnClickListener(v -> {
+        mIvLeft.setOnClickListener(v -> {
             if (mOnLeftIconClickListener != null) {
                 mOnLeftIconClickListener.onLeftIconClick();
             }
@@ -149,16 +207,6 @@ public class TitleLayout extends RelativeLayout {
      */
     public void setRightText(String rightText) {
         mRightText = rightText;
-        invalidate();
-    }
-
-    /**
-     * 设置右侧是否可见（默认可见）
-     *
-     * @param rightVisible 右侧是否可见
-     */
-    public void setRightVisible(boolean rightVisible) {
-        mRightVisible = rightVisible;
         invalidate();
     }
 

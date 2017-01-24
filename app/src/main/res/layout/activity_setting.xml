@@ -13,8 +13,10 @@
         <com.yongf.rorder.widget.TitleLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tl_rightVisible="false"
-            app:tl_titleText="@string/setting" />
+            app:tl_leftMode="icon"
+            app:tl_rightMode="none"
+            app:tl_titleText="@string/setting"
+            />
 
         <com.yongf.rorder.widget.DisplayItemView
             android:layout_width="match_parent"

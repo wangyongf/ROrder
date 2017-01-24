@@ -13,9 +13,9 @@
         <com.yongf.rorder.widget.TitleLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tl_leftVisible="false"
-            app:tl_rightVisible="false"
-            app:tl_titleText="帐号" />
+            app:tl_titleText="我的帐号"
+            app:tl_leftMode="none"
+            app:tl_rightMode="none" />
 
         <TextView
             android:layout_width="match_parent"

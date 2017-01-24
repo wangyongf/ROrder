@@ -14,7 +14,8 @@
             android:id="@+id/tl_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tl_rightVisible="false"
+            app:tl_leftMode="icon"
+            app:tl_rightMode="none"
             app:tl_titleText="@string/about_app" />
 
         <ImageView

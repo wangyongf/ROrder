@@ -13,9 +13,9 @@
         <com.yongf.rorder.widget.TitleLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tl_leftImage="@drawable/back"
+            app:tl_leftMode="icon"
+            app:tl_rightMode="text"
             app:tl_rightText="@string/submit"
-            app:tl_rightVisible="true"
             app:tl_titleText="@string/feedback" />
 
         <TextView

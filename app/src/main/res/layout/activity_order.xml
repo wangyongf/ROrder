@@ -14,7 +14,9 @@
             android:id="@+id/tl_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:tl_rightVisible="true"
+            app:tl_leftMode="icon"
+            app:tl_rightIcon="@drawable/information"
+            app:tl_rightMode="icon"
             app:tl_titleText="点餐" />
 
         <RelativeLayout
