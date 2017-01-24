@@ -11,6 +11,9 @@
 package com.yongf.rorder.app.activity;
 
 import com.yongf.rorder.R;
+import com.yongf.rorder.widget.TitleLayout;
+
+import butterknife.BindView;
 
 /**
  * AboutActivity
@@ -24,8 +27,20 @@ public class AboutActivity extends BaseActivity {
 
     private static final String TAG = "AboutActivity";
 
+    @BindView(R.id.tl_title)
+    TitleLayout mTitleLayout;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_about;
+    }
+
+    @Override
+    protected void initEvent() {
+        super.initEvent();
+
+        mTitleLayout.setOnLeftIconClickListener(() -> {
+            finish();
+        });
     }
 }

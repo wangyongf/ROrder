@@ -11,6 +11,7 @@
         android:orientation="vertical">
 
         <com.yongf.rorder.widget.TitleLayout
+            android:id="@+id/tl_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tl_rightVisible="false"

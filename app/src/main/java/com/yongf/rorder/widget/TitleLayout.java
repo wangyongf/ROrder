@@ -12,7 +12,6 @@ package com.yongf.rorder.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Canvas;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -58,6 +57,9 @@ public class TitleLayout extends RelativeLayout {
      * 右侧是否可见
      */
     private boolean mRightVisible;
+    private ImageView mLeftIcon1;
+
+    private OnLeftIconClickListener mOnLeftIconClickListener;
 
     public TitleLayout(Context context) {
         this(context, null);
@@ -71,6 +73,7 @@ public class TitleLayout extends RelativeLayout {
         super(context, attrs, defStyleAttr);
 
         initView(context, attrs);
+        initEvent();
     }
 
     private void initView(Context context, AttributeSet attrs) {
@@ -85,7 +88,38 @@ public class TitleLayout extends RelativeLayout {
         mRightVisible = typedArray.getBoolean(R.styleable.TitleLayout_tl_rightVisible, true);
         typedArray.recycle();
 
+        mTitleText = TextUtils.isEmpty(mTitleText) ?
+                getContext().getString(R.string.feedback) : mTitleText;
+        mRightText = TextUtils.isEmpty(mRightText) ?
+                getContext().getString(R.string.submit) : mRightText;
+        mLeftIcon1 = (ImageView) findViewById(R.id.iv_left);
+        ((TextView) findViewById(R.id.tv_title)).setText(mTitleText);
+        TextView rightText = (TextView) findViewById(R.id.tv_right);
+        if (mLeftVisible) {
+            mLeftIcon1.setVisibility(VISIBLE);
+            mLeftIcon1.setBackgroundResource(mLeftIcon);
+        } else {
+            mLeftIcon1.setVisibility(GONE);
+        }
+        if (mRightVisible) {
+            rightText.setVisibility(VISIBLE);
+            rightText.setText(mRightText);
+        } else {
+            rightText.setVisibility(GONE);
+        }
+
         setWillNotDraw(false);
+    }
+
+    /**
+     * 初始化各种点击事件
+     */
+    private void initEvent() {
+        mLeftIcon1.setOnClickListener(v -> {
+            if (mOnLeftIconClickListener != null) {
+                mOnLeftIconClickListener.onLeftIconClick();
+            }
+        });
     }
 
     /**
@@ -128,28 +162,11 @@ public class TitleLayout extends RelativeLayout {
         invalidate();
     }
 
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
+    public void setOnLeftIconClickListener(OnLeftIconClickListener onLeftIconClickListener) {
+        mOnLeftIconClickListener = onLeftIconClickListener;
+    }
 
-        mTitleText = TextUtils.isEmpty(mTitleText) ?
-                getContext().getString(R.string.feedback) : mTitleText;
-        mRightText = TextUtils.isEmpty(mRightText) ?
-                getContext().getString(R.string.submit) : mRightText;
-        ImageView leftIcon = (ImageView) findViewById(R.id.iv_left);
-        ((TextView) findViewById(R.id.tv_title)).setText(mTitleText);
-        TextView rightText = (TextView) findViewById(R.id.tv_right);
-        if (mLeftVisible) {
-            leftIcon.setVisibility(VISIBLE);
-            leftIcon.setBackgroundResource(mLeftIcon);
-        } else {
-            leftIcon.setVisibility(GONE);
-        }
-        if (mRightVisible) {
-            rightText.setVisibility(VISIBLE);
-            rightText.setText(mRightText);
-        } else {
-            rightText.setVisibility(GONE);
-        }
+    public interface OnLeftIconClickListener {
+        void onLeftIconClick();
     }
 }
