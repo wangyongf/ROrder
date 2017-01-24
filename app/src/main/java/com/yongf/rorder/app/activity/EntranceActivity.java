@@ -81,4 +81,9 @@ public class EntranceActivity extends BaseActivity {
     public void go2Setting() {
         IntentHelper.simpleJump(this, SettingActivity.class);
     }
+
+    @OnClick(R.id.order_activity)
+    public void go2Order() {
+        IntentHelper.simpleJump(this, OrderActivity.class);
+    }
 }

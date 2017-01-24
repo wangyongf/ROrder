@@ -21,6 +21,8 @@
         <activity android:name=".app.activity.AboutActivity" />
         <activity android:name=".app.activity.AccountActivity" />
         <activity android:name=".app.activity.SettingActivity" />
+        <activity android:name=".app.activity.OrderActivity" />
+
         <activity android:name=".app.activity.FeedbackActivity">
 
         </activity>

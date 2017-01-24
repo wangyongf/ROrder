@@ -63,6 +63,13 @@ public class MyApplication extends Application {
      */
     @Override
     public void onCreate() {
+        initProperty();
+        initConfig();
+
+        super.onCreate();
+    }
+
+    private void initProperty() {
         //初始化一些，常用的属性，然后放到盒子中
         //上下文
         mContext = getApplicationContext();
@@ -78,7 +85,12 @@ public class MyApplication extends Application {
 
         //定义一个handler
         mHandler = new Handler();
+    }
 
-        super.onCreate();
+    /**
+     * 初始化各种配置
+     */
+    private void initConfig() {
+
     }
 }
