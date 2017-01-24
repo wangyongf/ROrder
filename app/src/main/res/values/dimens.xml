@@ -30,6 +30,15 @@
     <dimen name="app_size24">24dp</dimen>
     <dimen name="app_size25">25dp</dimen>
     <dimen name="app_size30">30dp</dimen>
+    <dimen name="app_size31">31dp</dimen>
+    <dimen name="app_size32">32dp</dimen>
+    <dimen name="app_size33">33dp</dimen>
+    <dimen name="app_size34">34dp</dimen>
+    <dimen name="app_size35">35dp</dimen>
+    <dimen name="app_size36">36dp</dimen>
+    <dimen name="app_size37">37dp</dimen>
+    <dimen name="app_size38">38dp</dimen>
+    <dimen name="app_size39">39dp</dimen>
     <dimen name="app_size40">40dp</dimen>
     <dimen name="app_size45">45dp</dimen>
     <dimen name="app_size50">50dp</dimen>

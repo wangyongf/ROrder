@@ -10,7 +10,15 @@
 
 package com.yongf.rorder.app.activity;
 
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
+
 import com.yongf.rorder.R;
+import com.yongf.rorder.widget.TitleLayout;
+
+import butterknife.BindView;
 
 /**
  * OrderActivity
@@ -24,8 +32,35 @@ public class OrderActivity extends BaseActivity {
 
     private static final String TAG = "OrderActivity";
 
+    @BindView(R.id.tl_title)
+    TitleLayout mTlTitle;
+
+    @BindView(R.id.rl_header_intro)
+    RelativeLayout mRlHeaderIntro;
+
+    @BindView(R.id.lv_category)
+    ListView mLvCategory;
+
+    @BindView(R.id.lv_food_item)
+    ListView mLvFoodItem;
+
+    @BindView(R.id.btn_settle)
+    Button mBtnSettle;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_order;
+    }
+
+    @Override
+    protected void initEvent() {
+        super.initEvent();
+
+        mTlTitle.setOnLeftIconClickListener(() -> {
+            finish();
+        });
+        mRlHeaderIntro.setOnClickListener(v -> {
+            Toast.makeText(this, "店铺信息", Toast.LENGTH_SHORT).show();
+        });
     }
 }

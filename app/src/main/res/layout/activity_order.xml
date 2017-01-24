@@ -1,14 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="点餐界面"
-        android:textColor="@color/app_color_black"
-        android:textSize="@dimen/app_txt_size35" />
+        android:orientation="vertical">
+
+        <com.yongf.rorder.widget.TitleLayout
+            android:id="@+id/tl_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:tl_rightVisible="true"
+            app:tl_titleText="点餐" />
+
+        <RelativeLayout
+            android:id="@+id/rl_header_intro"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_size100">
+
+            <TextView
+                android:id="@+id/tv_store_intro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@color/app_color_white_smoke"
+                android:text="商店介绍"
+                android:textColor="@color/app_color_black"
+                android:textSize="@dimen/app_size30" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_size0.5"
+            android:background="@color/app_color_divider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ListView
+                android:id="@+id/lv_category"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2.5" />
+
+            <ListView
+                android:id="@+id/lv_food_item"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="7.5" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_size40"
+        android:layout_alignParentBottom="true"
+        android:background="@color/app_color_white">
+
+        <ImageView
+            android:id="@+id/iv_cart"
+            android:layout_width="@dimen/app_size25"
+            android:layout_height="@dimen/app_size25"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/app_size10"
+            android:src="@drawable/email" />
+
+        <TextView
+            android:id="@+id/tv_rmb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/app_size10"
+            android:layout_toRightOf="@id/iv_cart"
+            android:text="¥"
+            android:textColor="@color/app_color_bright_red"
+            android:textSize="@dimen/app_txt_size15" />
+
+        <TextView
+            android:id="@+id/tv_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/app_size3"
+            android:layout_toRightOf="@id/tv_rmb"
+            android:text="0"
+            android:textColor="@color/app_color_bright_red"
+            android:textSize="@dimen/app_txt_size20" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="@dimen/app_size0.5"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/app_size8"
+            android:layout_marginLeft="@dimen/app_size10"
+            android:layout_marginTop="@dimen/app_size8"
+            android:layout_toRightOf="@id/tv_cost"
+            android:background="@color/app_color_divider" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/app_size13"
+            android:layout_toRightOf="@id/divider"
+            android:text="免配送费"
+            android:textColor="@color/app_color_gray"
+            android:textSize="@dimen/app_txt_size11" />
+
+        <Button
+            android:id="@+id/btn_settle"
+            android:layout_width="@dimen/app_size100"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@color/app_color_gray"
+            android:text="超出配送范围"
+            android:textColor="@color/app_color_white" />
+    </RelativeLayout>
 </RelativeLayout>
