@@ -22,7 +22,7 @@ import android.os.Looper;
  * @author Scott Wang
  * @version 1.1, 2016/4/3
  * @see
- * @since GooglePlay1.0
+ * @since ROrder1.0
  */
 public class MyApplication extends Application {
 

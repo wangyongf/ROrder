@@ -25,7 +25,7 @@ import com.yongf.rorder.app.application.MyApplication;
  * @author Scott Wang
  * @version 1.2, 2016/4/3
  * @see
- * @since GooglePlay1.0
+ * @since ROrder1.0
  */
 public class UIUtil {
 
