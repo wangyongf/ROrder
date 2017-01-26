@@ -62,5 +62,10 @@
             android:id="@+id/order_activity"
             style="@style/EntranceButton"
             android:text="OrderActivity" />
+
+        <Button
+            android:id="@+id/slide_layout_activity"
+            style="@style/EntranceButton"
+            android:text="SlideLayoutActivity" />
     </LinearLayout>
 </ScrollView>

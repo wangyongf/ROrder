@@ -86,4 +86,9 @@ public class EntranceActivity extends BaseActivity {
     public void go2Order() {
         IntentHelper.simpleJump(this, OrderActivity.class);
     }
+
+    @OnClick(R.id.slide_layout_activity)
+    public void go2SlideLayout() {
+        IntentHelper.simpleJump(this, SlideLayoutActivity.class);
+    }
 }
