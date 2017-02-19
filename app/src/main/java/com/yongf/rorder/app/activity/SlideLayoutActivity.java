@@ -132,12 +132,12 @@ public class SlideLayoutActivity extends BaseActivity {
             } else {
                 // 有复用
                 holder = (ViewHolder) convertView.getTag();
+                // FIXME: 17-2-19 需要处理复用时的状态问题！
             }
 
             // 数据的加载
             final String data = mData.get(position);
             holder.tvContent.setText(data);
-
             holder.tvDelete.setOnClickListener(v -> {
                 mData.remove(data);
                 closeAll();
