@@ -18,7 +18,7 @@ import android.view.ViewGroup;
  */
 public class SlideLayout extends ViewGroup {
 
-    private static final String TAG = "SweepView";
+    private static final String TAG = "SlideLayout";
 
     private View mContentView;
     private View mDeleteView;
@@ -54,6 +54,9 @@ public class SlideLayout extends ViewGroup {
         mDeleteView.layout(mContentView.getMeasuredWidth(), 0,
                 mContentView.getMeasuredWidth() + mDeleteWidth,
                 mDeleteView.getMeasuredHeight());
+
+        int childCount = getChildCount();
+
     }
 
     @Override
@@ -102,8 +105,6 @@ public class SlideLayout extends ViewGroup {
         }
 
         int contentWidth = mContentView.getMeasuredWidth();
-        int contentHeight = mContentView.getMeasuredHeight();
-        int deleteHeight = mDeleteView.getMeasuredHeight();
 
         // 平滑滚动
         mHelper.smoothSlideViewTo(mContentView, -mDeleteWidth, 0);

@@ -5,7 +5,8 @@
  * 描述: 								
  * 修改历史: 
  * 版本号    作者                日期              简要介绍相关操作
- *  0.1         Scott Wang     17-1-26       新增：Create	
+ *  1.0         Scott Wang     17-1-26       新增：Create
+ *  1.1         Scott Wang      17-2-19      修复：Fix并发修改异常
  */
 
 package com.yongf.rorder.app.activity;
@@ -22,6 +23,7 @@ import com.yongf.rorder.widget.SlideLayout;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import butterknife.BindView;
 
@@ -41,7 +43,8 @@ public class SlideLayoutActivity extends BaseActivity {
     ListView mListView;
 
     private List<String> mData;
-    private List<SlideLayout> mOpenedViews = new ArrayList<>();
+    //使用CopyOnWriteArrayList防止出现异常
+    private List<SlideLayout> mOpenedViews = new CopyOnWriteArrayList<>();
 
     @Override
     protected int getLayoutId() {
@@ -135,14 +138,10 @@ public class SlideLayoutActivity extends BaseActivity {
             final String data = mData.get(position);
             holder.tvContent.setText(data);
 
-            holder.tvDelete.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    mData.remove(data);
-                    closeAll();
-                    notifyDataSetChanged();
-                }
+            holder.tvDelete.setOnClickListener(v -> {
+                mData.remove(data);
+                closeAll();
+                notifyDataSetChanged();
             });
 
             return convertView;

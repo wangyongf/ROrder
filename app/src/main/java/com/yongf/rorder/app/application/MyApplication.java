@@ -7,6 +7,7 @@
  * 版本号    作者                日期              简要介绍相关操作
  *  1.0         Scott Wang     2016/4/3       Create
  *  1.1         Scott Wang     2016/4/4        增加了Handler定义，相关方法
+ *  1.2         Scott Wang     17-2-19          增加initProperty, initConfig方法
  */
 
 package com.yongf.rorder.app.application;
