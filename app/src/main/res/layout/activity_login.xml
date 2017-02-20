@@ -26,30 +26,25 @@
         android:layout_marginTop="@dimen/app_size30"
         android:src="@drawable/playstore_icon" />
 
-    <EditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/et_username"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/app_size45"
-        android:layout_marginLeft="@dimen/app_size16"
-        android:layout_marginRight="@dimen/app_size16"
-        android:layout_marginTop="@dimen/app_size30"
-        android:background="@drawable/bg_edittext"
-        android:hint="@string/input_username"
-        android:padding="@dimen/app_size10"
-        android:textColorHint="@android:color/darker_gray" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/app_size10"
+        android:layout_marginRight="@dimen/app_size10"
+        android:layout_marginTop="@dimen/app_size15"
+        android:hint="手机/邮箱/帐号"
+        app:met_iconLeft="@drawable/account_login" />
 
-    <EditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/et_password"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/app_size45"
-        android:layout_marginLeft="@dimen/app_size16"
-        android:layout_marginRight="@dimen/app_size16"
-        android:layout_marginTop="@dimen/app_size15"
-        android:background="@drawable/bg_edittext"
-        android:hint="@string/input_password"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/app_size10"
+        android:layout_marginRight="@dimen/app_size10"
+        android:hint="请输入密码"
         android:inputType="textPassword"
-        android:padding="@dimen/app_size10"
-        android:textColorHint="@android:color/darker_gray" />
+        app:met_iconLeft="@drawable/password_login" />
 
     <Button
         android:id="@+id/btn_login"

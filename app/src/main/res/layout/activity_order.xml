@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:background="@color/app_color_white_smoke"
-                android:text="商店介绍"
+                android:text="占位符"
                 android:textColor="@color/app_color_black"
                 android:textSize="@dimen/app_size30" />
         </RelativeLayout>
