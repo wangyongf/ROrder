@@ -10,7 +10,12 @@
 
 package com.yongf.rorder.app.activity;
 
+import com.rengwuxian.materialedittext.MaterialEditText;
 import com.yongf.rorder.R;
+import com.yongf.rorder.util.IntentHelper;
+
+import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * 注册页面
@@ -24,8 +29,22 @@ public class RegisterActivity extends BaseActivity {
 
     private static final String TAG = "RegisterActivity";
 
+    @BindView(R.id.et_username)
+    MaterialEditText mEtUsername;
+
+    @BindView(R.id.et_email)
+    MaterialEditText mEtEmail;
+
+    @BindView(R.id.et_password)
+    MaterialEditText mEtPassword;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_register;
+    }
+
+    @OnClick(R.id.tv_back_login)
+    public void onLogin() {
+        IntentHelper.simpleJump(this, LoginActivity.class);
     }
 }
