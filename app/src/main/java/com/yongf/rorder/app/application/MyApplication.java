@@ -29,8 +29,7 @@ public class MyApplication extends Application {
 
     private static final String TAG = "MyApplication";
 
-    // TODO: 17-1-26 重构SlideLayout，使其支持任意多个子View！
-    // TODO: 17-1-26 改造SlideLayout内部的接口命名！
+    // TODO: 17-2-20 调研CoordinatorLayout+TabLayout方式实现该效果
 
     private static Context mContext;
     private static Thread mMainThread;
