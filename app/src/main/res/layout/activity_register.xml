@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/app_size16"
         android:layout_marginRight="@dimen/app_size16"
-        android:layout_marginTop="@dimen/app_size15"
+        android:layout_marginTop="@dimen/app_size30"
         android:hint="请输入用户名"
         app:met_iconLeft="@drawable/account_login" />
 

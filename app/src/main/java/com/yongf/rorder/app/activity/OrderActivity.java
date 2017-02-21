@@ -11,8 +11,8 @@
 package com.yongf.rorder.app.activity;
 
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.yongf.rorder.R;
@@ -36,7 +36,7 @@ public class OrderActivity extends BaseActivity {
     TitleLayout mTlTitle;
 
     @BindView(R.id.rl_header_intro)
-    LinearLayout mRlHeaderIntro;
+    RelativeLayout mRlHeaderIntro;
 
     @BindView(R.id.lv_category)
     ListView mLvCategory;

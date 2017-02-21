@@ -9,15 +9,21 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".app.activity.LoginActivity">
+        <activity
+            android:name=".app.activity.LoginActivity"
+            android:launchMode="singleTask">
 
         </activity>
         <activity android:name=".app.activity.SplashActivity">
 
         </activity>
         <activity android:name=".app.activity.MainActivity"></activity>
-        <activity android:name=".app.activity.RegisterActivity"></activity>
-        <activity android:name=".app.activity.FindPwdActivity"></activity>
+        <activity
+            android:name=".app.activity.RegisterActivity"
+            android:launchMode="singleTask"></activity>
+        <activity
+            android:name=".app.activity.FindPwdActivity"
+            android:launchMode="singleTask"></activity>
         <activity android:name=".app.activity.AboutActivity" />
         <activity android:name=".app.activity.AccountActivity" />
         <activity android:name=".app.activity.SettingActivity" />
