@@ -13,6 +13,7 @@ package com.yongf.rorder.app.activity;
 import com.yongf.rorder.R;
 import com.yongf.rorder.util.IntentHelper;
 import com.yongf.rorder.widget.DisplayItemView;
+import com.yongf.rorder.widget.TitleLayout;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -35,9 +36,19 @@ public class FindPwdActivity extends BaseActivity {
     @BindView(R.id.div_input_email)
     DisplayItemView mDivInputEmail;
 
+    @BindView(R.id.tl_title)
+    TitleLayout mTlTitle;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_find_pwd;
+    }
+
+    @Override
+    protected void initEvent() {
+        super.initEvent();
+
+        mTlTitle.setOnLeftIconClickListener(() -> finish());
     }
 
     @OnClick(R.id.div_input_phone)

@@ -7,6 +7,7 @@
     android:orientation="vertical">
 
     <com.yongf.rorder.widget.TitleLayout
+        android:id="@+id/tl_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tl_rightMode="none"
@@ -59,12 +60,12 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/app_size15"
-        android:layout_marginRight="@dimen/app_size15"
+        android:layout_height="@dimen/app_size50"
+        android:layout_marginLeft="@dimen/app_size16"
+        android:layout_marginRight="@dimen/app_size16"
         android:layout_marginTop="@dimen/app_size20"
         android:background="@color/app_color_bright_red"
         android:text="下一步"
         android:textColor="@color/app_color_white"
-        android:textSize="@dimen/app_txt_size20" />
+        android:textSize="@dimen/app_txt_size18" />
 </LinearLayout>
