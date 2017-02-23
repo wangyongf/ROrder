@@ -91,4 +91,9 @@ public class EntranceActivity extends BaseActivity {
     public void go2SlideLayout() {
         IntentHelper.simpleJump(this, SlideLayoutActivity.class);
     }
+
+    @OnClick(R.id.search_activity)
+    public void go2Search() {
+        IntentHelper.simpleJump(this, SearchActivity.class);
+    }
 }

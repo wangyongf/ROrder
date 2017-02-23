@@ -67,5 +67,10 @@
             android:id="@+id/slide_layout_activity"
             style="@style/EntranceButton"
             android:text="SlideLayoutActivity" />
+
+        <Button
+            android:id="@+id/search_activity"
+            style="@style/EntranceButton"
+            android:text="SearchActivity" />
     </LinearLayout>
 </ScrollView>
