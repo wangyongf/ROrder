@@ -27,6 +27,8 @@ import android.os.Looper;
  */
 public class MyApplication extends Application {
 
+    // TODO: 2017/2/23 两种页面的点餐方式都得做，包括阿里口碑，美味不用等的附近餐厅风格
+
     private static final String TAG = "MyApplication";
 
     // TODO: 17-2-20 调研CoordinatorLayout+TabLayout方式实现该效果

@@ -1,13 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/app_color_white_smoke"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.yongf.rorder.widget.TitleLayout
+        android:id="@+id/tl_title"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="找回密码"
-        android:textSize="@dimen/app_txt_size40" />
-</RelativeLayout>
+        app:tl_rightMode="none"
+        app:tl_titleText="找回密码" />
+
+    <com.yongf.rorder.widget.DisplayItemView
+        android:id="@+id/div_input_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/app_size20"
+        app:div_leftIcon="@drawable/find_pwd_mobile"
+        app:div_leftMode="text_icon"
+        app:div_leftText="通过绑定手机找回"
+        app:div_rightMode="icon" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_size0.5"
+        android:background="@color/app_color_divider" />
+
+    <com.yongf.rorder.widget.DisplayItemView
+        android:id="@+id/div_input_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:div_leftIcon="@drawable/find_pwd_email"
+        app:div_leftMode="text_icon"
+        app:div_leftText="通过绑定邮箱找回"
+        app:div_rightMode="icon" />
+</LinearLayout>
