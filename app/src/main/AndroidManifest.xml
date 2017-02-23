@@ -30,7 +30,10 @@
         <activity android:name=".app.activity.OrderActivity" />
         <activity android:name=".app.activity.FeedbackActivity" />
         <activity android:name=".app.activity.SlideLayoutActivity" />
+        <activity android:name=".app.activity.InputPhoneActivity" />
+        <activity android:name=".app.activity.InputEmailActivity" />
 
+        <!--Entrance-->
         <activity android:name=".app.activity.EntranceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
