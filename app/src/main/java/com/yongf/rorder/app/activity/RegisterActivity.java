@@ -13,6 +13,7 @@ package com.yongf.rorder.app.activity;
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.yongf.rorder.R;
 import com.yongf.rorder.util.IntentHelper;
+import com.yongf.rorder.widget.TitleLayout;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -29,6 +30,9 @@ public class RegisterActivity extends BaseActivity {
 
     private static final String TAG = "RegisterActivity";
 
+    @BindView(R.id.tl_title)
+    TitleLayout mTlTitle;
+
     @BindView(R.id.et_username)
     MaterialEditText mEtUsername;
 
@@ -41,6 +45,13 @@ public class RegisterActivity extends BaseActivity {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_register;
+    }
+
+    @Override
+    protected void initEvent() {
+        super.initEvent();
+
+        mTlTitle.setOnLeftIconClickListener(() -> finish());
     }
 
     @OnClick(R.id.tv_back_login)

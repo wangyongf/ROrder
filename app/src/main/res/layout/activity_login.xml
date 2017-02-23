@@ -5,19 +5,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.design.widget.AppBarLayout
+    <com.yongf.rorder.widget.TitleLayout
+        android:id="@+id/tl_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="@style/Toolbar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-    </android.support.design.widget.AppBarLayout>
+        android:layout_height="wrap_content"
+        app:tl_rightMode="none"
+        app:tl_titleText="登录" />
 
     <ImageView
         android:layout_width="@dimen/app_size90"
@@ -30,8 +23,8 @@
         android:id="@+id/et_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/app_size10"
-        android:layout_marginRight="@dimen/app_size10"
+        android:layout_marginLeft="@dimen/app_size16"
+        android:layout_marginRight="@dimen/app_size16"
         android:layout_marginTop="@dimen/app_size30"
         android:hint="手机/邮箱/帐号"
         app:met_iconLeft="@drawable/account_login" />
@@ -40,8 +33,8 @@
         android:id="@+id/et_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/app_size10"
-        android:layout_marginRight="@dimen/app_size10"
+        android:layout_marginLeft="@dimen/app_size16"
+        android:layout_marginRight="@dimen/app_size16"
         android:hint="请输入密码"
         android:inputType="textPassword"
         app:met_iconLeft="@drawable/password_login" />
@@ -79,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="@string/retrieve_password"
+            android:text="@string/forget_password"
             android:textColor="@color/app_color_login_gray"
             android:textSize="@dimen/app_size15" />
     </RelativeLayout>

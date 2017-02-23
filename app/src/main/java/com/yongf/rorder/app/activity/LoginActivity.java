@@ -21,6 +21,7 @@ import com.yongf.rorder.R;
 import com.yongf.rorder.presenter.login.LoginContract;
 import com.yongf.rorder.presenter.login.LoginPresenter;
 import com.yongf.rorder.util.IntentHelper;
+import com.yongf.rorder.widget.TitleLayout;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -38,6 +39,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class LoginActivity extends BaseActivity implements LoginContract.View {
 
     private static final String TAG = "LoginActivity";
+
+    @BindView(R.id.tl_title)
+    TitleLayout mTlTitle;
 
     @BindView(R.id.et_username)
     EditText mEtUsername;
@@ -67,6 +71,13 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
 
         LoginPresenter presenter = new LoginPresenter(this);
         setPresenter(presenter);
+    }
+
+    @Override
+    protected void initEvent() {
+        super.initEvent();
+
+        mTlTitle.setOnLeftIconClickListener(() -> finish());
     }
 
     @Override
