@@ -30,6 +30,7 @@ public class MyApplication extends Application {
     private static final String TAG = "MyApplication";
 
     // TODO: 17-2-20 调研CoordinatorLayout+TabLayout方式实现该效果
+    // TODO: 17-2-23 可以考虑定义一个平分View，里面所有子View之间的间隔相同
 
     private static Context mContext;
     private static Thread mMainThread;

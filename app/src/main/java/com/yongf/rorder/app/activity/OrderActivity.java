@@ -10,9 +10,15 @@
 
 package com.yongf.rorder.app.activity;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yongf.rorder.R;
@@ -47,9 +53,19 @@ public class OrderActivity extends BaseActivity {
     @BindView(R.id.btn_settle)
     Button mBtnSettle;
 
+    private String[] mCategories = {"热销", "主食类", "碳烤类", "小吃类", "甜点类", "组合餐"};
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_order;
+    }
+
+    @Override
+    protected void initView() {
+        super.initView();
+
+        MyCategoryAdapter categoryAdapter = new MyCategoryAdapter();
+        mLvCategory.setAdapter(categoryAdapter);
     }
 
     @Override
@@ -62,5 +78,80 @@ public class OrderActivity extends BaseActivity {
         mRlHeaderIntro.setOnClickListener(v -> {
             Toast.makeText(this, "店铺信息", Toast.LENGTH_SHORT).show();
         });
+    }
+
+    private class MyCategoryAdapter extends BaseAdapter {
+
+        private int mSelectedItem = -1;
+
+        @Override
+        public int getCount() {
+            return mCategories.length;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return mCategories[position];
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View view;
+            CategoryViewHolder holder;
+            if (convertView == null) {
+                view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.item_order_category, null);
+                holder = new CategoryViewHolder();
+                holder.ivIcon = (ImageView) view.findViewById(R.id.iv_icon);
+                holder.tvDesc = (TextView) view.findViewById(R.id.tv_desc);
+                holder.rlOrderCategoryItem = (LinearLayout)
+                        view.findViewById(R.id.rl_order_category_item);
+                view.setTag(holder);
+            } else {
+                view = convertView;
+                holder = (CategoryViewHolder) convertView.getTag();
+            }
+
+            holder.tvDesc.setText(mCategories[position]);
+
+            return view;
+        }
+    }
+
+    private class CategoryViewHolder {
+        ImageView ivIcon;
+        TextView tvDesc;
+        LinearLayout rlOrderCategoryItem;
+    }
+
+    private class MyFoodItemAdapter extends BaseAdapter {
+
+        @Override
+        public int getCount() {
+            return 0;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            return null;
+        }
+    }
+
+    private class FoodItemViewHolder {
+
     }
 }

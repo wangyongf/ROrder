@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_order_category_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/app_color_white_smoke"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/app_size15"
+    android:paddingTop="@dimen/app_size15">
+
+    <View
+        android:id="@+id/placeholder1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="@dimen/app_size25"
+        android:layout_height="@dimen/app_size25"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/order_hot" />
+
+    <View
+        android:id="@+id/placeholder2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="热销"
+        android:textColor="@color/app_color_gray"
+        android:textSize="@dimen/app_txt_size22" />
+
+    <View
+        android:id="@+id/placeholder3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+</LinearLayout>

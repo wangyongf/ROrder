@@ -24,7 +24,6 @@
             android:id="@+id/rl_header_intro"
             android:layout_width="match_parent"
             android:layout_height="@dimen/app_size130"
-            android:layout_marginTop="@dimen/app_size10"
             android:background="@color/app_color_white"
             android:orientation="vertical">
 
@@ -61,7 +60,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/app_size10"
+                        android:layout_marginTop="@dimen/app_size6"
                         android:ellipsize="end"
                         android:maxEms="20"
                         android:maxLines="1"
@@ -72,8 +71,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/app_size10"
-                        android:text="30分钟 | 商家配送"
+                        android:layout_marginTop="@dimen/app_size6"
+                        android:text="30分钟  |  商家配送"
                         android:textColor="@color/app_color_gray"
                         android:textSize="@dimen/app_txt_size15" />
                 </LinearLayout>
@@ -88,36 +87,66 @@
                     android:visibility="gone" />
             </LinearLayout>
 
-            <!--这里换成一个RatingBar，一个显示评分组件-->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/app_size0.5"
                 android:layout_marginLeft="@dimen/app_size90"
-                android:layout_marginTop="@dimen/app_size5"
+                android:layout_marginRight="@dimen/app_size10"
                 android:background="@color/app_color_divider" />
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/app_size90"
-                android:layout_marginTop="@dimen/app_size5">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="在线支付满15减4"
-                    android:textColor="@color/app_color_gray"
-                    android:textSize="@dimen/app_txt_size15" />
+                <ImageView
+                    android:layout_width="@dimen/app_size25"
+                    android:layout_height="@dimen/app_size25"
+                    android:layout_marginLeft="@dimen/app_size15"
+                    android:layout_marginTop="@dimen/app_size5"
+                    android:src="@drawable/order_jian" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/app_size10"
-                    android:text="共1个"
-                    android:textColor="@color/app_color_gray"
-                    android:textSize="@dimen/app_txt_size15" />
-            </RelativeLayout>
+                <ImageView
+                    android:layout_width="@dimen/app_size25"
+                    android:layout_height="@dimen/app_size25"
+                    android:layout_marginLeft="@dimen/app_size10"
+                    android:layout_marginTop="@dimen/app_size5"
+                    android:src="@drawable/order_recommend" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/app_size15"
+                    android:layout_marginTop="@dimen/app_size7">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="在线支付满15减4"
+                        android:textColor="@color/app_color_gray"
+                        android:textSize="@dimen/app_txt_size15" />
+
+                    <ImageView
+                        android:id="@+id/iv_more"
+                        android:layout_width="@dimen/app_size20"
+                        android:layout_height="@dimen/app_size20"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/app_size10"
+                        android:src="@drawable/order_more" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/app_size3"
+                        android:layout_toLeftOf="@id/iv_more"
+                        android:text="共1个"
+                        android:textColor="@color/app_color_gray"
+                        android:textSize="@dimen/app_txt_size15" />
+                </RelativeLayout>
+            </LinearLayout>
         </LinearLayout>
 
         <View
@@ -134,7 +163,13 @@
                 android:id="@+id/lv_category"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2.5" />
+                android:layout_weight="2.5"
+                android:choiceMode="singleChoice" />
+
+            <View
+                android:layout_width="@dimen/app_size0.5"
+                android:layout_height="match_parent"
+                android:background="@color/app_color_divider" />
 
             <ListView
                 android:id="@+id/lv_food_item"
