@@ -16,4 +16,9 @@
     <color name="app_color_bright_red">#D81E06</color>
     <color name="app_color_white_smoke">#ECF0F1</color>
     <color name="app_color_dark_sea_green">#849CB7</color>
+
+    <color name="theme_primary">#2196F3</color>
+    <color name="separator_line">#ECECEC</color>
+    <color name="title">#222222</color>
+    <color name="subtitle">#999999</color>
 </resources>
