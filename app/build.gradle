@@ -52,6 +52,4 @@ dependencies {
     compile 'com.kyleduo.switchbutton:library:1.4.4'
     // Material EditText
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
-    // MaterialSearchView
-    compile 'com.miguelcatalan:materialsearchview:1.4.0'
 }
