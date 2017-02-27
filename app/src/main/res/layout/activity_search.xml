@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/app_color_white_smoke"
     android:orientation="vertical">
 
     <SearchView
@@ -9,12 +10,39 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/app_size10"
+        android:background="@color/app_color_white"
         android:iconifiedByDefault="false"
         android:queryHint="搜索一下吧" />
 
-    <include
-        layout="@layout/mok_items"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/app_size10"
+        android:background="@color/app_color_white"
+        android:paddingBottom="@dimen/app_size15"
+        android:paddingTop="@dimen/app_size15">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/app_size10"
+            android:layout_marginRight="@dimen/app_size10"
+            android:paddingBottom="@dimen/app_size20"
+            android:paddingTop="@dimen/app_size20"
+            android:text="DPS是什么意思"
+            android:textColor="@color/app_color_gray"
+            android:textSize="@dimen/app_txt_size20" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/app_size10" />
+        android:layout_marginTop="@dimen/app_size10"
+        android:background="@color/app_color_white">
+
+        <ListView
+            android:id="@+id/list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 </LinearLayout>
