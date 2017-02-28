@@ -38,7 +38,7 @@
 
     <!--Bottom Navigation Bar-->
 
-    <com.yongf.rorder.widget.BottomNavigationView.BottomNavigationView
+    <com.yongf.rorder.widget.bottomnavigationview.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

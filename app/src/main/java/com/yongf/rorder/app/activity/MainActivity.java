@@ -7,8 +7,8 @@ import android.widget.TextView;
 import com.yongf.rorder.R;
 import com.yongf.rorder.presenter.main.MainContract;
 import com.yongf.rorder.presenter.main.MainPresenter;
-import com.yongf.rorder.widget.BottomNavigationView.BottomNavigationItem;
-import com.yongf.rorder.widget.BottomNavigationView.BottomNavigationView;
+import com.yongf.rorder.widget.bottomnavigationview.BottomNavigationItem;
+import com.yongf.rorder.widget.bottomnavigationview.BottomNavigationView;
 
 import butterknife.BindView;
 

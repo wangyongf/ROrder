@@ -19,6 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/app_size10"
         android:background="@color/app_color_white"
+        android:orientation="vertical"
         android:paddingBottom="@dimen/app_size15"
         android:paddingTop="@dimen/app_size15">
 
@@ -31,7 +32,15 @@
             android:paddingTop="@dimen/app_size20"
             android:text="DPS是什么意思"
             android:textColor="@color/app_color_gray"
-            android:textSize="@dimen/app_txt_size20" />
+            android:textSize="@dimen/app_txt_size20"
+            android:visibility="gone" />
+
+        <com.yongf.rorder.widget.flowlayout.FlowLayout
+            android:id="@+id/flow_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/app_size10"
+            android:paddingRight="@dimen/app_size10" />
     </LinearLayout>
 
     <LinearLayout
