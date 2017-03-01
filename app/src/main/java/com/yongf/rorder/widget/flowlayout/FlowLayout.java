@@ -255,7 +255,9 @@ public class FlowLayout extends ViewGroup {
             float widthAvg = 0;
             if (mMaxWidth > mUsedWidth) {
                 extra = mMaxWidth - mUsedWidth;
-                widthAvg = extra / size;
+
+                //最后一行多出的宽度不进行处理
+//                widthAvg = extra / size;
             }
 
             for (int i = 0; i < size; i++) {

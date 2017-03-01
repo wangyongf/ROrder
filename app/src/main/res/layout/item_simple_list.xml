@@ -1,17 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:paddingBottom="@dimen/app_size10"
+    android:paddingLeft="@dimen/app_size10"
+    android:paddingRight="@dimen/app_size10"
     android:paddingTop="@dimen/app_size10">
+
+    <ImageView
+        android:id="@+id/iv_clock"
+        android:layout_width="@dimen/app_size18"
+        android:layout_height="@dimen/app_size18"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/app_size10"
+        android:src="@drawable/clock" />
 
     <TextView
         android:id="@+id/tv_tip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/app_size20"
+        android:layout_toRightOf="@id/iv_clock"
+        android:gravity="center"
         android:text="我的名字"
         android:textColor="@color/app_color_black"
-        android:textSize="@dimen/app_txt_size20" />
-</LinearLayout>
+        android:textSize="@dimen/app_txt_size22" />
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="@dimen/app_size18"
+        android:layout_height="@dimen/app_size18"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/app_size10"
+        android:src="@drawable/close" />
+</RelativeLayout>
