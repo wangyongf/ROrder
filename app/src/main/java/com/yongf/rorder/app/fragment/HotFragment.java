@@ -30,6 +30,16 @@ public class HotFragment extends BaseFragment {
 
     private static final String TAG = "HotFragment";
 
+    private static HotFragment INSTANCE;
+
+    public static HotFragment newInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new HotFragment();
+        }
+
+        return INSTANCE;
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

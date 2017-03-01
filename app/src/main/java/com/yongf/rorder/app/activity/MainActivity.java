@@ -1,10 +1,14 @@
 package com.yongf.rorder.app.activity;
 
+import android.app.Fragment;
 import android.support.v7.widget.Toolbar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.widget.FrameLayout;
 
 import com.yongf.rorder.R;
+import com.yongf.rorder.app.fragment.AccountFragment;
+import com.yongf.rorder.app.fragment.HotFragment;
+import com.yongf.rorder.app.fragment.MainFragment;
+import com.yongf.rorder.app.fragment.SearchFragment;
 import com.yongf.rorder.presenter.main.MainContract;
 import com.yongf.rorder.presenter.main.MainPresenter;
 import com.yongf.rorder.widget.bottomnavigationview.BottomNavigationItem;
@@ -32,10 +36,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     Toolbar mToolbar;
 
     @BindView(R.id.fl_content)
-    RelativeLayout mContent;
-
-    @BindView(R.id.tv)
-    TextView mTv;
+    FrameLayout mFlContent;
 
     @BindView(R.id.nav_view)
     BottomNavigationView mNavigationView;
@@ -91,7 +92,24 @@ public class MainActivity extends BaseActivity implements MainContract.View {
                 .build();
 
         mNavigationView.setOnTabSelectedListener(position -> {
-            mTv.setText(text[position]);
+            Fragment fragment = null;
+            switch (position) {
+                case 0:
+                    fragment = MainFragment.newInstance();
+                    break;
+                case 1:
+                    fragment = HotFragment.newInstance();
+                    break;
+                case 2:
+                    fragment = SearchFragment.newInstance();
+                    break;
+                case 3:
+                    fragment = AccountFragment.newInstance();
+                    break;
+            }
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.fl_content, fragment)
+                    .commit();
         });
     }
 

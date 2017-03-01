@@ -30,6 +30,16 @@ public class SearchFragment extends BaseFragment {
 
     private static final String TAG = "SearchFragment";
 
+    private static SearchFragment INSTANCE;
+
+    public static SearchFragment newInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new SearchFragment();
+        }
+
+        return INSTANCE;
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -30,6 +30,16 @@ public class AccountFragment extends BaseFragment {
 
     private static final String TAG = "AccountFragment";
 
+    private static AccountFragment INSTANCE;
+
+    public static AccountFragment newInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new AccountFragment();
+        }
+
+        return INSTANCE;
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

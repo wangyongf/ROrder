@@ -30,6 +30,17 @@ public class MainFragment extends BaseFragment {
 
     private static final String TAG = "MainFragment";
 
+    private static MainFragment INSTANCE;
+
+    // FIXME: 17-3-1 单例模式，线程安全
+    public static MainFragment newInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new MainFragment();
+        }
+
+        return INSTANCE;
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
