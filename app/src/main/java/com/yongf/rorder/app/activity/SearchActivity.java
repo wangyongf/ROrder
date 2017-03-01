@@ -27,14 +27,11 @@ import butterknife.BindView;
 
 public class SearchActivity extends BaseActivity implements SearchView.OnQueryTextListener {
 
-    // TODO: 17-2-27 风格已经确定，就是MIUI全局搜索的风格！
     // TODO: 17-2-27 后期考虑做一个自定义控件，自定义SearchView
-    // TODO: 17-2-28 先完成搜索历史部分，包括图标，布局等
-    // TODO: 17-2-28 封装BaseAdapter
-    // TODO: 17-2-28 预研幻灯片的实现，可以考虑开源库
-    // TODO: 17-3-1 Fix流式布局数据量不足的显示问题，还是用固定间距吧。。。
 
-    public static final String[] tips = {"aaaaa", "bbbbb", "ccccc", "ddddd"};
+    public static final String[] tips = {
+            "念念不忘，必有回响", "知足常乐", "七国的天下，我要99！", "猛刷自然强", "好好学习，天天向上！"
+    };
     private static final String TAG = SearchActivity.class.getSimpleName();
     private static final String[] mData = {
             "向往的生活", "三生三世十里桃花", "凌晨叫外卖", "爱来的刚好", "陈赫女儿"
