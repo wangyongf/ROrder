@@ -2,6 +2,7 @@ package com.yongf.rorder.app.activity;
 
 import android.app.Fragment;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.yongf.rorder.R;
 import com.yongf.rorder.app.fragment.AccountFragment;
@@ -66,19 +67,19 @@ public class MainActivity extends BaseActivity implements MainContract.View {
      */
     private void initNavView() {
         mNavigationView
-                .addItem(new BottomNavigationItem(R.drawable.home_selected, "首页")
+                .addItem(new BottomNavigationItem(R.drawable.home_selected, text[0])
                         .setUnselectedIconResId(R.drawable.home_unselected)
                         .setSelectedTextColor(R.color.app_color_bright_red)
                         .setUnselectedTextColor(R.color.app_color_gray))
-                .addItem(new BottomNavigationItem(R.drawable.hot_selected, "热门")
+                .addItem(new BottomNavigationItem(R.drawable.hot_selected, text[1])
                         .setUnselectedIconResId(R.drawable.hot_unselected)
                         .setSelectedTextColor(R.color.app_color_bright_red)
                         .setUnselectedTextColor(R.color.app_color_gray))
-                .addItem(new BottomNavigationItem(R.drawable.search_selected, "搜索")
+                .addItem(new BottomNavigationItem(R.drawable.search_selected, text[2])
                         .setUnselectedIconResId(R.drawable.search_unselected)
                         .setSelectedTextColor(R.color.app_color_bright_red)
                         .setUnselectedTextColor(R.color.app_color_gray))
-                .addItem(new BottomNavigationItem(R.drawable.account_selected, "我的")
+                .addItem(new BottomNavigationItem(R.drawable.account_selected, text[3])
                         .setUnselectedIconResId(R.drawable.account_unselected)
                         .setSelectedTextColor(R.color.app_color_bright_red)
                         .setUnselectedTextColor(R.color.app_color_gray))
@@ -88,8 +89,12 @@ public class MainActivity extends BaseActivity implements MainContract.View {
                 })
                 .build();
 
-        mNavigationView.setTabClickListener(position -> {
+        mNavigationView.setOnTabClickListener(position -> {
+            Toast.makeText(this, "单击了：" + text[position], Toast.LENGTH_SHORT).show();
             loadFragment(position);
+        });
+        mNavigationView.setOnTabDoubleClickListener(position -> {
+            Toast.makeText(this, "双击了：" + text[position], Toast.LENGTH_SHORT).show();
         });
     }
 

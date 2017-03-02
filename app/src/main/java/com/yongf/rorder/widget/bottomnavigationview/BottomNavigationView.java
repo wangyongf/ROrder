@@ -40,6 +40,7 @@ public class BottomNavigationView extends LinearLayout {
     private int mSelectedTab;
 
     private BottomNavigationTab.OnTabClickListener mOnTabClickListener;
+    private BottomNavigationTab.OnTabDoubleClickListener mOnTabDoubleClickListener;
     private OnDefaultTabListener mOnDefaultTabListener;
 
     private List<BottomNavigationItem> mBottomNavigationItems = new ArrayList<>();
@@ -74,6 +75,7 @@ public class BottomNavigationView extends LinearLayout {
      * 设置默认第几个Tab
      *
      * @param position 默认第几个Tab，从0开始
+     *
      * @return
      */
     public BottomNavigationView defaultTab(int position) {
@@ -88,6 +90,7 @@ public class BottomNavigationView extends LinearLayout {
      * 不要在这里执行耗时事件！
      *
      * @param listener
+     *
      * @return
      */
     public BottomNavigationView onDefaultTab(OnDefaultTabListener listener) {
@@ -134,11 +137,23 @@ public class BottomNavigationView extends LinearLayout {
         }
     }
 
-    public void setTabClickListener(BottomNavigationTab.OnTabClickListener tabClickListener) {
-        mOnTabClickListener = tabClickListener;
+    public void setOnTabClickListener(BottomNavigationTab.OnTabClickListener onTabClickListener) {
+        mOnTabClickListener = onTabClickListener;
 
         for (BottomNavigationTab tab : mBottomNavigationTabs) {
             tab.setOnTabClickListener(mOnTabClickListener);
+        }
+    }
+
+    public BottomNavigationTab.OnTabDoubleClickListener getOnTabDoubleClickListener() {
+        return mOnTabDoubleClickListener;
+    }
+
+    public void setOnTabDoubleClickListener(BottomNavigationTab.OnTabDoubleClickListener onTabDoubleClickListener) {
+        mOnTabDoubleClickListener = onTabDoubleClickListener;
+
+        for (BottomNavigationTab tab : mBottomNavigationTabs) {
+            tab.setOnTabDoubleClickListener(onTabDoubleClickListener);
         }
     }
 
