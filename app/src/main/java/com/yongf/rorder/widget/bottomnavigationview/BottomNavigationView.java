@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * bottomnavigationview
+ * BottomNavigationView
  *
  * @author Scott Wang
  * @version 1.0, 17-1-20
@@ -32,7 +32,7 @@ import java.util.List;
  */
 public class BottomNavigationView extends LinearLayout {
 
-    private static final String TAG = "bottomnavigationview";
+    private static final String TAG = "BottomNavigationView";
 
     private LinearLayout mLlNavContent;
 
