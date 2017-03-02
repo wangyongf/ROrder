@@ -88,7 +88,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
                 })
                 .build();
 
-        mNavigationView.setTabSelectedListener(position -> {
+        mNavigationView.setTabClickListener(position -> {
             loadFragment(position);
         });
     }

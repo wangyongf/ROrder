@@ -39,8 +39,8 @@ public class BottomNavigationView extends LinearLayout {
     private int mDefaultTab;
     private int mSelectedTab;
 
-    private BottomNavigationTab.OnTabSelectedListener mTabSelectedListener;
-    private OnDefaultTabListener mDefaultTabListener;
+    private BottomNavigationTab.OnTabClickListener mOnTabClickListener;
+    private OnDefaultTabListener mOnDefaultTabListener;
 
     private List<BottomNavigationItem> mBottomNavigationItems = new ArrayList<>();
     private List<BottomNavigationTab> mBottomNavigationTabs = new ArrayList<>();
@@ -91,7 +91,7 @@ public class BottomNavigationView extends LinearLayout {
      * @return
      */
     public BottomNavigationView onDefaultTab(OnDefaultTabListener listener) {
-        mDefaultTabListener = listener;
+        mOnDefaultTabListener = listener;
         return this;
     }
 
@@ -109,8 +109,8 @@ public class BottomNavigationView extends LinearLayout {
             mLlNavContent.addView(tab.getTab(), params);
         }
 
-        if (mDefaultTabListener != null) {
-            mDefaultTabListener.onDefaultTab(mDefaultTab);
+        if (mOnDefaultTabListener != null) {
+            mOnDefaultTabListener.onDefaultTab(mDefaultTab);
         }
 
         setSelectedTab(mSelectedTab);
@@ -134,11 +134,11 @@ public class BottomNavigationView extends LinearLayout {
         }
     }
 
-    public void setTabSelectedListener(BottomNavigationTab.OnTabSelectedListener tabSelectedListener) {
-        mTabSelectedListener = tabSelectedListener;
+    public void setTabClickListener(BottomNavigationTab.OnTabClickListener tabClickListener) {
+        mOnTabClickListener = tabClickListener;
 
         for (BottomNavigationTab tab : mBottomNavigationTabs) {
-            tab.setOnTabSelectedListener(mTabSelectedListener);
+            tab.setOnTabClickListener(mOnTabClickListener);
         }
     }
 

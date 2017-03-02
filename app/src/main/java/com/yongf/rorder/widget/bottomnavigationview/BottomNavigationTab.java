@@ -11,12 +11,18 @@
 package com.yongf.rorder.widget.bottomnavigationview;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.yongf.rorder.R;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * BottomNavigationTab
@@ -28,8 +34,9 @@ import com.yongf.rorder.R;
  */
 public class BottomNavigationTab {
 
+    public static final int TYPE_SINGLE_CLICK = 0;                  //单击
+    public static final int TYPE_DOUBLE_CLICK = 1;                  //双击
     private static final String TAG = "BottomNavigationTab";
-
     private BottomNavigationView mNavView;
 
     private int mIndex;          //标记当前是第几个Tab
@@ -52,7 +59,16 @@ public class BottomNavigationTab {
     private int mSelectedTextColor;
     private int mUnselectedTextColor;
 
-    private OnTabSelectedListener mOnTabSelectedListener;
+    private GestureDetector mGestureDetector;
+
+    private OnTabClickListener mOnTabClickListener;
+    private OnTabDoubleClickListener mOnTabDoubleClickListener;
+
+    private static final int TYPE_CLICK = 0;
+
+    private long mDownTime = 0;              //按下的时刻
+    private long mUpTime = 0;                    //放松的时刻
+    private AtomicInteger mClickCount = new AtomicInteger(0);               //点击次数
 
     public BottomNavigationTab(BottomNavigationView bottomNavigationView, Context context, View view, int index) {
         mNavView = bottomNavigationView;
@@ -84,12 +100,25 @@ public class BottomNavigationTab {
      * 初始化事件
      */
     private void initEvent() {
+        MyClickHandler handler = new MyClickHandler();
+
         mTab.setOnClickListener(v -> {
-            if (mOnTabSelectedListener != null) {
-                mOnTabSelectedListener.onTabSelected(mIndex);
-                mNavView.setSelectedTab(mIndex);
+            if (mClickCount.intValue() > 2) {
+                mClickCount.set(0);
+            } else {
+                mClickCount.addAndGet(1);
+                handler.sendEmptyMessageDelayed(TYPE_CLICK, getClickInterval());
             }
         });
+    }
+
+    /**
+     * 点击间隔，默认为300，单位为毫秒
+     *
+     * @return
+     */
+    public int getClickInterval() {
+        return 300;
     }
 
     public LinearLayout getTab() {
@@ -177,11 +206,54 @@ public class BottomNavigationTab {
         }
     }
 
-    public void setOnTabSelectedListener(OnTabSelectedListener onTabSelectedListener) {
-        mOnTabSelectedListener = onTabSelectedListener;
+    public void setOnTabClickListener(OnTabClickListener onTabClickListener) {
+        mOnTabClickListener = onTabClickListener;
     }
 
-    public interface OnTabSelectedListener {
-        void onTabSelected(int position);
+    public void setOnTabDoubleClickListener(OnTabDoubleClickListener onTabDoubleClickListener) {
+        mOnTabDoubleClickListener = onTabDoubleClickListener;
+    }
+
+    public interface OnTabClickListener {
+        void onTabClick(int position);
+    }
+
+    public interface OnTabDoubleClickListener {
+        void onTabDoubleClick(int position);
+    }
+
+    public class MyClickHandler extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+            // TODO: 2017/3/2 在这里判断点击次数，执行相应逻辑
+            // FIXME: 2017/3/2 上面的写法还是有问题！
+            switch (msg.what) {
+                case TYPE_CLICK:
+                    if (mClickCount.intValue() == 1) {
+                        performSingleClick();
+                    } else if (mClickCount.intValue() == 2) {
+                        performDoubleClick();
+                    }
+                    break;
+            }
+        }
+    }
+
+    /**
+     * 处理单击
+     */
+    private void performSingleClick() {
+        if (mOnTabClickListener != null) {
+            mOnTabClickListener.onTabClick(mIndex);
+        }
+    }
+
+    /**
+     * 处理双击
+     */
+    private void performDoubleClick() {
+        if (mOnTabDoubleClickListener != null) {
+            mOnTabDoubleClickListener.onTabDoubleClick(mIndex);
+        }
     }
 }
