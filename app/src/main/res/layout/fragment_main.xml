@@ -1,13 +1,337 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="MainFragment"
-        android:textColor="@color/app_color_black"
-        android:textSize="@dimen/app_txt_size25" />
-</RelativeLayout>
+        android:background="@color/app_color_white_smoke"
+        android:orientation="vertical">
+
+        <!--Carousel-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_size150"
+            android:background="@color/app_color_white">
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_size10"
+            android:background="@color/app_color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/app_size15"
+            android:paddingTop="@dimen/app_size15">
+
+            <!--排队取号-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/app_size50"
+                    android:layout_height="@dimen/app_size50"
+                    android:src="@drawable/fragment_main_line_up" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/app_size10"
+                    android:text="排队取号"
+                    android:textColor="@color/app_color_black"
+                    android:textSize="@dimen/app_txt_size18" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/app_size8"
+                    android:text="餐厅取号不用等待"
+                    android:textColor="@color/app_color_gray"
+                    android:textSize="@dimen/app_txt_size12" />
+            </LinearLayout>
+
+            <!--预约订座-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/app_size50"
+                    android:layout_height="@dimen/app_size50"
+                    android:src="@drawable/fragment_main_appointment" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/app_size10"
+                    android:text="预约订座"
+                    android:textColor="@color/app_color_black"
+                    android:textSize="@dimen/app_txt_size18" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/app_size8"
+                    android:text="订座一秒成功不用等"
+                    android:textColor="@color/app_color_gray"
+                    android:textSize="@dimen/app_txt_size12" />
+            </LinearLayout>
+
+            <!--扫描号单-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/app_size50"
+                    android:layout_height="@dimen/app_size50"
+                    android:src="@drawable/fragment_main_scan" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/app_size10"
+                    android:text="扫描号单"
+                    android:textColor="@color/app_color_black"
+                    android:textSize="@dimen/app_txt_size18" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/app_size8"
+                    android:text="随时掌握排队进展"
+                    android:textColor="@color/app_color_gray"
+                    android:textSize="@dimen/app_txt_size12" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--立即预约-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_size10"
+            android:background="@color/app_color_white"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/app_size8"
+            android:paddingLeft="@dimen/app_size10"
+            android:paddingRight="@dimen/app_size10"
+            android:paddingTop="@dimen/app_size8">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="@dimen/app_size3"
+                    android:layout_height="@dimen/app_size15"
+                    android:background="@color/app_color_bright_red" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/app_size8"
+                    android:gravity="center"
+                    android:text="立即预约"
+                    android:textColor="@color/app_color_black"
+                    android:textSize="@dimen/app_txt_size15" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="可预约桌位看得见"
+                    android:textColor="@color/app_color_gray"
+                    android:textSize="@dimen/app_txt_size12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/app_size8"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/app_size40"
+                    android:layout_weight="3"
+                    android:background="@color/app_color_gray"
+                    android:hint="3月2日 今天 18:00 4人"
+                    android:paddingBottom="@dimen/app_size8"
+                    android:paddingTop="@dimen/app_size8"
+                    android:textSize="@dimen/app_txt_size15" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/app_size40"
+                    android:layout_marginLeft="@dimen/app_size8"
+                    android:layout_weight="1"
+                    android:background="@color/app_color_bright_red"
+                    android:text="预约"
+                    android:textColor="@color/app_color_white"
+                    android:textSize="@dimen/app_txt_size18" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--当前位置-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_size10"
+            android:background="@color/app_color_white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/app_size12"
+            android:paddingLeft="@dimen/app_size10"
+            android:paddingRight="@dimen/app_size10"
+            android:paddingTop="@dimen/app_size12">
+
+            <ImageView
+                android:layout_width="@dimen/app_size18"
+                android:layout_height="@dimen/app_size18"
+                android:src="@drawable/fragment_main_location" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/app_size8"
+                android:text="和我们的距离"
+                android:textColor="@color/app_color_black"
+                android:textSize="@dimen/app_txt_size15" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="673m"
+                android:textColor="@color/app_color_gray"
+                android:textSize="@dimen/app_txt_size13" />
+
+            <ImageView
+                android:layout_width="@dimen/app_size13"
+                android:layout_height="@dimen/app_size13"
+                android:layout_marginLeft="@dimen/app_size8"
+                android:src="@drawable/fragment_main_arrow_right" />
+        </LinearLayout>
+
+        <!--今日优惠-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_size10"
+            android:background="@color/app_color_white"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/app_size8"
+            android:paddingLeft="@dimen/app_size10"
+            android:paddingRight="@dimen/app_size10"
+            android:paddingTop="@dimen/app_size8">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="@dimen/app_size3"
+                    android:layout_height="@dimen/app_size15"
+                    android:background="@color/app_color_bright_red" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/app_size8"
+                    android:gravity="center"
+                    android:text="今日优惠"
+                    android:textColor="@color/app_color_black"
+                    android:textSize="@dimen/app_txt_size15" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="可预约桌位看得见"
+                    android:textColor="@color/app_color_gray"
+                    android:textSize="@dimen/app_txt_size12"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--今日热门-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_size10"
+            android:background="@color/app_color_white"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/app_size8"
+            android:paddingLeft="@dimen/app_size10"
+            android:paddingRight="@dimen/app_size10"
+            android:paddingTop="@dimen/app_size8">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="@dimen/app_size3"
+                    android:layout_height="@dimen/app_size15"
+                    android:background="@color/app_color_bright_red" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/app_size8"
+                    android:gravity="center"
+                    android:text="今日热门"
+                    android:textColor="@color/app_color_black"
+                    android:textSize="@dimen/app_txt_size15" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="可预约桌位看得见"
+                    android:textColor="@color/app_color_gray"
+                    android:textSize="@dimen/app_txt_size12"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_size40" />
+    </LinearLayout>
+</ScrollView>

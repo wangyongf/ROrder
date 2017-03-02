@@ -32,9 +32,6 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
     private static final String TAG = "MainActivity";
 
-    @BindView(R.id.toolbar)
-    Toolbar mToolbar;
-
     @BindView(R.id.fl_content)
     FrameLayout mFlContent;
 
@@ -61,8 +58,6 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     @Override
     protected void initView() {
         super.initView();
-
-        setSupportActionBar(mToolbar);
 
         initNavView();
     }
