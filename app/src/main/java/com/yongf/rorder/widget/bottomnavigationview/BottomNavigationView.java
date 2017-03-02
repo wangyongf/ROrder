@@ -36,9 +36,11 @@ public class BottomNavigationView extends LinearLayout {
 
     private LinearLayout mLlNavContent;
 
+    private int mDefaultTab;
     private int mSelectedTab;
 
-    private BottomNavigationTab.OnTabSelectedListener mOnTabSelectedListener;
+    private BottomNavigationTab.OnTabSelectedListener mTabSelectedListener;
+    private OnDefaultTabListener mDefaultTabListener;
 
     private List<BottomNavigationItem> mBottomNavigationItems = new ArrayList<>();
     private List<BottomNavigationTab> mBottomNavigationTabs = new ArrayList<>();
@@ -68,10 +70,28 @@ public class BottomNavigationView extends LinearLayout {
         return this;
     }
 
-    public BottomNavigationView setDefaultTab(int position) {
+    /**
+     * 设置默认第几个Tab
+     *
+     * @param position 默认第几个Tab，从0开始
+     * @return
+     */
+    public BottomNavigationView defaultTab(int position) {
         position = position < 0 ? 0 : position;
         position = position >= mBottomNavigationItems.size() ? mBottomNavigationItems.size() - 1 : position;
+        mDefaultTab = position;
         mSelectedTab = position;
+        return this;
+    }
+
+    /**
+     * 不要在这里执行耗时事件！
+     *
+     * @param listener
+     * @return
+     */
+    public BottomNavigationView onDefaultTab(OnDefaultTabListener listener) {
+        mDefaultTabListener = listener;
         return this;
     }
 
@@ -87,6 +107,10 @@ public class BottomNavigationView extends LinearLayout {
             BottomNavigationHelper.bindTabWithItem(tab, item);
             LayoutParams params = new LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1);
             mLlNavContent.addView(tab.getTab(), params);
+        }
+
+        if (mDefaultTabListener != null) {
+            mDefaultTabListener.onDefaultTab(mDefaultTab);
         }
 
         setSelectedTab(mSelectedTab);
@@ -110,11 +134,18 @@ public class BottomNavigationView extends LinearLayout {
         }
     }
 
-    public void setOnTabSelectedListener(BottomNavigationTab.OnTabSelectedListener onTabSelectedListener) {
-        mOnTabSelectedListener = onTabSelectedListener;
+    public void setTabSelectedListener(BottomNavigationTab.OnTabSelectedListener tabSelectedListener) {
+        mTabSelectedListener = tabSelectedListener;
 
         for (BottomNavigationTab tab : mBottomNavigationTabs) {
-            tab.setOnTabSelectedListener(mOnTabSelectedListener);
+            tab.setOnTabSelectedListener(mTabSelectedListener);
         }
+    }
+
+    /**
+     * 加载默认Tab时的监听事件
+     */
+    public interface OnDefaultTabListener {
+        void onDefaultTab(int position);
     }
 }

@@ -1,7 +1,6 @@
 package com.yongf.rorder.app.activity;
 
 import android.app.Fragment;
-import android.support.v7.widget.Toolbar;
 import android.widget.FrameLayout;
 
 import com.yongf.rorder.R;
@@ -83,33 +82,45 @@ public class MainActivity extends BaseActivity implements MainContract.View {
                         .setUnselectedIconResId(R.drawable.account_unselected)
                         .setSelectedTextColor(R.color.app_color_bright_red)
                         .setUnselectedTextColor(R.color.app_color_gray))
-                .setDefaultTab(0)
+                .defaultTab(0)
+                .onDefaultTab(position -> {
+                    loadFragment(position);
+                })
                 .build();
 
-        mNavigationView.setOnTabSelectedListener(position -> {
-            Fragment fragment = null;
-            switch (position) {
-                case 0:
-                    fragment = MainFragment.newInstance();
-                    break;
-                case 1:
-                    fragment = HotFragment.newInstance();
-                    break;
-                case 2:
-                    fragment = SearchFragment.newInstance();
-                    break;
-                case 3:
-                    fragment = AccountFragment.newInstance();
-                    break;
-            }
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.fl_content, fragment)
-                    .commit();
+        mNavigationView.setTabSelectedListener(position -> {
+            loadFragment(position);
         });
     }
 
     @Override
     public void setPresenter(MainContract.Presenter presenter) {
         mPresenter = checkNotNull(presenter);
+    }
+
+    /**
+     * 加载Fragment
+     *
+     * @param index 加载第几个Fragment
+     */
+    private void loadFragment(int index) {
+        Fragment fragment = null;
+        switch (index) {
+            case 0:
+                fragment = MainFragment.newInstance();
+                break;
+            case 1:
+                fragment = HotFragment.newInstance();
+                break;
+            case 2:
+                fragment = SearchFragment.newInstance();
+                break;
+            case 3:
+                fragment = AccountFragment.newInstance();
+                break;
+        }
+        getFragmentManager().beginTransaction()
+                .replace(R.id.fl_content, fragment)
+                .commit();
     }
 }
