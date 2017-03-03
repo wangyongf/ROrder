@@ -93,8 +93,8 @@ public class MainActivity extends BaseActivity implements MainContract.View {
             Toast.makeText(this, "单击了：" + text[position], Toast.LENGTH_SHORT).show();
             loadFragment(position);
         });
-        mNavigationView.setOnTabDoubleClickListener(position -> {
-            Toast.makeText(this, "双击了：" + text[position], Toast.LENGTH_SHORT).show();
+        mNavigationView.setOnTabLongClickListener(position -> {
+            Toast.makeText(this, "长按了：" + text[position], Toast.LENGTH_SHORT).show();
         });
     }
 

@@ -11,17 +11,12 @@
 package com.yongf.rorder.widget.bottomnavigationview;
 
 import android.content.Context;
-import android.os.Handler;
-import android.os.Message;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.yongf.rorder.R;
-
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * BottomNavigationTab
@@ -33,11 +28,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class BottomNavigationTab {
 
-    public static final int TYPE_SINGLE_CLICK = 0;                  //单击
-    public static final int TYPE_DOUBLE_CLICK = 1;                  //双击
     private static final String TAG = "BottomNavigationTab";
-
-    private static final int TYPE_CLICK = 0;
 
     private BottomNavigationView mNavView;
 
@@ -60,28 +51,23 @@ public class BottomNavigationTab {
     private int mUnselectedTextColor;
 
     private OnTabClickListener mOnTabClickListener;
-    private OnTabDoubleClickListener mOnTabDoubleClickListener;
-
-    private long mDownTime = 0;              //按下的时刻
-    private long mUpTime = 0;                    //放松的时刻
-    private AtomicInteger mClickCount = new AtomicInteger(0);               //点击次数
+    private OnTabLongClickListener mOnTabLongClickListener;
 
     public BottomNavigationTab(BottomNavigationView bottomNavigationView, Context context, View view, int index) {
         mNavView = bottomNavigationView;
         mContext = context;
         mIndex = index;
 
-        initView(context, view);
+        initView(view);
         initEvent();
     }
 
     /**
      * 初始化视图
      *
-     * @param context
      * @param view
      */
-    private void initView(Context context, View view) {
+    private void initView(View view) {
         if (view instanceof LinearLayout) {
             mTab = (LinearLayout) view;
         } else {
@@ -96,80 +82,18 @@ public class BottomNavigationTab {
      * 初始化事件
      */
     private void initEvent() {
-        MyClickHandler handler = new MyClickHandler();
-
-        // FIXME: 17-3-3 啥时候完成单击事件和双击事件
-        // TODO: 17-3-3 到时候顺便把长按事件给做了
-        mTab.setOnTouchListener((v, event) -> {
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_DOWN:
-                    mDownTime = System.currentTimeMillis();
-                    if (mDownTime - mUpTime > getDoubleClickInterval()) {
-                        mClickCount.set(0);
-                    }
-
-                    break;
-                case MotionEvent.ACTION_UP:
-                    mUpTime = System.currentTimeMillis();
-                    if (mUpTime - mDownTime <= getClickInterval()) {
-                        mClickCount.addAndGet(1);
-                        Message message = Message.obtain();
-                        message.what = TYPE_CLICK;
-                        message.arg1 = mClickCount.intValue();
-                        handler.sendMessageDelayed(message, getDoubleClickInterval());
-                    } else {
-                        Message message = Message.obtain();
-                        message.what = TYPE_CLICK;
-                        message.arg1 = mClickCount.intValue();
-                        handler.sendMessage(message);
-                        mClickCount.set(0);
-                    }
-
-                    break;
-                case MotionEvent.ACTION_MOVE:
-                case MotionEvent.ACTION_CANCEL:
-                default:
-                    break;
+        mTab.setOnClickListener(view -> {
+            if (mOnTabClickListener != null) {
+                mOnTabClickListener.onTabClick(mIndex);
             }
-
+            mNavView.setSelectedTab(mIndex);
+        });
+        mTab.setOnLongClickListener(view -> {
+            if (mOnTabLongClickListener != null) {
+                mOnTabLongClickListener.onTabLongClick(mIndex);
+            }
             return true;
         });
-    }
-
-    /**
-     * 上一次抬起和本次按下之间不超过300ms，算作一次连续点击
-     *
-     * @return
-     */
-    public int getDoubleClickInterval() {
-        return 800;
-    }
-
-    /**
-     * 按下和抬起之间不超过100ms，算作一次点击
-     *
-     * @return
-     */
-    public int getClickInterval() {
-        return 300;
-    }
-
-    /**
-     * 处理单击
-     */
-    private void performSingleClick() {
-        if (mOnTabClickListener != null) {
-            mOnTabClickListener.onTabClick(mIndex);
-        }
-    }
-
-    /**
-     * 处理双击
-     */
-    private void performDoubleClick() {
-        if (mOnTabDoubleClickListener != null) {
-            mOnTabDoubleClickListener.onTabDoubleClick(mIndex);
-        }
     }
 
     public LinearLayout getTab() {
@@ -261,49 +185,19 @@ public class BottomNavigationTab {
         mOnTabClickListener = onTabClickListener;
     }
 
-    public void setOnTabDoubleClickListener(OnTabDoubleClickListener onTabDoubleClickListener) {
-        mOnTabDoubleClickListener = onTabDoubleClickListener;
+    public OnTabLongClickListener getOnTabLongClickListener() {
+        return mOnTabLongClickListener;
     }
 
-    /**
-     * 重置计数器
-     */
-    private void reset() {
-        mClickCount.set(0);
-        mDownTime = 0;
-        mUpTime = 0;
+    public void setOnTabLongClickListener(OnTabLongClickListener onTabLongClickListener) {
+        mOnTabLongClickListener = onTabLongClickListener;
     }
 
     public interface OnTabClickListener {
         void onTabClick(int position);
     }
 
-    public interface OnTabDoubleClickListener {
-        void onTabDoubleClick(int position);
-    }
-
-    /**
-     * 根据点击次数，执行点击事件
-     */
-    public class MyClickHandler extends Handler {
-        @Override
-        public void handleMessage(Message msg) {
-            // TODO: 2017/3/2 在这里判断点击次数，执行相应逻辑
-            // FIXME: 2017/3/2 上面的写法还是有问题！
-            switch (msg.what) {
-                case TYPE_CLICK:
-                    if (mClickCount.intValue() < msg.arg1) {
-                        if (mClickCount.intValue() == 1) {              //处理单击事件
-                            performSingleClick();
-                        } else if (mClickCount.intValue() == 2) {           //处理双击事件
-                            performDoubleClick();
-                        }
-
-                        //消费完点击事件之后，重置计数器
-                        reset();
-                    }
-                    break;
-            }
-        }
+    public interface OnTabLongClickListener {
+        void onTabLongClick(int position);
     }
 }
