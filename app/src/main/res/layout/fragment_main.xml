@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -12,10 +13,24 @@
         <!--Carousel-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/app_size150"
+            android:layout_height="@dimen/app_size170"
             android:background="@color/app_color_white">
 
-
+            <com.synnapps.carouselview.CarouselView
+                android:id="@+id/carousel_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:animateOnBoundary="true"
+                app:autoPlay="true"
+                app:fillColor="#FFFFFFFF"
+                app:indicatorGravity="bottom|center_horizontal"
+                app:pageColor="#00000000"
+                app:pageTransformInterval="1500"
+                app:pageTransformer="zoom"
+                app:radius="@dimen/app_size4"
+                app:slideInterval="3000"
+                app:strokeColor="#FF777777"
+                app:strokeWidth="1dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -170,10 +185,12 @@
                 android:orientation="horizontal">
 
                 <EditText
+                    android:focusableInTouchMode="false"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/app_size40"
                     android:layout_weight="3"
                     android:background="@color/app_color_gray"
+                    android:enabled="false"
                     android:hint="3月2日 今天 18:00 4人"
                     android:paddingBottom="@dimen/app_size8"
                     android:paddingTop="@dimen/app_size8"
@@ -329,9 +346,5 @@
                     android:visibility="gone" />
             </LinearLayout>
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/app_size40" />
     </LinearLayout>
 </ScrollView>

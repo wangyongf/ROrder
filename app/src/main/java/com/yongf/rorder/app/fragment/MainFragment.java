@@ -15,7 +15,10 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.synnapps.carouselview.CarouselView;
+import com.synnapps.carouselview.ImageListener;
 import com.yongf.rorder.R;
 
 /**
@@ -32,6 +35,19 @@ public class MainFragment extends BaseFragment {
 
     private static MainFragment INSTANCE;
 
+    private int[] mSampleImages = {
+            R.drawable.image_1, R.drawable.image_2,
+            R.drawable.image_3, R.drawable.image_4, R.drawable.image_5
+    };
+
+    ImageListener mImageListener = new ImageListener() {
+        @Override
+        public void setImageForPosition(int position, ImageView imageView) {
+            imageView.setImageResource(mSampleImages[position]);
+        }
+    };
+    private CarouselView mCarouselView;
+
     // FIXME: 17-3-1 单例模式，线程安全
     public static MainFragment newInstance() {
         if (INSTANCE == null) {
@@ -45,6 +61,15 @@ public class MainFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
+        mCarouselView = (CarouselView) view.findViewById(R.id.carousel_view);
+        mCarouselView.setPageCount(mSampleImages.length);
+        mCarouselView.setImageListener(mImageListener);
+
         return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
     }
 }

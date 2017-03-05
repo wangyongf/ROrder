@@ -52,4 +52,6 @@ dependencies {
     compile 'com.kyleduo.switchbutton:library:1.4.4'
     // Material EditText
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
+    //CarouselView
+    compile 'com.synnapps:carouselview:0.0.10'
 }

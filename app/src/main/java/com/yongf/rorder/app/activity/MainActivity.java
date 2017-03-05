@@ -2,7 +2,6 @@ package com.yongf.rorder.app.activity;
 
 import android.app.Fragment;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.yongf.rorder.R;
 import com.yongf.rorder.app.fragment.AccountFragment;
@@ -27,6 +26,14 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * @since ROder V1.0
  */
 public class MainActivity extends BaseActivity implements MainContract.View {
+
+    // TODO: 17-3-5 先把MainFragment的页面的各个模块再稍微完善一下 
+    // TODO: 17-3-5 然后计划做的页面：①美团订单页面未登录界面
+    // TODO: 17-3-5 考虑美团登录页，注册入口放Title右边，手机号和账号登录切换 
+    // TODO: 17-3-5 封装UserToast
+    // TODO: 17-3-5 封装BaseWebView
+    // TODO: 17-3-5 考虑引入Ultra-PTR，确定哪些页面需要带下拉刷新功能的
+    // TODO: 17-3-5 完成点餐界面，参考美味不用等，带各种Filter，TabLayout
 
     public static final String UID = "uid";
 
@@ -90,17 +97,11 @@ public class MainActivity extends BaseActivity implements MainContract.View {
                 .build();
 
         mNavigationView.setOnTabClickListener(position -> {
-            Toast.makeText(this, "单击了：" + text[position], Toast.LENGTH_SHORT).show();
             loadFragment(position);
         });
         mNavigationView.setOnTabLongClickListener(position -> {
-            Toast.makeText(this, "长按了：" + text[position], Toast.LENGTH_SHORT).show();
-        });
-    }
 
-    @Override
-    public void setPresenter(MainContract.Presenter presenter) {
-        mPresenter = checkNotNull(presenter);
+        });
     }
 
     /**
@@ -127,5 +128,10 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         getFragmentManager().beginTransaction()
                 .replace(R.id.fl_content, fragment)
                 .commit();
+    }
+
+    @Override
+    public void setPresenter(MainContract.Presenter presenter) {
+        mPresenter = checkNotNull(presenter);
     }
 }
