@@ -40,4 +40,6 @@
     <string name="log_out">退出登录</string>
     <string name="goback">返回</string>
     <string name="back_to_login_page">返回登录页面</string>
+    <!--<string name="fragment_main_coupon_original_price"><![CDATA[<s>￥100</s>]]></string>-->
+    <string name="fragment_main_coupon_original_price">￥100</string>
 </resources>

@@ -10,12 +10,14 @@
 
 package com.yongf.rorder.app.fragment;
 
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
@@ -46,7 +48,9 @@ public class MainFragment extends BaseFragment {
             imageView.setImageResource(mSampleImages[position]);
         }
     };
+
     private CarouselView mCarouselView;
+    private TextView mTvCouponOriginalPrice;
 
     // FIXME: 17-3-1 单例模式，线程安全
     public static MainFragment newInstance() {
@@ -64,6 +68,10 @@ public class MainFragment extends BaseFragment {
         mCarouselView = (CarouselView) view.findViewById(R.id.carousel_view);
         mCarouselView.setPageCount(mSampleImages.length);
         mCarouselView.setImageListener(mImageListener);
+
+        mTvCouponOriginalPrice = (TextView) view.findViewById(R.id.tv_coupon_original_price);
+        mTvCouponOriginalPrice.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);                    //添加删除线
+        ((TextView) view.findViewById(R.id.tv_coupon_original_price2)).getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);            //添加删除线
 
         return view;
     }
