@@ -40,6 +40,8 @@
     <string name="log_out">退出登录</string>
     <string name="goback">返回</string>
     <string name="back_to_login_page">返回登录页面</string>
-    <!--<string name="fragment_main_coupon_original_price"><![CDATA[<s>￥100</s>]]></string>-->
     <string name="fragment_main_coupon_original_price">￥100</string>
+    <string name="fragment_main_coupon_activity_desc">1、代金券仅限堂食使用，恕不兑换现金，不设找零，不提供发票。\n2、购买的代金券请在有效期内使用。\n3、代金券仅限上海店使用。\n4、细则解释权归"美味宝"所有。\n5、代金券详情说明，请点击代金券查看。</string>
+
+    <!--<string name="fragment_main_coupon_original_price"><![CDATA[<s>￥100</s>]]></string>-->
 </resources>

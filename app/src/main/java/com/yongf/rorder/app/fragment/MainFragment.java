@@ -10,6 +10,7 @@
 
 package com.yongf.rorder.app.fragment;
 
+import android.app.AlertDialog;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.synnapps.carouselview.CarouselView;
@@ -51,6 +53,7 @@ public class MainFragment extends BaseFragment {
 
     private CarouselView mCarouselView;
     private TextView mTvCouponOriginalPrice;
+    private LinearLayout mLlActivityDesc;
 
     // FIXME: 17-3-1 单例模式，线程安全
     public static MainFragment newInstance() {
@@ -65,6 +68,7 @@ public class MainFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
+
         mCarouselView = (CarouselView) view.findViewById(R.id.carousel_view);
         mCarouselView.setPageCount(mSampleImages.length);
         mCarouselView.setImageListener(mImageListener);
@@ -72,6 +76,18 @@ public class MainFragment extends BaseFragment {
         mTvCouponOriginalPrice = (TextView) view.findViewById(R.id.tv_coupon_original_price);
         mTvCouponOriginalPrice.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);                    //添加删除线
         ((TextView) view.findViewById(R.id.tv_coupon_original_price2)).getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);            //添加删除线
+
+        mLlActivityDesc = (LinearLayout) view.findViewById(R.id.ll_activity_desc);
+        mLlActivityDesc.setOnClickListener(v -> {
+            AlertDialog alertDialog = new AlertDialog.Builder(getActivity())
+                    .setTitle("活动说明")
+                    .setMessage(R.string.fragment_main_coupon_activity_desc)
+                    .setPositiveButton("我知道了", (dialogInterface, i) -> {
+                        //ignored
+                    })
+                    .create();
+            alertDialog.show();
+        });
 
         return view;
     }
