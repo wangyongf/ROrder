@@ -43,4 +43,17 @@
         <item name="android:textColor">@color/rb_colors_selector</item>
     </style>
 
+    <!--6-8人桌、WiFi、刷卡-->
+    <style name="HottodayCuisineTagStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/app_color_hottoday_txtbg_crimson</item>
+        <item name="android:paddingBottom">@dimen/app_size3</item>
+        <item name="android:paddingLeft">@dimen/app_size7</item>
+        <item name="android:paddingRight">@dimen/app_size7</item>
+        <item name="android:paddingTop">@dimen/app_size3</item>
+        <item name="android:textColor">@color/app_color_white</item>
+        <item name="android:textSize">@dimen/app_txt_size15</item>
+    </style>
+
 </resources>

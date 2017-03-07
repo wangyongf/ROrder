@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -641,8 +641,108 @@
                     android:text="可预约桌位看得见"
                     android:textColor="@color/app_color_gray"
                     android:textSize="@dimen/app_txt_size12"
-                    android:visibility="gone" />
+                    android:visibility="visible" />
             </LinearLayout>
         </LinearLayout>
+
+        <!--今日热门的菜式-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_size200"
+            android:layout_marginTop="@dimen/app_size8">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/app_size200"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image_1" />
+
+            <!--TODO: 暂时使用LinearLayout，可能要换成FlowLayout-->
+            <LinearLayout
+                android:id="@+id/ll_cuisine_tag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/app_size10"
+                android:paddingLeft="@dimen/app_size15"
+                android:paddingTop="@dimen/app_size10">
+
+                <TextView
+                    style="@style/HottodayCuisineTagStyle"
+                    android:text="6-8人桌" />
+
+                <TextView
+                    style="@style/HottodayCuisineTagStyle"
+                    android:layout_marginLeft="@dimen/app_size5"
+                    android:text="WiFi" />
+
+                <TextView
+                    style="@style/HottodayCuisineTagStyle"
+                    android:layout_marginLeft="@dimen/app_size5"
+                    android:text="刷卡" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/ll_cuisine_tag"
+                android:layout_marginLeft="@dimen/app_size15"
+                android:text="云海肴云南菜(仲盛店) | 云南菜"
+                android:textColor="@color/app_color_white"
+                android:textSize="@dimen/app_txt_size20" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_size200"
+            android:layout_marginTop="@dimen/app_size8">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/app_size200"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image_2" />
+
+            <!--TODO: 暂时使用LinearLayout，可能要换成FlowLayout-->
+            <LinearLayout
+                android:id="@+id/ll_cuisine_tag2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/app_size10"
+                android:paddingLeft="@dimen/app_size15"
+                android:paddingTop="@dimen/app_size10">
+
+                <TextView
+                    style="@style/HottodayCuisineTagStyle"
+                    android:text="1-2人桌" />
+
+                <TextView
+                    style="@style/HottodayCuisineTagStyle"
+                    android:layout_marginLeft="@dimen/app_size5"
+                    android:text="3-5人桌" />
+
+                <TextView
+                    style="@style/HottodayCuisineTagStyle"
+                    android:layout_marginLeft="@dimen/app_size5"
+                    android:text="6-8人桌" />
+
+                <TextView
+                    style="@style/HottodayCuisineTagStyle"
+                    android:layout_marginLeft="@dimen/app_size5"
+                    android:text="沙发位" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/ll_cuisine_tag2"
+                android:layout_marginLeft="@dimen/app_size15"
+                android:text="绿茶(虹口龙之梦店) | 杭帮菜"
+                android:textColor="@color/app_color_white"
+                android:textSize="@dimen/app_txt_size20" />
+        </RelativeLayout>
     </LinearLayout>
 </ScrollView>

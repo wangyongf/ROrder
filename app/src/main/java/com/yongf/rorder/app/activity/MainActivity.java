@@ -35,6 +35,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     // TODO: 17-3-5 考虑引入Ultra-PTR，确定哪些页面需要带下拉刷新功能的
     // TODO: 17-3-5 完成点餐界面，参考美味不用等，带各种Filter，TabLayout
     // TODO: 2017/3/6 完成活动说明，参考京东的说明弹窗
+    // TODO: 2017/3/7 MainFragment搞个沉浸式状态栏，把幻灯片向上延伸
 
     public static final String UID = "uid";
 

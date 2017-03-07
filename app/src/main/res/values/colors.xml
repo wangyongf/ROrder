@@ -24,4 +24,5 @@
     
     <color name="app_color_coupon_txt_coral">#FE9C40</color>
     <color name="app_color_coupon_txtbg_oldlace">#FEF3E5</color>
+    <color name="app_color_hottoday_txtbg_crimson">#DC3C26</color>
 </resources>
