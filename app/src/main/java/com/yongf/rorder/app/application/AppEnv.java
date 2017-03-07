@@ -10,6 +10,10 @@
 
 package com.yongf.rorder.app.application;
 
+import android.content.Context;
+
+import com.yongf.rorder.component.toast.UserToast;
+
 /**
  * App控制中心
  *
@@ -18,13 +22,30 @@ package com.yongf.rorder.app.application;
  * @see
  * @since ROder V0.1
  */
-public class AppEnv {
+public final class AppEnv {
 
-    private static final String TAG = "AppEnv";
+    private static Context sContext;
+    private static String sMainSite = "http://blog.54yongf.com/";
+    private static UserToast sUserToast;
 
-    private static String mMainSite = "http://blog.54yongf.com/";
+    public static void init(Context context) {
+        sContext = context;
+        sUserToast = new UserToast(context);
+    }
 
     public static String getMainSite() {
-        return mMainSite;
+        return sMainSite;
+    }
+
+    public static void setMainSite(String mainSite) {
+        sMainSite = mainSite;
+    }
+
+    public static UserToast getUserToast() {
+        return sUserToast;
+    }
+
+    public static void setUserToast(UserToast userToast) {
+        sUserToast = userToast;
     }
 }

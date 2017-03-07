@@ -16,6 +16,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.yongf.rorder.R;
+import com.yongf.rorder.app.application.AppEnv;
+import com.yongf.rorder.component.toast.UserToast;
 
 import butterknife.ButterKnife;
 
@@ -30,6 +32,9 @@ import butterknife.ButterKnife;
 public abstract class BaseActivity extends AppCompatActivity {
 
     public static final int LAST_EXIT_DURATION = 2000;
+
+    protected static int LENGTH_LONG = Toast.LENGTH_LONG;
+    protected static int LENGTH_SHORT = Toast.LENGTH_SHORT;
 
     private static final String TAG = "BaseActivity";
 
@@ -101,6 +106,15 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     protected void after() {
 
+    }
+
+    /**
+     * 获取吐司
+     *
+     * @return 用户吐司
+     */
+    protected UserToast getUserToast() {
+        return AppEnv.getUserToast();
     }
 
     /**

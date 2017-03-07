@@ -105,7 +105,7 @@ public class TitleLayout extends RelativeLayout {
         mRightMode = typedArray.getInt(R.styleable.TitleLayout_tl_rightMode, 0);
         mLeftText = typedArray.getString(R.styleable.TitleLayout_tl_leftText);
         mLeftIcon = typedArray.getResourceId(R.styleable.TitleLayout_tl_leftIcon,
-                R.drawable.back);
+                R.drawable.icon_back);
         mTitleText = typedArray.getString(R.styleable.TitleLayout_tl_titleText);
         mRightText = typedArray.getString(R.styleable.TitleLayout_tl_rightText);
         mRightIcon = typedArray.getResourceId(R.styleable.TitleLayout_tl_rightIcon,

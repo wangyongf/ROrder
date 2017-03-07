@@ -27,7 +27,6 @@ import android.os.Looper;
  */
 public class MyApplication extends Application {
 
-    private static final String TAG = "MyApplication";
 
     // TODO: 17-2-20 调研CoordinatorLayout+TabLayout方式实现该效果
 
@@ -36,10 +35,6 @@ public class MyApplication extends Application {
     private static long mMainThreadID;
     private static Looper mMainLooper;
     private static Handler mHandler;
-
-    public static String getTAG() {
-        return TAG;
-    }
 
     public static Context getContext() {
         return mContext;
@@ -94,6 +89,7 @@ public class MyApplication extends Application {
      * 初始化各种配置
      */
     private void initConfig() {
-
+        //初始化AppEnv
+        AppEnv.init(this);
     }
 }

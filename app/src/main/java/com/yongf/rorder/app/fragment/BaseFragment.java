@@ -11,6 +11,10 @@
 package com.yongf.rorder.app.fragment;
 
 import android.app.Fragment;
+import android.widget.Toast;
+
+import com.yongf.rorder.app.application.AppEnv;
+import com.yongf.rorder.component.toast.UserToast;
 
 /**
  * BaseFragment
@@ -24,4 +28,15 @@ public class BaseFragment extends Fragment {
 
     private static final String TAG = "BaseFragment";
 
+    protected static int LENGTH_LONG = Toast.LENGTH_LONG;
+    protected static int LENGTH_SHORT = Toast.LENGTH_SHORT;
+
+    /**
+     * 获取用户吐司
+     *
+     * @return
+     */
+    protected UserToast getUserToast() {
+        return AppEnv.getUserToast();
+    }
 }

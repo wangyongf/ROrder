@@ -23,7 +23,7 @@ import rx.Observable;
  * @see
  * @since ROder V0.1
  */
-public class DataObservable {
+public final class DataObservable {
 
     public static final int TYPE_NETWORK = 0;
     public static final int TYPE_CACHE_DISK = 1;

@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/app_size10"
-            app:div_leftIcon="@drawable/email"
+            app:div_leftIcon="@drawable/icon_email"
             app:div_leftMode="text_icon"
             app:div_leftText="@string/my_message"
             app:div_rightMode="icon" />

@@ -13,7 +13,7 @@
         android:layout_height="@dimen/app_size18"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/app_size10"
-        android:src="@drawable/clock" />
+        android:src="@drawable/icon_clock" />
 
     <TextView
         android:id="@+id/tv_tip"
@@ -35,5 +35,5 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="@dimen/app_size10"
-        android:src="@drawable/close" />
+        android:src="@drawable/icon_close" />
 </RelativeLayout>

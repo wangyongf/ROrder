@@ -191,7 +191,7 @@
             android:layout_height="@dimen/app_size25"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/app_size10"
-            android:src="@drawable/email" />
+            android:src="@drawable/icon_email" />
 
         <TextView
             android:id="@+id/tv_rmb"

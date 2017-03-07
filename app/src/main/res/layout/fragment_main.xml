@@ -196,6 +196,7 @@
                     android:textSize="@dimen/app_txt_size15" />
 
                 <Button
+                    android:id="@+id/btn_appoint"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/app_size40"
                     android:layout_marginLeft="@dimen/app_size8"

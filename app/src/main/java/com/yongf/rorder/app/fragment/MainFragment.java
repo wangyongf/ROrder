@@ -17,6 +17,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -54,6 +55,7 @@ public class MainFragment extends BaseFragment {
     private CarouselView mCarouselView;
     private TextView mTvCouponOriginalPrice;
     private LinearLayout mLlActivityDesc;
+    private Button mBtnAppoint;
 
     // FIXME: 17-3-1 单例模式，线程安全
     public static MainFragment newInstance() {
@@ -76,6 +78,11 @@ public class MainFragment extends BaseFragment {
         mTvCouponOriginalPrice = (TextView) view.findViewById(R.id.tv_coupon_original_price);
         mTvCouponOriginalPrice.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);                    //添加删除线
         ((TextView) view.findViewById(R.id.tv_coupon_original_price2)).getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);            //添加删除线
+
+        mBtnAppoint = (Button) view.findViewById(R.id.btn_appoint);
+        mBtnAppoint.setOnClickListener(v -> {
+            getUserToast().toast("点击了预约", LENGTH_LONG);
+        });
 
         mLlActivityDesc = (LinearLayout) view.findViewById(R.id.ll_activity_desc);
         mLlActivityDesc.setOnClickListener(v -> {

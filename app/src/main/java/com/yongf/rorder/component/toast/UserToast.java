@@ -1,7 +1,13 @@
 package com.yongf.rorder.component.toast;
 
 import android.content.Context;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.yongf.rorder.R;
 
 /**
  * 用户吐司
@@ -13,6 +19,7 @@ import android.widget.Toast;
 public class UserToast {
 
     private Context mContext;
+    private Toast mToast;
 
     public UserToast(Context context) {
         mContext = context;
@@ -34,6 +41,37 @@ public class UserToast {
      * @param length 吐司显示时长
      */
     public void simpleToast(String msg, int length) {
-        Toast.makeText(mContext, msg, length).show();
+        if (mToast == null) {
+            mToast = Toast.makeText(mContext, msg, length);
+        } else {
+            mToast.setText(msg);
+            mToast.setDuration(length);
+        }
+        mToast.show();
+    }
+
+    /**
+     * 隐藏吐司
+     */
+    public void cancelToast() {
+        if (mToast != null) {
+            mToast.cancel();
+        }
+    }
+
+    /**
+     * 使用默认布局创建吐司
+     *
+     * @param msg    吐司文字
+     * @param length 吐司显示时长
+     */
+    public void toast(String msg, int length) {
+        Toast toast = new Toast(mContext);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.user_toast_default, null);
+        ((TextView) view.findViewById(R.id.tv_desc)).setText(msg);
+        toast.setView(view);
+        toast.setDuration(length);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
     }
 }
