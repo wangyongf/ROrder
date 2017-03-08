@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -69,6 +70,23 @@ public class UserToast {
         Toast toast = new Toast(mContext);
         View view = LayoutInflater.from(mContext).inflate(R.layout.user_toast_default, null);
         ((TextView) view.findViewById(R.id.tv_desc)).setText(msg);
+        toast.setView(view);
+        toast.setDuration(length);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
+    }
+
+    /**
+     * 使用默认布局创建吐司，用于显示错误信息等
+     *
+     * @param msg    吐司文字
+     * @param length 吐司显示时长
+     */
+    public void toastError(String msg, int length) {
+        Toast toast = new Toast(mContext);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.user_toast_default, null);
+        ((TextView) view.findViewById(R.id.tv_desc)).setText(msg);
+        ((ImageView) view.findViewById(R.id.iv_icon)).setImageResource(R.drawable.icon_close_white);
         toast.setView(view);
         toast.setDuration(length);
         toast.setGravity(Gravity.CENTER, 0, 0);
