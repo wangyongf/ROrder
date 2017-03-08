@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_color_white_smoke"
+    android:orientation="vertical">
+
+    <com.yongf.rorder.widget.TitleLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tl_leftMode="none"
+        app:tl_rightMode="none"
+        app:tl_titleText="广场" />
+
+    <!--排行榜-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/app_size8"
+        android:layout_marginRight="@dimen/app_size8"
+        android:layout_marginTop="@dimen/app_size10"
+        android:background="@color/app_color_square_lightSeaGreen"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_size25"
+            android:text="排行榜"
+            android:textColor="@color/app_color_white"
+            android:textSize="@dimen/app_txt_size20" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/app_size20"
+            android:layout_marginTop="@dimen/app_size5"
+            android:text="Rank"
+            android:textColor="@color/app_color_white"
+            android:textSize="@dimen/app_txt_size15" />
+    </LinearLayout>
+
+    <!--评论、实景-->
+    <!--TODO: 将图片背景圆角化，如何处理？-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/app_size8"
+        android:layout_marginRight="@dimen/app_size8"
+        android:layout_marginTop="@dimen/app_size5"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/app_size100"
+            android:layout_weight="1"
+            android:background="@drawable/image_3"></LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/app_size100"
+            android:layout_marginLeft="@dimen/app_size5"
+            android:layout_weight="1"
+            android:background="@drawable/image_4"></LinearLayout>
+    </LinearLayout>
+</LinearLayout>

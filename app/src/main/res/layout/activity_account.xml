@@ -99,7 +99,7 @@
             android:layout_marginTop="@dimen/app_size10"
             app:div_leftIcon="@drawable/share"
             app:div_leftMode="text_icon"
-            app:div_leftText="@string/share_diancaibao"
+            app:div_leftText="@string/share_app"
             app:div_rightMode="icon" />
 
         <View
