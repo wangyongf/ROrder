@@ -54,10 +54,19 @@ public class UserToast {
     /**
      * 隐藏吐司
      */
-    public void cancelToast() {
+    public void cancelSimpleToast() {
         if (mToast != null) {
             mToast.cancel();
         }
+    }
+
+    /**
+     * 使用默认布局创建吐司
+     *
+     * @param msg 吐司文字
+     */
+    public void toast(String msg) {
+        toast(msg, Toast.LENGTH_SHORT);
     }
 
     /**
@@ -67,9 +76,40 @@ public class UserToast {
      * @param length 吐司显示时长
      */
     public void toast(String msg, int length) {
+        toast(msg, length, R.drawable.icon_selected_white);
+    }
+
+    /**
+     * 使用默认布局创建吐司，用于显示错误信息
+     *
+     * @param msg 吐司文字
+     */
+    public void toastError(String msg) {
+        toastError(msg, Toast.LENGTH_SHORT);
+    }
+
+    /**
+     * 使用默认布局创建吐司，用于显示错误信息
+     *
+     * @param msg    吐司文字
+     * @param length 吐司显示时长
+     */
+    public void toastError(String msg, int length) {
+        toast(msg, length, R.drawable.icon_close_white);
+    }
+
+    /**
+     * 使用默认布局创建吐司
+     *
+     * @param msg    吐司文字
+     * @param length 吐司显示时长
+     * @param resId  自定义图标
+     */
+    public void toast(String msg, int length, int resId) {
         Toast toast = new Toast(mContext);
         View view = LayoutInflater.from(mContext).inflate(R.layout.user_toast_default, null);
         ((TextView) view.findViewById(R.id.tv_desc)).setText(msg);
+        ((ImageView) view.findViewById(R.id.iv_icon)).setImageResource(resId);
         toast.setView(view);
         toast.setDuration(length);
         toast.setGravity(Gravity.CENTER, 0, 0);
@@ -77,19 +117,14 @@ public class UserToast {
     }
 
     /**
-     * 使用默认布局创建吐司，用于显示错误信息等
+     * 自定义布局创建吐司
      *
-     * @param msg    吐司文字
-     * @param length 吐司显示时长
+     * @param msg      吐司文字
+     * @param length   吐司显示时长
+     * @param layoutId 使用的布局资源ID
+     * @param resId
      */
-    public void toastError(String msg, int length) {
-        Toast toast = new Toast(mContext);
-        View view = LayoutInflater.from(mContext).inflate(R.layout.user_toast_default, null);
-        ((TextView) view.findViewById(R.id.tv_desc)).setText(msg);
-        ((ImageView) view.findViewById(R.id.iv_icon)).setImageResource(R.drawable.icon_close_white);
-        toast.setView(view);
-        toast.setDuration(length);
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        toast.show();
+    public void toast(String msg, int length, int layoutId, int resId) {
+        //ignored
     }
 }
