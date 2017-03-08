@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">点菜宝</string>
+    <string name="app_name">美味宝</string>
     <string name="app_version_name">版本: v</string>
     <string name="app_text_register">注册</string>
     <string name="app_text_login">登录</string>
