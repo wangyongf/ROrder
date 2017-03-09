@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--TODO: 貌似不能图片圆角→_→ -->
+    <!--<item>
+        <shape>
+            <corners android:radius="@dimen/app_size100"/>
+        </shape>
+    </item>
+    <item android:drawable="@drawable/image_3">-->
+        <!--<shape>
+            <corners android:radius="@dimen/app_size10" />
+        </shape>-->
+    <!--</item>-->
+
+</layer-list>

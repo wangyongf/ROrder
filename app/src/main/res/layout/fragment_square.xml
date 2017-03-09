@@ -1,68 +1,243 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/app_color_white_smoke"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
-    <com.yongf.rorder.widget.TitleLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:tl_leftMode="none"
-        app:tl_rightMode="none"
-        app:tl_titleText="广场" />
-
-    <!--排行榜-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/app_size8"
-        android:layout_marginRight="@dimen/app_size8"
-        android:layout_marginTop="@dimen/app_size10"
-        android:background="@color/app_color_square_lightSeaGreen"
-        android:gravity="center_horizontal"
+        android:layout_height="match_parent"
+        android:background="@color/app_color_white_smoke"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <com.yongf.rorder.widget.TitleLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/app_size25"
-            android:text="排行榜"
-            android:textColor="@color/app_color_white"
-            android:textSize="@dimen/app_txt_size20" />
+            app:tl_leftMode="none"
+            app:tl_rightMode="none"
+            app:tl_titleText="广场" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <!--排行榜-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_size100"
+            android:layout_marginLeft="@dimen/app_size8"
+            android:layout_marginRight="@dimen/app_size8"
+            android:layout_marginTop="@dimen/app_size10"
+            android:background="@color/app_color_square_lightSeaGreen"
+            android:gravity="center_horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/app_size25"
+                    android:text="排行榜"
+                    android:textColor="@color/app_color_white"
+                    android:textSize="@dimen/app_txt_size20" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/app_size20"
+                    android:layout_marginTop="@dimen/app_size5"
+                    android:text="Rank"
+                    android:textColor="@color/app_color_white"
+                    android:textSize="@dimen/app_txt_size15" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!--评论、实景-->
+        <!--TODO: 将图片背景圆角化，如何处理？-->
+        <!--TODO: CircleCornerLinearLayout 圆角线性布局-->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/app_size20"
+            android:layout_marginLeft="@dimen/app_size8"
+            android:layout_marginRight="@dimen/app_size8"
             android:layout_marginTop="@dimen/app_size5"
-            android:text="Rank"
-            android:textColor="@color/app_color_white"
-            android:textSize="@dimen/app_txt_size15" />
-    </LinearLayout>
+            android:orientation="horizontal">
 
-    <!--评论、实景-->
-    <!--TODO: 将图片背景圆角化，如何处理？-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/app_size8"
-        android:layout_marginRight="@dimen/app_size8"
-        android:layout_marginTop="@dimen/app_size5"
-        android:orientation="horizontal">
+            <!--评论-->
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/app_size100"
+                android:layout_weight="1"
+                android:background="@drawable/image_3">
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_comment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="评论"
+                        android:textColor="@color/app_color_white"
+                        android:textSize="@dimen/app_txt_size18" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Comment"
+                        android:textColor="@color/app_color_white"
+                        android:textSize="@dimen/app_txt_size15" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!--实景-->
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/app_size100"
+                android:layout_marginLeft="@dimen/app_size5"
+                android:layout_weight="1"
+                android:background="@drawable/image_4">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_picture"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="实景"
+                        android:textColor="@color/app_color_white"
+                        android:textSize="@dimen/app_txt_size18" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pictures"
+                        android:textColor="@color/app_color_white"
+                        android:textSize="@dimen/app_txt_size15" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!--精选专题-->
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="@dimen/app_size100"
-            android:layout_weight="1"
-            android:background="@drawable/image_3"></LinearLayout>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_size10"
+            android:background="@color/app_color_white"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/app_size8"
+            android:paddingLeft="@dimen/app_size10"
+            android:paddingRight="@dimen/app_size10"
+            android:paddingTop="@dimen/app_size8">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="@dimen/app_size100"
-            android:layout_marginLeft="@dimen/app_size5"
-            android:layout_weight="1"
-            android:background="@drawable/image_4"></LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="@dimen/app_size3"
+                    android:layout_height="@dimen/app_size15"
+                    android:background="@color/app_color_bright_red" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/app_size8"
+                    android:gravity="center"
+                    android:text="精选专题"
+                    android:textColor="@color/app_color_black"
+                    android:textSize="@dimen/app_txt_size15" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="可预约桌位看得见"
+                    android:textColor="@color/app_color_gray"
+                    android:textSize="@dimen/app_txt_size12"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--美味大数据，看看你是哪款吃货-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_size120"
+            android:layout_marginLeft="@dimen/app_size8"
+            android:layout_marginRight="@dimen/app_size8"
+            android:layout_marginTop="@dimen/app_size10">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image_5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="本周精品推荐"
+                android:textColor="@color/app_color_white"
+                android:textSize="@dimen/app_txt_size25" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/app_size10"
+            android:text="最地道香港美食空降魔都--港岛金沙"
+            android:textColor="@color/app_color_black" />
+
+        <!--美味大数据，看看你是哪款吃货-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_size120"
+            android:layout_marginLeft="@dimen/app_size8"
+            android:layout_marginRight="@dimen/app_size8"
+            android:layout_marginTop="@dimen/app_size10">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image_1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="看看你是哪款吃货"
+                android:textColor="@color/app_color_white"
+                android:textSize="@dimen/app_txt_size25" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/app_size10"
+            android:text="美味大数据，看看你是哪款吃货"
+            android:textColor="@color/app_color_black" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_size20" />
     </LinearLayout>
-</LinearLayout>
+</ScrollView>
