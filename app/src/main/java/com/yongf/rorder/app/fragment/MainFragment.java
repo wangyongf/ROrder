@@ -10,7 +10,6 @@
 
 package com.yongf.rorder.app.fragment;
 
-import android.app.AlertDialog;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -25,6 +24,7 @@ import android.widget.TextView;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 import com.yongf.rorder.R;
+import com.yongf.rorder.component.dialog.NativeDialogHelper;
 
 /**
  * MainFragment
@@ -86,14 +86,8 @@ public class MainFragment extends BaseFragment {
 
         mLlActivityDesc = (LinearLayout) view.findViewById(R.id.ll_activity_desc);
         mLlActivityDesc.setOnClickListener(v -> {
-            AlertDialog alertDialog = new AlertDialog.Builder(getActivity())
-                    .setTitle("活动说明")
-                    .setMessage(R.string.fragment_main_coupon_activity_desc)
-                    .setPositiveButton("我知道了", (dialogInterface, i) -> {
-                        //ignored
-                    })
-                    .create();
-            alertDialog.show();
+            NativeDialogHelper.nativeDialog(getActivity(), "活动说明",
+                    R.string.fragment_main_coupon_activity_desc, "我知道了", false);
         });
 
         return view;
