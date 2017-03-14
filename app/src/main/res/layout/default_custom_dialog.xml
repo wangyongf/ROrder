@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_custom_dialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_color_black_opacity25"
+    android:clickable="true">
+
+    <LinearLayout
+        android:layout_width="@dimen/app_size300"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/app_color_white"
+        android:clickable="true"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/app_size15"
+        android:paddingLeft="@dimen/app_size20"
+        android:paddingRight="@dimen/app_size20"
+        android:paddingTop="@dimen/app_size15">
+
+        <TextView
+            android:id="@+id/tv_dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="京豆使用规则"
+            android:textColor="@color/app_color_black"
+            android:textSize="@dimen/app_txt_size18" />
+
+        <FrameLayout
+            android:id="@+id/fl_dialog_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_size20">
+
+            <TextView
+                android:id="@+id/tv_dialog_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="使用条件\n1.订单金额大于20元(含);\n2.京豆数量大于1000个(含);"
+                android:textColor="@color/app_color_gray"
+                android:textSize="@dimen/app_txt_size15" />
+        </FrameLayout>
+
+        <!--placeholder-->
+        <View
+            android:id="@+id/view_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/ll_button_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_size20"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/app_size45"
+                android:layout_weight="1"
+                android:background="@color/app_color_gray"
+                android:text="取消"
+                android:textColor="@color/app_color_white"
+                android:textSize="@dimen/app_txt_size20" />
+
+            <Button
+                android:id="@+id/btn_confirm"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/app_size45"
+                android:layout_marginLeft="@dimen/app_size15"
+                android:layout_weight="1"
+                android:background="@color/app_color_bright_red"
+                android:text="确定"
+                android:textColor="@color/app_color_white"
+                android:textSize="@dimen/app_txt_size20"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

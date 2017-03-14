@@ -24,7 +24,8 @@ import android.widget.TextView;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 import com.yongf.rorder.R;
-import com.yongf.rorder.component.dialog.NativeDialogHelper;
+import com.yongf.rorder.component.dialog.CustomDialog;
+import com.yongf.rorder.component.dialog.UserDialog;
 
 /**
  * MainFragment
@@ -86,8 +87,21 @@ public class MainFragment extends BaseFragment {
 
         mLlActivityDesc = (LinearLayout) view.findViewById(R.id.ll_activity_desc);
         mLlActivityDesc.setOnClickListener(v -> {
-            NativeDialogHelper.nativeDialog(getActivity(), "活动说明",
-                    R.string.fragment_main_coupon_activity_desc, "我知道了", false);
+//            NativeDialogHelper.nativeDialog(getActivity(), "活动说明",
+//                    R.string.fragment_main_coupon_activity_desc, "我知道了", false);
+
+            CustomDialog customDialog = UserDialog.customDialog(getActivity(), "活动说明", getString(R.string.fragment_main_coupon_activity_desc),
+                    new String[]{"取消", "确认"}, (dialog, position) -> {
+                        switch (position) {
+                            case 0:
+                                getUserToast().simpleToast("点击了取消");
+                                break;
+                            case 1:
+                                dialog.dismiss();
+                                break;
+                        }
+                    });
+            customDialog.show();
         });
 
         return view;

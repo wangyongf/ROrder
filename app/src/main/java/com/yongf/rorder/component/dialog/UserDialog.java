@@ -9,5 +9,20 @@ package com.yongf.rorder.component.dialog;
  *  0.1         Scott Wang     17-3-14       新增：Create	
  */
 
+import android.content.Context;
+import android.support.annotation.NonNull;
+
 public class UserDialog {
+
+    public static CustomDialog customDialog(@NonNull Context context, String title, String message, String[] buttons,
+                                            CustomDialog.OnButtonClickListener onButtonClickListener) {
+        CustomDialog dialog = new CustomDialog.Builder(context)
+                .setTitle(title)
+                .setMessage(message)
+                .setButton(buttons)
+                .setOnButtonClickListener(onButtonClickListener)
+                .build();
+
+        return dialog;
+    }
 }

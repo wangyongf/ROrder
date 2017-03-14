@@ -28,4 +28,32 @@
 
     <color name="app_color_user_toast_dimgray">#AF000000</color>
     <color name="app_color_square_lightSeaGreen">#06B3B3</color>
+
+    <!--各种透明颜色-不透明度-->
+
+    <color name="app_color_white_opacity0">#00FFFFFF</color>
+    <color name="app_color_white_opacity5">#0DFFFFFF</color>
+    <color name="app_color_white_opacity10">#1AFFFFFF</color>
+    <color name="app_color_white_opacity15">#26FFFFFF</color>
+    <color name="app_color_white_opacity20">#33FFFFFF</color>
+    <color name="app_color_white_opacity25">#40FFFFFF</color>
+    <color name="app_color_white_opacity30">#4DFFFFFF</color>
+    <color name="app_color_white_opacity35">#59FFFFFF</color>
+    <color name="app_color_white_opacity40">#66FFFFFF</color>
+    <color name="app_color_white_opacity45">#73FFFFFF</color>
+    <color name="app_color_white_opacity50">#80FFFFFF</color>
+    <color name="app_color_white_opacity55">#8CFFFFFF</color>
+    <color name="app_color_white_opacity60">#99FFFFFF</color>
+    <color name="app_color_white_opacity65">#A6FFFFFF</color>
+    <color name="app_color_white_opacity70">#B3FFFFFF</color>
+    <color name="app_color_white_opacity75">#BFFFFFFF</color>
+    <color name="app_color_white_opacity80">#CCFFFFFF</color>
+    <color name="app_color_white_opacity85">#D9FFFFFF</color>
+    <color name="app_color_white_opacity90">#E6FFFFFF</color>
+    <color name="app_color_white_opacity95">#F2FFFFFF</color>
+    <color name="app_color_white_opacity100">#FFFFFFFF</color>
+
+    <color name="app_color_black_opacity25">#40000000</color>
+
+    <!--各种透明颜色-不透明度-->
 </resources>

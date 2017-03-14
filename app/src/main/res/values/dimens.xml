@@ -68,6 +68,15 @@
     <dimen name="app_size198">198dp</dimen>
     <dimen name="app_size199">199dp</dimen>
     <dimen name="app_size200">200dp</dimen>
+    <dimen name="app_size210">210dp</dimen>
+    <dimen name="app_size220">220dp</dimen>
+    <dimen name="app_size230">230dp</dimen>
+    <dimen name="app_size240">240dp</dimen>
+    <dimen name="app_size250">250dp</dimen>
+    <dimen name="app_size260">260dp</dimen>
+    <dimen name="app_size270">270dp</dimen>
+    <dimen name="app_size280">280dp</dimen>
+    <dimen name="app_size290">290dp</dimen>
     <dimen name="app_size300">300dp</dimen>
     <dimen name="app_size400">400dp</dimen>
     <dimen name="app_size500">500dp</dimen>
