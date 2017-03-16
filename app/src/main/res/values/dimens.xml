@@ -29,6 +29,10 @@
     <dimen name="app_size23">23dp</dimen>
     <dimen name="app_size24">24dp</dimen>
     <dimen name="app_size25">25dp</dimen>
+    <dimen name="app_size26">26dp</dimen>
+    <dimen name="app_size27">27dp</dimen>
+    <dimen name="app_size28">28dp</dimen>
+    <dimen name="app_size29">29dp</dimen>
     <dimen name="app_size30">30dp</dimen>
     <dimen name="app_size31">31dp</dimen>
     <dimen name="app_size32">32dp</dimen>
@@ -50,6 +54,11 @@
     <dimen name="app_size90">90dp</dimen>
     <dimen name="app_size100">100dp</dimen>
     <dimen name="app_size110">110dp</dimen>
+    <dimen name="app_size111">111dp</dimen>
+    <dimen name="app_size112">112dp</dimen>
+    <dimen name="app_size113">113dp</dimen>
+    <dimen name="app_size114">114dp</dimen>
+    <dimen name="app_size115">115dp</dimen>
     <dimen name="app_size120">120dp</dimen>
     <dimen name="app_size130">130dp</dimen>
     <dimen name="app_size140">140dp</dimen>

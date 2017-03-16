@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_color_white_smoke"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_color_white"
+        android:orientation="horizontal"
+        android:padding="@dimen/app_size10">
+
+        <ImageView
+            android:layout_width="@dimen/app_size100"
+            android:layout_height="@dimen/app_size100"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/app_size15"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="茶香居茶楼会馆(成山路店)"
+                android:textColor="@color/app_color_black"
+                android:textSize="@dimen/app_txt_size18" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/app_size10"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                    style="@style/Widget.MaterialRatingBar.RatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/app_size25"
+                    android:rating="2.4" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/app_size10"
+                    android:text="￥64/人"
+                    android:textColor="@color/app_color_gray"
+                    android:textSize="@dimen/app_txt_size15" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/app_size10"
+                android:gravity="center_vertical"
+                android:text="咖啡馆"
+                android:textColor="@color/app_color_gray"
+                android:textSize="@dimen/app_txt_size15" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/app_size1"
+                android:layout_marginTop="@dimen/app_size15"
+                android:background="@color/app_color_divider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/app_size10">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/app_color_login_blue"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/app_size5"
+                    android:text="预约"
+                    android:textColor="@color/app_color_white"
+                    android:textSize="@dimen/app_txt_size12" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/app_size10"
+                    android:gravity="center_vertical"
+                    android:text="今日剩余2桌可预约"
+                    android:textColor="@color/app_color_darker_gray"
+                    android:textSize="@dimen/app_txt_size15" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
