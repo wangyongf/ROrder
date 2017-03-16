@@ -14,13 +14,14 @@ import android.support.annotation.NonNull;
 
 public class UserDialog {
 
-    public static CustomDialog customDialog(@NonNull Context context, String title, String message, String[] buttons,
+    public static CustomDialog customDialog(@NonNull Context context, String title, String message, String[] buttons, boolean cancelable,
                                             CustomDialog.OnButtonClickListener onButtonClickListener) {
         CustomDialog dialog = new CustomDialog.Builder(context)
                 .setTitle(title)
                 .setMessage(message)
                 .setButton(buttons)
                 .setOnButtonClickListener(onButtonClickListener)
+                .setCancelable(cancelable)
                 .build();
 
         return dialog;

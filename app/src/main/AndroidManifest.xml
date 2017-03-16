@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.yongf.rorder">
 
+    <!--permissions-->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".app.application.MyApplication"
         android:allowBackup="true"

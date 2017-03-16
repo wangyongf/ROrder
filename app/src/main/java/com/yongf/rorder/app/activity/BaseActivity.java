@@ -20,6 +20,7 @@ import com.yongf.rorder.app.application.AppEnv;
 import com.yongf.rorder.component.toast.UserToast;
 
 import butterknife.ButterKnife;
+import rx.subscriptions.CompositeSubscription;
 
 /**
  * BaseActivity
@@ -33,15 +34,17 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public static final int LAST_EXIT_DURATION = 2000;
 
-    protected static int LENGTH_LONG = Toast.LENGTH_LONG;
-    protected static int LENGTH_SHORT = Toast.LENGTH_SHORT;
-
     private static final String TAG = "BaseActivity";
 
-    /**
-     * 上一次在主页点击返回按钮的时刻
-     */
-    private long mLastExitTime = 0;
+    protected static int LENGTH_LONG = Toast.LENGTH_LONG;
+    protected static int LENGTH_SHORT = Toast.LENGTH_SHORT;
+    protected CompositeSubscription mSubscription;                  //复合订阅
+
+    private long mLastExitTime = 0;                     //上一次在主页点击返回按钮的时刻
+
+    public CompositeSubscription getSubscription() {
+        return mSubscription;
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,6 +53,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         setContentView(getLayoutId());
 
         ButterKnife.bind(this);
+        mSubscription = new CompositeSubscription();
 
         before();
         initPresenter();

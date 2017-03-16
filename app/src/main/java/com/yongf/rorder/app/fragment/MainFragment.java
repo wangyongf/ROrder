@@ -87,11 +87,8 @@ public class MainFragment extends BaseFragment {
 
         mLlActivityDesc = (LinearLayout) view.findViewById(R.id.ll_activity_desc);
         mLlActivityDesc.setOnClickListener(v -> {
-//            NativeDialogHelper.nativeDialog(getActivity(), "活动说明",
-//                    R.string.fragment_main_coupon_activity_desc, "我知道了", false);
-
             CustomDialog customDialog = UserDialog.customDialog(getActivity(), "活动说明", getString(R.string.fragment_main_coupon_activity_desc),
-                    new String[]{"取消", "确认"}, (dialog, position) -> {
+                    new String[]{"取消", "确认"}, false, (dialog, position) -> {
                         switch (position) {
                             case 0:
                                 getUserToast().simpleToast("点击了取消");

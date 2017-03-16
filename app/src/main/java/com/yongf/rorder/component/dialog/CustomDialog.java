@@ -15,6 +15,7 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.yongf.rorder.R;
@@ -28,6 +29,7 @@ public class CustomDialog extends Dialog {
 
     private String mTitle;
     private String mMessage;
+    private boolean mCancelable;
 
     private TextView mTvDialogTitle;
     private TextView mTvDialogMessage;
@@ -37,6 +39,7 @@ public class CustomDialog extends Dialog {
 
     private String[] mButtons;                  //底部按钮文字描述，数组大小代表按钮个数
     private OnButtonClickListener mOnButtonClickListener;               //底部按钮点击事件
+    private RelativeLayout mRlCustomDialog;
 
     public CustomDialog(@NonNull Context context, String title, String message, String[] buttons, OnButtonClickListener onButtonClickListener) {
         super(context);
@@ -56,6 +59,7 @@ public class CustomDialog extends Dialog {
     private void initView() {
         setContentView(getLayoutId());
 
+        mRlCustomDialog = (RelativeLayout) findViewById(R.id.rl_custom_dialog);
         mTvDialogTitle = (TextView) findViewById(R.id.tv_dialog_title);
         mTvDialogMessage = (TextView) findViewById(R.id.tv_dialog_message);
         mBtnCancel = (Button) findViewById(R.id.btn_cancel);
@@ -130,6 +134,7 @@ public class CustomDialog extends Dialog {
         private Context mContext;
         private String mTitle;
         private String mMessage;
+        private boolean mCancelable;            //是否点击取消对话框
         private String[] mButtons;                  //底部按钮文字描述，数组大小代表按钮个数
         private OnButtonClickListener mOnButtonClickListener;               //底部按钮点击事件
 
@@ -188,10 +193,22 @@ public class CustomDialog extends Dialog {
         }
 
         /**
+         * 设置点击对话框外部是否关闭对话框
+         *
+         * @param cancelable
+         * @return
+         */
+        public Builder setCancelable(boolean cancelable) {
+            mCancelable = cancelable;
+            return this;
+        }
+
+        /**
          * 完成构造CustomDialog
          */
         public CustomDialog build() {
             mCustomDialog = new CustomDialog(mContext, mTitle, mMessage, mButtons, mOnButtonClickListener);
+            mCustomDialog.setCancelable(mCancelable);
             return mCustomDialog;
         }
     }
