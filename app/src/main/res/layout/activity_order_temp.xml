@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--标题栏-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_color_chocolate"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/app_size8"
+        android:paddingLeft="@dimen/app_size8"
+        android:paddingRight="@dimen/app_size15"
+        android:paddingTop="@dimen/app_size8">
+
+        <ImageView
+            android:layout_width="@dimen/app_size35"
+            android:layout_height="@dimen/app_size35"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/icon_arrow_left_white" />
+
+        <!--TODO: 换成MaterialEditText，这个还是不行！-->
+        <!--TODO: 如果MaterialEditText不能方便定制，那就自己搞一个吧。。。-->
+        <!--TODO: 主要是Drawable的padding，很烦。。。-->
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="@dimen/app_size35"
+            android:layout_marginLeft="@dimen/app_size8"
+            android:layout_weight="1"
+            android:background="@color/app_color_white"
+            android:drawableLeft="@drawable/ic_search_black_24dp"
+            android:drawablePadding="@dimen/app_size10"
+            android:hint="五粮液" />
+
+        <ImageView
+            android:layout_width="@dimen/app_size35"
+            android:layout_height="@dimen/app_size35"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/app_size15"
+            android:src="@drawable/icon_category_white" />
+    </LinearLayout>
+
+    <!--TabLayout-->
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tl_nav"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_size60"
+        app:tabSelectedTextColor="#59D"
+        app:tabTextColor="#999" />
+
+    <!--ViewPager-->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_option"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>
