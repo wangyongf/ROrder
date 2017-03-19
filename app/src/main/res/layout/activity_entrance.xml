@@ -77,5 +77,10 @@
             android:id="@+id/order_activity2"
             style="@style/EntranceButton"
             android:text="OrderActivity2" />
+
+        <Button
+            android:id="@+id/order_temp_activity"
+            style="@style/EntranceButton"
+            android:text="OrderTempActivity"/>
     </LinearLayout>
 </ScrollView>

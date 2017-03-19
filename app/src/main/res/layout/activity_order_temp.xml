@@ -51,9 +51,26 @@
         app:tabSelectedTextColor="#59D"
         app:tabTextColor="#999" />
 
-    <!--ViewPager-->
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vp_option"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--ViewPager-->
+            <com.yongf.rorder.widget.ScrollableViewPager
+                android:id="@+id/vp_option"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>

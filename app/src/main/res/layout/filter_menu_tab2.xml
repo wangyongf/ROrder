@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_color_white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/app_size10"
+            android:paddingRight="@dimen/app_size10"
+            android:paddingTop="@dimen/app_size15">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="包装种类"
+                android:textColor="@color/app_color_black"
+                android:textSize="@dimen/app_txt_size18" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_size15"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/app_size10"
+            android:paddingRight="@dimen/app_size10">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/app_color_silver_opacity25"
+                android:paddingBottom="@dimen/app_size10"
+                android:paddingLeft="@dimen/app_size15"
+                android:paddingRight="@dimen/app_size15"
+                android:paddingTop="@dimen/app_size10"
+                android:text="瓶装"
+                android:textColor="@color/app_color_black"
+                android:textSize="@dimen/app_txt_size15" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/app_size15"
+                android:background="@color/app_color_bright_red"
+                android:paddingBottom="@dimen/app_size10"
+                android:paddingLeft="@dimen/app_size15"
+                android:paddingRight="@dimen/app_size15"
+                android:paddingTop="@dimen/app_size10"
+                android:text="礼盒装"
+                android:textColor="@color/app_color_white"
+                android:textSize="@dimen/app_txt_size15" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/app_size15"
+                android:background="@color/app_color_silver_opacity25"
+                android:paddingBottom="@dimen/app_size10"
+                android:paddingLeft="@dimen/app_size15"
+                android:paddingRight="@dimen/app_size15"
+                android:paddingTop="@dimen/app_size10"
+                android:text="坛装"
+                android:textColor="@color/app_color_black"
+                android:textSize="@dimen/app_txt_size15" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_size25"
+            android:orientation="horizontal">
+
+            <!--TODO: 给白色按钮加一个边框-->
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/app_color_white"
+                android:paddingBottom="@dimen/app_size15"
+                android:paddingTop="@dimen/app_size15"
+                android:text="取消"
+                android:textColor="@color/app_color_black"
+                android:textSize="@dimen/app_txt_size18" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/app_color_bright_red"
+                android:paddingBottom="@dimen/app_size15"
+                android:paddingTop="@dimen/app_size15"
+                android:text="确定"
+                android:textColor="@color/app_color_white"
+                android:textSize="@dimen/app_txt_size18" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view_bg"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/app_color_black_opacity60" />
+</LinearLayout>

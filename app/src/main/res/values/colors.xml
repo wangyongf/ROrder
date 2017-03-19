@@ -21,7 +21,7 @@
     <color name="separator_line">#ECECEC</color>
     <color name="title">#222222</color>
     <color name="subtitle">#999999</color>
-    
+
     <color name="app_color_coupon_txt_coral">#FE9C40</color>
     <color name="app_color_coupon_txtbg_oldlace">#FEF3E5</color>
     <color name="app_color_hottoday_txtbg_crimson">#DC3C26</color>
@@ -54,6 +54,10 @@
     <color name="app_color_white_opacity100">#FFFFFFFF</color>
 
     <color name="app_color_black_opacity25">#40000000</color>
+    <color name="app_color_black_opacity50">#80000000</color>
+    <color name="app_color_black_opacity60">#99000000</color>
+    <color name="app_color_black_opacity75">#BF000000</color>
+    <color name="app_color_silver_opacity25">#40B6B6B6</color>
 
     <!--各种透明颜色-不透明度-->
 
@@ -65,4 +69,5 @@
     <color name="un_press_color">#9C27B0</color>
 
     <color name="app_color_chocolate">#CA4936</color>
+    <color name="appc_color_silver">#B6B6B6</color>
 </resources>
