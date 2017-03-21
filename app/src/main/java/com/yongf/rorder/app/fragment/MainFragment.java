@@ -24,8 +24,8 @@ import android.widget.TextView;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 import com.yongf.rorder.R;
-import com.yongf.rorder.component.dialog.CustomDialog;
-import com.yongf.rorder.component.dialog.UserDialog;
+import com.yongf.rorder.widget.dialog.CustomDialog;
+import com.yongf.rorder.widget.dialog.UserDialog;
 
 /**
  * MainFragment

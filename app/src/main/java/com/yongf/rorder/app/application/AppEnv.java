@@ -12,7 +12,7 @@ package com.yongf.rorder.app.application;
 
 import android.content.Context;
 
-import com.yongf.rorder.component.toast.UserToast;
+import com.yongf.rorder.widget.toast.UserToast;
 
 /**
  * App控制中心

@@ -1,4 +1,4 @@
-package com.yongf.rorder.component.toast;
+package com.yongf.rorder.widget.toast;
 
 import android.content.Context;
 import android.view.Gravity;

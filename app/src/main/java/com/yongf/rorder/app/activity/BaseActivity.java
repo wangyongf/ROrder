@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import com.yongf.rorder.R;
 import com.yongf.rorder.app.application.AppEnv;
-import com.yongf.rorder.component.toast.UserToast;
+import com.yongf.rorder.widget.toast.UserToast;
 
 import butterknife.ButterKnife;
 import rx.subscriptions.CompositeSubscription;

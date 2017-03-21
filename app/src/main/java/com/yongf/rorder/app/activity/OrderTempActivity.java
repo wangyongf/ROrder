@@ -9,8 +9,6 @@ import com.yongf.rorder.R;
 
 public class OrderTempActivity extends BaseActivity {
 
-    // TODO: 17-3-19 将Component包下的类移到Widget包下去
-
     @Override
     protected int getLayoutId() {
         return R.layout.activity_order_temp;

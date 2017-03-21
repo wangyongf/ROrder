@@ -1,4 +1,4 @@
-package com.yongf.rorder.component.dialog;
+package com.yongf.rorder.widget.dialog;
 /*
  * Copyright (C) 1996-2016 YONGF Inc.All Rights Reserved.
  * Scott Wang blog.54yongf.com | blog.csdn.net/yongf2014	

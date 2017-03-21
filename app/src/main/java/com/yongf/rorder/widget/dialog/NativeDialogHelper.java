@@ -1,4 +1,4 @@
-package com.yongf.rorder.component.dialog;
+package com.yongf.rorder.widget.dialog;
 
 import android.app.AlertDialog;
 import android.content.Context;

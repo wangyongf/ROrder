@@ -14,7 +14,7 @@ import android.app.Fragment;
 import android.widget.Toast;
 
 import com.yongf.rorder.app.application.AppEnv;
-import com.yongf.rorder.component.toast.UserToast;
+import com.yongf.rorder.widget.toast.UserToast;
 
 /**
  * BaseFragment
