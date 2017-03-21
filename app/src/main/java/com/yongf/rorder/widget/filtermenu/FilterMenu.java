@@ -12,20 +12,13 @@ package com.yongf.rorder.widget.filtermenu;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
-import android.support.v4.view.PagerAdapter;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.yongf.rorder.R;
 import com.yongf.rorder.widget.ScrollableViewPager;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,9 +33,8 @@ import butterknife.ButterKnife;
  */
 public class FilterMenu extends LinearLayout {
 
-    // TODO: 17-3-20 完成各种setter, getter
-    // TODO: 17-3-20 加入设置各种Tab
     // TODO: 17-3-20 后续还可以考虑把ScrollableViewPager抽出来，继续完善
+    // TODO: 17-3-22 将Menu主体部分和阴影部分剥离，FrameLayout
 
     @BindView(R.id.tab_layout)
     TabLayout mTabLayout;
@@ -50,8 +42,11 @@ public class FilterMenu extends LinearLayout {
     @BindView(R.id.view_pager)
     ScrollableViewPager mViewPager;
 
-    private String[] mTitles = {"热卖", "价格", "人气", "筛选"};
-    private List<View> mPages;
+    private final boolean DEFAULT_CAN_CANCEL = true;
+
+    private boolean mCanCancel = DEFAULT_CAN_CANCEL;            //点击阴影部分是否收起
+
+    private FilterMenuAdapter mMenuAdapter;
 
     public FilterMenu(Context context) {
         this(context, null);
@@ -67,6 +62,16 @@ public class FilterMenu extends LinearLayout {
         LayoutInflater.from(getContext()).inflate(R.layout.layout_filter_menu, this, true);
         ButterKnife.bind(this);
 
+        init();
+    }
+
+    private void init() {
+
+    }
+
+    public void setAdapter(FilterMenuAdapter adapter) {
+        mMenuAdapter = adapter;
+
         initView();
         initEvent();
     }
@@ -75,25 +80,14 @@ public class FilterMenu extends LinearLayout {
      * 初始化控件视图
      */
     private void initView() {
-        View page1 = LayoutInflater.from(getContext()).inflate(R.layout.filter_menu_tab1, null);
-        View page2 = LayoutInflater.from(getContext()).inflate(R.layout.filter_menu_tab2, null);
-        View page3 = LayoutInflater.from(getContext()).inflate(R.layout.filter_menu_tab1, null);
-        View page4 = LayoutInflater.from(getContext()).inflate(R.layout.filter_menu_tab2, null);
-        mPages = new ArrayList<>();
-        mPages.add(page1);
-        mPages.add(page2);
-        mPages.add(page3);
-        mPages.add(page4);
-
-        MyAdapter adapter = new MyAdapter(getContext(), mPages);
-        mViewPager.setAdapter(adapter);
+        mViewPager.setAdapter(mMenuAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
-        mTabLayout.setTabsFromPagerAdapter(adapter);                //这一步不能少！！！
+        mTabLayout.setTabsFromPagerAdapter(mMenuAdapter);                //这一步不能少！！！
 
         for (int i = 0; i < mTabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = mTabLayout.getTabAt(i);
             if (tab != null) {
-                tab.setCustomView(adapter.getTabView(i));
+                tab.setCustomView(mMenuAdapter.getTab(i));
             }
         }
 
@@ -126,11 +120,13 @@ public class FilterMenu extends LinearLayout {
         }
 
         //设置ViewPager阴影区域的点击事件
-        for (int i = 0; i < mPages.size(); i++) {
-            View view = mPages.get(i);
+        for (int i = 0; i < mMenuAdapter.getCount(); i++) {
+            View view = mMenuAdapter.getTabMenu(i);
             View viewBg = view.findViewById(R.id.view_bg);
             viewBg.setOnClickListener(v -> {
-                toggleFilterMenu(false);
+                if (mCanCancel) {
+                    toggleFilterMenu(false);
+                }
             });
         }
     }
@@ -142,68 +138,5 @@ public class FilterMenu extends LinearLayout {
      */
     private void toggleFilterMenu(boolean isMenuVisible) {
         mViewPager.setVisibility(isMenuVisible ? View.VISIBLE : View.GONE);
-    }
-
-    public interface OnTabSelectedListener {
-        void onTabSelected(int position);
-    }
-
-    class MyAdapter extends PagerAdapter {
-
-        private Context mContext;
-        private List<View> mTabs;
-
-        public MyAdapter(Context context, List<View> tabs) {
-            mContext = context;
-            mTabs = tabs;
-        }
-
-        @Override
-        public int getCount() {
-            return mTitles.length;
-        }
-
-        @Override
-        public Object instantiateItem(ViewGroup container, int position) {
-            container.addView(mTabs.get(position));
-            return mTabs.get(position);
-        }
-
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
-            container.removeView(mTabs.get(position));
-        }
-
-        @Override
-        public boolean isViewFromObject(View view, Object object) {
-            return view == object;
-        }
-
-        public View getTabView(int position) {
-            View view = LayoutInflater.from(mContext).inflate(R.layout.filter_menu_tabitem, null);
-            TextView tvTab = (TextView) view.findViewById(R.id.tv_tab);
-            ImageView iv1 = (ImageView) view.findViewById(R.id.iv1);
-            ImageView iv2 = (ImageView) view.findViewById(R.id.iv2);
-
-            tvTab.setVisibility(View.VISIBLE);
-            tvTab.setText(mTitles[position]);
-
-            switch (position) {
-                case 0:
-                case 2:
-                    iv1.setVisibility(View.GONE);
-                    iv2.setVisibility(View.GONE);
-                    break;
-                case 1:
-                    iv1.setVisibility(View.VISIBLE);
-                    iv2.setVisibility(View.VISIBLE);
-                    break;
-                case 3:
-                    iv1.setVisibility(View.VISIBLE);
-                    iv2.setVisibility(View.GONE);
-                    break;
-            }
-            return view;
-        }
     }
 }
