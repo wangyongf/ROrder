@@ -15,6 +15,7 @@ import android.support.design.widget.TabLayout;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.yongf.rorder.R;
@@ -34,7 +35,6 @@ import butterknife.ButterKnife;
 public class FilterMenu extends LinearLayout {
 
     // TODO: 17-3-20 后续还可以考虑把ScrollableViewPager抽出来，继续完善
-    // TODO: 17-3-22 将Menu主体部分和阴影部分剥离，FrameLayout
 
     @BindView(R.id.tab_layout)
     TabLayout mTabLayout;
@@ -42,9 +42,8 @@ public class FilterMenu extends LinearLayout {
     @BindView(R.id.view_pager)
     ScrollableViewPager mViewPager;
 
-    private final boolean DEFAULT_CAN_CANCEL = true;
-
-    private boolean mCanCancel = DEFAULT_CAN_CANCEL;            //点击阴影部分是否收起
+    @BindView(R.id.fl_content)
+    FrameLayout mFlContent;
 
     private FilterMenuAdapter mMenuAdapter;
 
@@ -84,6 +83,8 @@ public class FilterMenu extends LinearLayout {
         mTabLayout.setupWithViewPager(mViewPager);
         mTabLayout.setTabsFromPagerAdapter(mMenuAdapter);                //这一步不能少！！！
 
+        mFlContent.addView(mMenuAdapter.getContent());              //设置内容View
+
         for (int i = 0; i < mTabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = mTabLayout.getTabAt(i);
             if (tab != null) {
@@ -118,17 +119,6 @@ public class FilterMenu extends LinearLayout {
                 });
             }
         }
-
-        //设置ViewPager阴影区域的点击事件
-        for (int i = 0; i < mMenuAdapter.getCount(); i++) {
-            View view = mMenuAdapter.getTabMenu(i);
-            View viewBg = view.findViewById(R.id.view_bg);
-            viewBg.setOnClickListener(v -> {
-                if (mCanCancel) {
-                    toggleFilterMenu(false);
-                }
-            });
-        }
     }
 
     /**
@@ -138,5 +128,13 @@ public class FilterMenu extends LinearLayout {
      */
     private void toggleFilterMenu(boolean isMenuVisible) {
         mViewPager.setVisibility(isMenuVisible ? View.VISIBLE : View.GONE);
+    }
+
+    public void show() {
+        toggleFilterMenu(true);
+    }
+
+    public void hide() {
+        toggleFilterMenu(false);
     }
 }

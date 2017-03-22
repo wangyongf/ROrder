@@ -1,5 +1,6 @@
 package com.yongf.rorder.app.activity;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -47,14 +48,19 @@ public class OrderTempActivity extends BaseActivity {
         mPages.add(page3);
         mPages.add(page4);
 
-        MyAdapter adapter = new MyAdapter();
+        MyAdapter adapter = new MyAdapter(this);
+        adapter.setOnOpacityBgClickListener(position -> mFilterMenu.hide());
         mFilterMenu.setAdapter(adapter);
     }
 
     class MyAdapter extends FilterMenuAdapter {
 
+        public MyAdapter(Context context) {
+            super(context);
+        }
+
         @Override
-        public View getTabMenu(int position) {
+        public View getTabMenuContent(int position) {
             return mPages.get(position);
         }
 
@@ -84,6 +90,12 @@ public class OrderTempActivity extends BaseActivity {
                     break;
             }
             return view;
+        }
+
+        @Override
+        public View getContent() {
+            return LayoutInflater.from(OrderTempActivity.this)
+                    .inflate(R.layout.filter_menu_content, null);
         }
 
         @Override

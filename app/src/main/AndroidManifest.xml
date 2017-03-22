@@ -36,7 +36,6 @@
         <activity android:name=".app.activity.InputPhoneActivity" />
         <activity android:name=".app.activity.InputEmailActivity" />
         <activity android:name=".app.activity.SearchActivity" />
-        <activity android:name=".app.activity.OrderActivity2" />
         <activity android:name=".app.activity.OrderTempActivity" />
 
         <!--Entrance-->
