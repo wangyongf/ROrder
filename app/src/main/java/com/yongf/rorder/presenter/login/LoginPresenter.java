@@ -10,14 +10,17 @@
 
 package com.yongf.rorder.presenter.login;
 
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.widget.Toast;
 
-import com.yongf.rorder.app.application.DataObservable;
 import com.yongf.rorder.app.application.MyApplication;
-import com.yongf.rorder.app.application.UrlCenter;
 import com.yongf.rorder.model.BaseBean;
 import com.yongf.rorder.model.login.LoginResultBean;
+import com.yongf.rorder.net.DataObservable;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
@@ -65,7 +68,8 @@ public class LoginPresenter implements LoginContract.Presenter {
             mView.showInputError();
             return;
         }
-        performLogin(username, password);
+
+        performLogin(buildParams(username, password));
     }
 
     private boolean checkInput(String username, String password) {
@@ -75,12 +79,11 @@ public class LoginPresenter implements LoginContract.Presenter {
     /**
      * 请求网络，执行登录过程
      *
-     * @param username 用户名
-     * @param password 密码
+     * @param params 请求参数
      */
-    private void performLogin(String username, String password) {
+    private void performLogin(Map<String, String> params) {
         mSubscription.add(
-                DataObservable.login(UrlCenter.LOGIN_URL, username, password)
+                DataObservable.login(DataObservable.TYPE_NETWORK, params)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(new Observer<BaseBean>() {
@@ -110,5 +113,13 @@ public class LoginPresenter implements LoginContract.Presenter {
                             }
                         })
         );
+    }
+
+    @NonNull
+    private Map<String, String> buildParams(String username, String password) {
+        Map<String, String> map = new HashMap<>();
+        map.put("username", username);
+        map.put("password", password);
+        return map;
     }
 }

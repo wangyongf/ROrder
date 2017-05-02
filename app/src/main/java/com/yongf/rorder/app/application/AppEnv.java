@@ -12,6 +12,7 @@ package com.yongf.rorder.app.application;
 
 import android.content.Context;
 
+import com.yongf.rorder.net.UrlCenter;
 import com.yongf.rorder.widget.toast.UserToast;
 
 /**

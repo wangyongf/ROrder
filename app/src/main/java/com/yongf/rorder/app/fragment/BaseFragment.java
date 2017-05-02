@@ -16,6 +16,8 @@ import android.widget.Toast;
 import com.yongf.rorder.app.application.AppEnv;
 import com.yongf.rorder.widget.toast.UserToast;
 
+import rx.subscriptions.CompositeSubscription;
+
 /**
  * BaseFragment
  *
@@ -26,10 +28,12 @@ import com.yongf.rorder.widget.toast.UserToast;
  */
 public class BaseFragment extends Fragment {
 
-    private static final String TAG = "BaseFragment";
+    private static final String TAG = BaseFragment.class.getSimpleName();
 
     protected static int LENGTH_LONG = Toast.LENGTH_LONG;
     protected static int LENGTH_SHORT = Toast.LENGTH_SHORT;
+
+    protected CompositeSubscription mSubscription = new CompositeSubscription();
 
     /**
      * 获取用户吐司
@@ -38,5 +42,18 @@ public class BaseFragment extends Fragment {
      */
     protected UserToast getUserToast() {
         return AppEnv.getUserToast();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        if (getSubscription() != null && getSubscription().isUnsubscribed()) {
+            getSubscription().unsubscribe();
+        }
+    }
+
+    protected CompositeSubscription getSubscription() {
+        return mSubscription;
     }
 }
