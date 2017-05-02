@@ -14,8 +14,8 @@ buildscript {
 
 allprojects {
     repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }            //阿里云maven仓库
         jcenter()
-
         maven { url "https://jitpack.io" }
     }
 }

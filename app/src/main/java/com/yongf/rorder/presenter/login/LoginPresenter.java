@@ -13,9 +13,9 @@ package com.yongf.rorder.presenter.login;
 import android.text.TextUtils;
 import android.widget.Toast;
 
-import com.yongf.rorder.app.application.Conf;
 import com.yongf.rorder.app.application.DataObservable;
 import com.yongf.rorder.app.application.MyApplication;
+import com.yongf.rorder.app.application.UrlCenter;
 import com.yongf.rorder.model.BaseBean;
 import com.yongf.rorder.model.login.LoginResultBean;
 
@@ -80,7 +80,7 @@ public class LoginPresenter implements LoginContract.Presenter {
      */
     private void performLogin(String username, String password) {
         mSubscription.add(
-                DataObservable.login(Conf.LOGIN_URL, username, password)
+                DataObservable.login(UrlCenter.LOGIN_URL, username, password)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(new Observer<BaseBean>() {

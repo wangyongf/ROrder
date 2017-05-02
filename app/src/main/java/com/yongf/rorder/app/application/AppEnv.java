@@ -24,13 +24,19 @@ import com.yongf.rorder.widget.toast.UserToast;
  */
 public final class AppEnv {
 
+    // TODO: 17-5-2 白天的主要任务: 1. 搭建Robolectric测试框架; 2. 完成Volley网络请求框架
+    // TODO: 17-5-2 3. 测试initConfig方法
+
     private static Context sContext;
-    private static String sMainSite = "http://blog.54yongf.com/";
+    private static String sMainSite = UrlCenter.ALIYUN_SITE;
     private static UserToast sUserToast;
 
     public static void init(Context context) {
         sContext = context;
         sUserToast = new UserToast(context);
+
+        //初始化xml配置
+        Config.init(context);
     }
 
     public static String getMainSite() {

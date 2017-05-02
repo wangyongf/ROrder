@@ -34,15 +34,17 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public static final int LAST_EXIT_DURATION = 2000;
 
-    private static final String TAG = "BaseActivity";
+    private static final String TAG = BaseActivity.class.getSimpleName();
 
     protected static int LENGTH_LONG = Toast.LENGTH_LONG;
     protected static int LENGTH_SHORT = Toast.LENGTH_SHORT;
-    protected CompositeSubscription mSubscription;                  //复合订阅
+
+    //复合订阅
+    protected CompositeSubscription mSubscription = new CompositeSubscription();
 
     private long mLastExitTime = 0;                     //上一次在主页点击返回按钮的时刻
 
-    public CompositeSubscription getSubscription() {
+    protected CompositeSubscription getSubscription() {
         return mSubscription;
     }
 
@@ -53,7 +55,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         setContentView(getLayoutId());
 
         ButterKnife.bind(this);
-        mSubscription = new CompositeSubscription();
 
         before();
         initPresenter();
@@ -133,6 +134,15 @@ public abstract class BaseActivity extends AppCompatActivity {
             return;
         } else {
             super.onBackPressed();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (getSubscription() != null && getSubscription().isUnsubscribed()) {
+            getSubscription().unsubscribe();
         }
     }
 }
