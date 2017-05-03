@@ -32,6 +32,8 @@ android {
         }
     }
 
+    useLibrary 'org.apache.http.legacy'
+
 //    sourceSets {
 //        String javaDir = "src/main/java"
 //        String assetsDir = "src/main/assets"
