@@ -91,5 +91,8 @@ public class MyApplication extends Application {
     private void initConfig() {
         //初始化AppEnv
         AppEnv.init(this);
+
+        //初始化各种SDK
+        SdkInitHelper.init(this);
     }
 }

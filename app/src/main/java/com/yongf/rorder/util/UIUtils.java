@@ -27,7 +27,7 @@ import com.yongf.rorder.app.application.MyApplication;
  * @see
  * @since ROrder1.0
  */
-public class UIUtil {
+public class UIUtils {
 
     /**
      * 得到Assets资源

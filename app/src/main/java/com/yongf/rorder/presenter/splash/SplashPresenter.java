@@ -10,7 +10,7 @@
 
 package com.yongf.rorder.presenter.splash;
 
-import com.yongf.rorder.util.UIUtil;
+import com.yongf.rorder.util.UIUtils;
 
 import rx.subscriptions.CompositeSubscription;
 
@@ -54,6 +54,6 @@ public class SplashPresenter implements SplashContract.Presenter {
 
     @Override
     public void go2HomeWithInterval(int interval) {
-        UIUtil.getMainHandler().postDelayed(() -> mView.go2Home(), interval);
+        UIUtils.getMainHandler().postDelayed(() -> mView.go2Home(), interval);
     }
 }

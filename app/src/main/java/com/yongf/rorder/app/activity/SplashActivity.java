@@ -19,7 +19,7 @@ import android.widget.TextView;
 import com.yongf.rorder.R;
 import com.yongf.rorder.presenter.splash.SplashContract;
 import com.yongf.rorder.presenter.splash.SplashPresenter;
-import com.yongf.rorder.util.PackageUtil;
+import com.yongf.rorder.util.PackageUtils;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -73,7 +73,7 @@ public class SplashActivity extends BaseActivity implements SplashContract.View 
      * 设置启动页面的版本号字段
      */
     public void setVersionName() {
-        String versionName = PackageUtil.getVersionName(this);
+        String versionName = PackageUtils.getVersionName(this);
         mTvSplashAppVersion.setText(getString(R.string.app_version_name) + versionName);
     }
 

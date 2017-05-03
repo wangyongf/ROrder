@@ -76,6 +76,11 @@
         <Button
             android:id="@+id/order_temp_activity"
             style="@style/EntranceButton"
-            android:text="OrderTempActivity"/>
+            android:text="OrderTempActivity" />
+
+        <Button
+            android:id="@+id/phone_login_activity"
+            style="@style/EntranceButton"
+            android:text="PhoneLoginActivity" />
     </LinearLayout>
 </ScrollView>

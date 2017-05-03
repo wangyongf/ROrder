@@ -5,6 +5,19 @@
     <!--permissions-->
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!--SMSSDK-->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--SMSSDK-->
+
     <application
         android:name=".app.application.MyApplication"
         android:allowBackup="true"
@@ -37,6 +50,7 @@
         <activity android:name=".app.activity.InputEmailActivity" />
         <activity android:name=".app.activity.SearchActivity" />
         <activity android:name=".app.activity.OrderTempActivity" />
+        <activity android:name=".app.activity.PhoneLoginActivity" />
 
         <!--Entrance-->
         <activity android:name=".app.activity.EntranceActivity">
@@ -46,6 +60,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--SMSSDK-->
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
     </application>
 
 </manifest>

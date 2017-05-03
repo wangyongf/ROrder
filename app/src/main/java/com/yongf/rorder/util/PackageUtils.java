@@ -15,14 +15,14 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
 /**
- * PackageUtil
+ * PackageUtils
  *
  * @author Scott Wang
  * @version 1.0, 17-1-8
  * @see
  * @since ROder V0.1
  */
-public class PackageUtil {
+public class PackageUtils {
 
     /**
      * 获取版本号

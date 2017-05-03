@@ -25,8 +25,8 @@ import com.yongf.rorder.widget.toast.UserToast;
  */
 public final class AppEnv {
 
-    // TODO: 17-5-2 白天的主要任务: 1. 搭建Robolectric测试框架; 2. 完成Volley网络请求框架
-    // TODO: 17-5-2 3. 测试initConfig方法
+    // TODO: 17-5-3 接入Mob的短信验证码SDK
+    // TODO: 17-5-3 完成android端的登录注册功能及界面,并且和后台联调成功!
 
     private static Context sContext;
     private static String sMainSite = UrlCenter.ALIYUN_SITE;

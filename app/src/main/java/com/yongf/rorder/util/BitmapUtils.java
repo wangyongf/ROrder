@@ -18,7 +18,7 @@ package com.yongf.rorder.util;
  * @see
  * @since ROder V0.1
  */
-public class BitmapUtil {
+public class BitmapUtils {
 
 
 }

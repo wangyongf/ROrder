@@ -101,4 +101,9 @@ public class EntranceActivity extends BaseActivity {
     void go2OrderTemp() {
         IntentHelper.simpleJump(this, OrderTempActivity.class);
     }
+
+    @OnClick(R.id.phone_login_activity)
+    void go2PhoneLogin() {
+        IntentHelper.simpleJump(this, PhoneLoginActivity.class);
+    }
 }
