@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.yongf.rorder.R;
 import com.yongf.rorder.app.application.AppEnv;
+import com.yongf.rorder.util.CheckUtils;
 import com.yongf.rorder.widget.TitleLayout;
 
 import org.json.JSONObject;
@@ -99,6 +100,7 @@ public class PhoneLoginActivity extends BaseActivity {
 
     private String mCode;
     private String mPhone;
+    private int VERIFY_CODE_LENGTH = 6;
 
     @Override
     protected int getLayoutId() {
@@ -113,8 +115,6 @@ public class PhoneLoginActivity extends BaseActivity {
     @Override
     protected void initView() {
         super.initView();
-
-//        mBtnLogin.setText("获取验证码");
     }
 
     @Override
@@ -137,12 +137,18 @@ public class PhoneLoginActivity extends BaseActivity {
         SMSSDK.registerEventHandler(mEventHandler);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        SMSSDK.unregisterEventHandler(mEventHandler);
+    }
+
     @OnClick(R.id.tv_code)
     void onVerifyCode() {
         mPhone = mEtPhone.getText().toString().trim();
-        // TODO: 17-5-3 对手机号的格式进行校验!
-        if (TextUtils.isEmpty(mPhone)) {
-            AppEnv.getUserToast().simpleToast("请输入手机号");
+        if (!CheckUtils.isPhone(mPhone)) {
+            AppEnv.getUserToast().simpleToast("请输入正确的手机号");
             return;
         }
 
@@ -165,20 +171,16 @@ public class PhoneLoginActivity extends BaseActivity {
 
     @OnClick(R.id.btn_login)
     void onLogin() {
-        // TODO: 17-5-3 对输入(手机号&验证码)进行校验~
         mCode = mEtCode.getText().toString().trim();
-        if (TextUtils.isEmpty(mCode)) {
-            AppEnv.getUserToast().simpleToast("请输入验证码");
+        if (!CheckUtils.isPhone(mPhone)) {
+            AppEnv.getUserToast().simpleToast("请输入正确的手机号");
+            return;
+        }
+        if (!CheckUtils.checkNumberLength(mCode, VERIFY_CODE_LENGTH)) {
+            AppEnv.getUserToast().simpleToast("请输入正确的验证码");
             return;
         }
 
         SMSSDK.submitVerificationCode(REGION_CODE, mPhone, mCode);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        SMSSDK.unregisterEventHandler(mEventHandler);
     }
 }

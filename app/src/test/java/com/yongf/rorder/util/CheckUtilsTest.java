@@ -37,4 +37,10 @@ public class CheckUtilsTest {
         assertEquals(false, CheckUtils.isEmail("15221382253"));
     }
 
+    @Test
+    public void checkNumberLength() throws Exception {
+        assertEquals(true, CheckUtils.checkNumberLength("123", 3));
+        assertEquals(false, CheckUtils.checkNumberLength(null, 2));
+        assertEquals(true, CheckUtils.checkNumberLength("", 0));
+    }
 }

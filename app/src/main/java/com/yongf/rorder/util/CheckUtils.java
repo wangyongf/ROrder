@@ -49,4 +49,21 @@ public class CheckUtils {
 
         return m.matches();
     }
+
+    /**
+     * 判断数字的位数
+     *
+     * @param number
+     * @param length
+     *
+     * @return
+     */
+    public static boolean checkNumberLength(String number, int length) {
+        if (number == null) {
+            return false;
+        }
+
+        Pattern p = Pattern.compile("\\d*");
+        return p.matcher(number).matches() && number.length() == length;
+    }
 }
