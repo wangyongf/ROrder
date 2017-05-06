@@ -87,5 +87,10 @@
             android:id="@+id/shopping_cart_activity"
             style="@style/EntranceButton"
             android:text="ShoppingCartActivity" />
+
+        <Button
+            android:id="@+id/my_main_activity"
+            style="@style/EntranceButton"
+            android:text="MyMainActivity" />
     </LinearLayout>
 </ScrollView>

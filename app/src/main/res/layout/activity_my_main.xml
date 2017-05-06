@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.yongf.rorder.widget.TitleLayout
+        android:id="@+id/tl_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tl_leftMode="none"
+        app:tl_rightMode="none"
+        app:tl_titleText="我的餐厅" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/app_size10"
+            android:paddingRight="@dimen/app_size10">
+
+            <!--随便看看-->
+            <RelativeLayout
+                android:id="@+id/rl_order"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/app_size120"
+                android:layout_weight="1"
+                android:background="@color/app_color_login_blue"
+                android:padding="@dimen/app_size15">
+
+                <ImageView
+                    android:layout_width="@dimen/app_size32"
+                    android:layout_height="@dimen/app_size32"
+                    android:src="@drawable/icon_search_white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:text="随便看看"
+                    android:textColor="@color/app_color_white"
+                    android:textSize="@dimen/app_txt_size24" />
+            </RelativeLayout>
+
+            <!--我的订单-->
+            <RelativeLayout
+                android:id="@+id/rl_myorder"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/app_size120"
+                android:layout_marginLeft="@dimen/app_size10"
+                android:layout_weight="1"
+                android:background="@android:color/holo_red_light"
+                android:padding="@dimen/app_size15">
+
+                <ImageView
+                    android:layout_width="@dimen/app_size32"
+                    android:layout_height="@dimen/app_size32"
+                    android:src="@drawable/icon_category_white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:text="我的订单"
+                    android:textColor="@color/app_color_white"
+                    android:textSize="@dimen/app_txt_size24" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_size10"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/app_size10"
+            android:paddingRight="@dimen/app_size10">
+
+            <!--个人中心-->
+            <RelativeLayout
+                android:id="@+id/rl_account"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/app_size120"
+                android:layout_weight="1"
+                android:background="@android:color/holo_blue_light"
+                android:padding="@dimen/app_size15">
+
+                <ImageView
+                    android:layout_width="@dimen/app_size32"
+                    android:layout_height="@dimen/app_size32"
+                    android:src="@drawable/icon_account_white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:text="个人中心"
+                    android:textColor="@color/app_color_white"
+                    android:textSize="@dimen/app_txt_size24" />
+            </RelativeLayout>
+
+            <!--关于我们-->
+            <RelativeLayout
+                android:id="@+id/rl_about"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/app_size120"
+                android:layout_marginLeft="@dimen/app_size10"
+                android:layout_weight="1"
+                android:background="@android:color/holo_purple"
+                android:padding="@dimen/app_size15">
+
+                <ImageView
+                    android:layout_width="@dimen/app_size32"
+                    android:layout_height="@dimen/app_size32"
+                    android:src="@drawable/icon_prompt_white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:text="关于我们"
+                    android:textColor="@color/app_color_white"
+                    android:textSize="@dimen/app_txt_size24" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--开始点餐-->
+    <TextView
+        android:id="@+id/tv_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/app_size20"
+        android:background="@drawable/circle_red_order"
+        android:gravity="center"
+        android:text="开始点餐"
+        android:textColor="@color/app_color_white"
+        android:textSize="@dimen/app_txt_size18" />
+</RelativeLayout>
