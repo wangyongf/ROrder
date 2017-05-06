@@ -10,12 +10,19 @@
 
 package com.yongf.rorder.net;
 
+import android.support.annotation.Nullable;
+import android.text.TextUtils;
+
 import com.google.gson.Gson;
 import com.kymjs.rxvolley.RxVolley;
 import com.kymjs.rxvolley.client.HttpParams;
 import com.yongf.rorder.app.application.AppEnv;
 import com.yongf.rorder.model.BaseBean;
 import com.yongf.rorder.model.login.LoginResultBean;
+import com.yongf.rorder.model.restaurant.CookbookBean;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -40,8 +47,30 @@ public final class DataObservable {
     private DataObservable() {
     }
 
-    public static Observable<LoginResultBean> login(int mode, Map<String, String> params) {
-        return buildObservable(mode, UrlCenter.LOGIN_URL, params, LoginResultBean.class);
+    /**
+     * 登录
+     *
+     * @param mode
+     * @param headers
+     *
+     * @return
+     */
+    public static Observable<LoginResultBean> login(int mode, Map<String, String> headers) {
+        return buildObservable(mode, UrlCenter.LOGIN_URL, RxVolley.Method.POST, headers,
+                null, LoginResultBean.class);
+    }
+
+    /**
+     * 获取商品菜单
+     *
+     * @param mode
+     * @param restaurantId
+     *
+     * @return
+     */
+    public static Observable<CookbookBean> goodsData(int mode, int restaurantId) {
+        return buildObservable(mode, UrlCenter.COOK_BOOK_PREFIX + restaurantId +
+                UrlCenter.COOK_BOOK_SUFFIX, RxVolley.Method.GET, null, null, CookbookBean.class);
     }
 
     /**
@@ -49,8 +78,8 @@ public final class DataObservable {
      *
      * @return
      */
-    private static <T extends BaseBean> Observable<T> buildObservable(int mode, String urlSuffix,
-                                                                      Map<String, String> map, Class<T> classOfT) {
+    private static <T extends BaseBean> Observable<T> buildObservable(int mode, String urlSuffix, int method,
+                                                                      @Nullable Map<String, String> headers, @Nullable String jsonBody, Class<T> classOfT) {
         // TODO: 17-1-15 完成网络层，网络请求队列
         // TODO: 17-1-16 考虑加入Rx三级缓存
         switch (mode) {
@@ -65,30 +94,62 @@ public final class DataObservable {
                 // TODO: 17-1-16 return getObservableFromNetwork
                 // TODO: 17-1-16 updateDisk
                 // TODO: 17-1-16 updateMemory
-                return buildObservableFromNetwork(urlSuffix, map, classOfT);
+                return buildObservableFromNetwork(urlSuffix, method, headers, jsonBody, classOfT);
             default:
                 throw new IllegalArgumentException("illegal argument type!");
         }
         return Observable.empty();
     }
 
-    private static <T extends BaseBean> Observable<T> buildObservableFromNetwork(String urlSuffix,
-                                                                                 Map<String, String> map, Class<T> classOfT) {
+    private static <T extends BaseBean> Observable<T> buildObservableFromNetwork(String urlSuffix, int method,
+                                                                                 Map<String, String> headers, String jsonBody, Class<T> classOfT) {
         HttpParams params = new HttpParams();
-        Map<String, String> header = createHeader(map);
+        //headers
+        Map<String, String> header = createHeader(headers);
         for (Map.Entry<String, String> entry : header.entrySet()) {
             params.putHeaders(entry.getKey(), entry.getValue());
         }
+        //body
+        if (!TextUtils.isEmpty(jsonBody)) {
+            params.putJsonParams(jsonBody);
+        }
 
         return new RxVolley.Builder()
+                .httpMethod(method)
                 .url(buildUrl(urlSuffix))
                 .params(params)
                 .contentType(RxVolley.ContentType.JSON)
                 .getResult()
                 .map(result -> {
                     String json = new String(result.data);
-                    return new Gson().fromJson(json, classOfT);
+                    // TODO: 17-5-6 后续还可以在这里拦截code等信息
+
+                    String data = parseData(json);
+                    if (data == null) {
+                        // TODO: 17-5-6 暂时不会手动触发onError...
+                    }
+
+                    return new Gson().fromJson(data, classOfT);
                 });
+    }
+
+    /**
+     * 从返回的统一格式的json数据中解析出data部分(字符串)
+     * 目前采取的方式是解析两次(应该能优化?)
+     *
+     * @param rawJson
+     *
+     * @return
+     */
+    private static String parseData(String rawJson) {
+        try {
+            JSONObject object = new JSONObject(rawJson);
+            return object.getJSONObject("data").toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
     /**
@@ -100,7 +161,9 @@ public final class DataObservable {
      */
     private static Map<String, String> createHeader(Map<String, String> map) {
         Map<String, String> headers = new HashMap<>();
-        headers.putAll(map);
+        if (map != null) {
+            headers.putAll(map);
+        }
         headers.putAll(createBaseHeader());
 
         return headers;

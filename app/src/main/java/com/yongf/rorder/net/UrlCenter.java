@@ -17,4 +17,11 @@ public class UrlCenter {
 
     //登录注册相关
     public static final String LOGIN_URL = "/Login/login.php";
+
+    /////// ------------------- Restaurant ------------------- ///////
+
+    //商品(菜单)
+    //api/v1/restaurant/{id}/cookbook
+    public static final String COOK_BOOK_PREFIX = "api/v1/restaurant/";
+    public static final String COOK_BOOK_SUFFIX = "/cookbook";
 }

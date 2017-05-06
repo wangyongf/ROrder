@@ -30,6 +30,8 @@ import com.flipboard.bottomsheet.BottomSheetLayout;
 import com.yongf.rorder.R;
 import com.yongf.rorder.app.application.AppEnv;
 import com.yongf.rorder.app.application.MyApplication;
+import com.yongf.rorder.model.restaurant.CookbookBean;
+import com.yongf.rorder.net.DataObservable;
 import com.yongf.rorder.widget.TitleLayout;
 
 import java.text.NumberFormat;
@@ -38,6 +40,9 @@ import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
@@ -347,7 +352,35 @@ public class ShoppingCartActivity extends BaseActivity {
         return view;
     }
 
+    /**
+     * 加载所有商品(菜品)信息
+     */
+    private void loadCookbook() {
+        int restaurantId = 0;
+        getSubscription().add(
+                DataObservable.goodsData(DataObservable.TYPE_NETWORK, restaurantId)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(new Subscriber<CookbookBean>() {
+                            @Override
+                            public void onCompleted() {
+                                //ignore
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+
+                            }
+
+                            @Override
+                            public void onNext(CookbookBean cookbookBean) {
+
+                            }
+                        }));
+    }
+
     /////// ------------------- GoodsItem ------------------- ///////
+    // TODO: 17-5-6 后期可以考虑干掉GoodsItem,现在先做一个桥接
     public static class GoodsItem {
         private static ArrayList<GoodsItem> goodsList;
         private static ArrayList<GoodsItem> typeList;
@@ -375,7 +408,8 @@ public class ShoppingCartActivity extends BaseActivity {
             return goodsList;
         }
 
-        private static void initData() {
+        // TODO: 17-5-6 明天就从这里下手
+        public static void initData() {
             goodsList = new ArrayList<>();
             typeList = new ArrayList<>();
             GoodsItem item = null;
@@ -741,6 +775,16 @@ public class ShoppingCartActivity extends BaseActivity {
             }
         }
 
+        @Override
+        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+            super.getItemOffsets(outRect, view, parent, state);
+            if (getOrientation(parent) == VERTICAL_LIST) {
+                outRect.set(0, 0, 0, mDivider.getIntrinsicHeight());
+            } else {
+                outRect.set(0, 0, mDivider.getIntrinsicWidth(), 0);
+            }
+        }
+
         private int getOrientation(RecyclerView parent) {
             LinearLayoutManager layoutManager;
             try {
@@ -783,16 +827,6 @@ public class ShoppingCartActivity extends BaseActivity {
                 final int right = Math.min(recyclerViewRight, left + mDivider.getIntrinsicHeight());
                 mDivider.setBounds(left, top, right, bottom);
                 mDivider.draw(c);
-            }
-        }
-
-        @Override
-        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-            super.getItemOffsets(outRect, view, parent, state);
-            if (getOrientation(parent) == VERTICAL_LIST) {
-                outRect.set(0, 0, 0, mDivider.getIntrinsicHeight());
-            } else {
-                outRect.set(0, 0, mDivider.getIntrinsicWidth(), 0);
             }
         }
     }
