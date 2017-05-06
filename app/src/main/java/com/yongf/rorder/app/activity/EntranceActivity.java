@@ -106,4 +106,9 @@ public class EntranceActivity extends BaseActivity {
     void go2PhoneLogin() {
         IntentHelper.simpleJump(this, PhoneLoginActivity.class);
     }
+
+    @OnClick(R.id.shopping_cart_activity)
+    void go2ShoppingCart() {
+        IntentHelper.simpleJump(this, ShoppingCartActivity.class);
+    }
 }

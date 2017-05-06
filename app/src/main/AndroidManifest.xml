@@ -51,6 +51,7 @@
         <activity android:name=".app.activity.SearchActivity" />
         <activity android:name=".app.activity.OrderTempActivity" />
         <activity android:name=".app.activity.PhoneLoginActivity" />
+        <activity android:name=".app.activity.ShoppingCartActivity" />
 
         <!--Entrance-->
         <activity android:name=".app.activity.EntranceActivity">

@@ -88,6 +88,11 @@ dependencies {
     //RxVolley
     compile 'com.kymjs.rxvolley:rxvolley:1.1.4'
     compile 'com.kymjs.rxvolley:okhttp3:1.1.4'
+    //bottomsheet-core
+    compile 'com.flipboard:bottomsheet-core:1.5.1'
+    //stickylistheaders
+    compile 'se.emilsjolander:stickylistheaders:2.7.0'
+
     //---------------------------------dependencies for test---------------------------------
     //Robolectric
     testCompile 'org.robolectric:robolectric:3.3.2'

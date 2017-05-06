@@ -82,5 +82,10 @@
             android:id="@+id/phone_login_activity"
             style="@style/EntranceButton"
             android:text="PhoneLoginActivity" />
+
+        <Button
+            android:id="@+id/shopping_cart_activity"
+            style="@style/EntranceButton"
+            android:text="ShoppingCartActivity" />
     </LinearLayout>
 </ScrollView>
