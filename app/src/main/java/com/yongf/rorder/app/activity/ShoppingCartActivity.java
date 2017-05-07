@@ -30,6 +30,7 @@ import android.widget.TextView;
 import com.flipboard.bottomsheet.BottomSheetLayout;
 import com.yongf.rorder.R;
 import com.yongf.rorder.app.application.AppEnv;
+import com.yongf.rorder.app.application.Config;
 import com.yongf.rorder.app.application.MyApplication;
 import com.yongf.rorder.model.restaurant.CookbookBean;
 import com.yongf.rorder.net.DataObservable;
@@ -51,7 +52,7 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 public class ShoppingCartActivity extends BaseActivity {
 
     private static final String TAG = ShoppingCartActivity.class.getSimpleName();
-    private static double MIN_CONSUMPTION = 100;                //最低消费
+    private static double MIN_CONSUMPTION = 10;                //最低消费
 
     @BindView(R.id.tl_title)
     TitleLayout mTlTitle;
@@ -139,6 +140,11 @@ public class ShoppingCartActivity extends BaseActivity {
                 }
             }
         });
+    }
+
+    @Override
+    protected boolean needRefreshDataWhenResume() {
+        return true;
     }
 
     //根据类别id获取分类的Position 用于滚动左侧的类别列表
@@ -366,7 +372,7 @@ public class ShoppingCartActivity extends BaseActivity {
      * 加载所有商品(菜品)信息
      */
     private void loadCookbook() {
-        int restaurantId = 0;
+        int restaurantId = Config.RESTAURANT_ID;
         getSubscription().add(
                 DataObservable.goodsData(DataObservable.TYPE_NETWORK, restaurantId)
                         .subscribeOn(Schedulers.io())
@@ -380,7 +386,9 @@ public class ShoppingCartActivity extends BaseActivity {
                             @Override
                             public void onError(Throwable e) {
                                 //数据加载失败,请稍后再试
-                                AppEnv.getUserToast().simpleToast("数据加载失败,请稍后再试");
+                                AppEnv.getUserToast().simpleToast("数据加载失败: " + e.getMessage());
+
+                                mockData();
                             }
 
                             @Override
@@ -391,10 +399,33 @@ public class ShoppingCartActivity extends BaseActivity {
     }
 
     /**
-     * 初始化数据
-     * 现在耦合性比较强,先不管了~
+     * 模拟数据
+     *
+     * @return
      */
-    public void updateData(@NonNull CookbookBean bean) {
+    private void mockData() {
+        dataList.clear();
+        typeList.clear();
+
+        GoodsItem item = null;
+        for (int i = 1; i < 15; i++) {
+            for (int j = 1; j < 10; j++) {
+                item = new GoodsItem(100 * i + j, Math.random() * 100, "模拟商品" + (100 * i + j), i, "模拟种类" + i);
+                dataList.add(item);
+            }
+            typeList.add(item);
+        }
+
+        myAdapter.notifyDataSetChanged();
+        typeAdapter.notifyDataSetChanged();
+    }
+
+    /**
+     * 初始化数据
+     */
+    private void updateData(@NonNull CookbookBean bean) {
+        // FIXME: 17-5-7 当数据量过少时,左边的分类点击不会切换~
+
         dataList.clear();
         typeList.clear();
 

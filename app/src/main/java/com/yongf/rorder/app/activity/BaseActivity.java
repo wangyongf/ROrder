@@ -16,8 +16,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.yongf.rorder.R;
-import com.yongf.rorder.app.application.AppEnv;
-import com.yongf.rorder.widget.toast.UserToast;
 
 import butterknife.ButterKnife;
 import rx.subscriptions.CompositeSubscription;
@@ -62,6 +60,15 @@ public abstract class BaseActivity extends AppCompatActivity {
         initData();
         initEvent();
         after();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (getSubscription() != null && getSubscription().isUnsubscribed()) {
+            getSubscription().unsubscribe();
+        }
     }
 
     /**
@@ -114,12 +121,13 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
-     * 获取吐司
+     * 页面重新获取焦点时是否要重新加载数据
+     * 默认是false
      *
-     * @return 用户吐司
+     * @return 是否要重新加载数据
      */
-    protected UserToast getUserToast() {
-        return AppEnv.getUserToast();
+    protected boolean needRefreshDataWhenResume() {
+        return false;
     }
 
     /**
@@ -138,11 +146,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    protected void onResume() {
+        super.onResume();
 
-        if (getSubscription() != null && getSubscription().isUnsubscribed()) {
-            getSubscription().unsubscribe();
+        if (needRefreshDataWhenResume()) {
+            initData();
         }
     }
 }

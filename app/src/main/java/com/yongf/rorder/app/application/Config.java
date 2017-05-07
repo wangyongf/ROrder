@@ -29,8 +29,12 @@ import java.io.InputStream;
  */
 public final class Config {
 
-    public static final String CONFIG = "config.xml";
+    public static final String CONFIG_ = "config.xml";
+    public static final String DEBUG_ = "debug";
+    public static final String RESTAURANT_ID_ = "restaurant_id";
+    
     public static boolean DEBUG = false;                //app是否处于调试模式
+    public static int RESTAURANT_ID = -1;               //restaurant_id
 
     public static void init(Context context) {
         initConfig(context);
@@ -43,7 +47,7 @@ public final class Config {
      */
     private static void initConfig(Context context) {
         try {
-            InputStream is = context.getAssets().open(CONFIG);
+            InputStream is = context.getAssets().open(CONFIG_);
             XmlPullParser parser = Xml.newPullParser();
             parser.setInput(is, "UTF-8");
 
@@ -53,9 +57,12 @@ public final class Config {
                     case XmlPullParser.START_DOCUMENT:
                         break;
                     case XmlPullParser.START_TAG:
-                        if (parser.getName().equals("debug")) {
+                        if (parser.getName().equals(DEBUG_)) {
                             parser.next();              //指向下一个(属性值)
                             DEBUG = Boolean.parseBoolean(parser.getText());
+                        } else if (parser.getName().equals(RESTAURANT_ID_)) {
+                            parser.next();
+                            RESTAURANT_ID = Integer.parseInt(parser.getText());
                         }
                     case XmlPullParser.END_TAG:
                         break;

@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <config>
+
+    <restaurant_id>1</restaurant_id>
+
+    <!--是否调试模式-->
     <debug>true</debug>
 </config>
