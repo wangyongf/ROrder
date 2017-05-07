@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
@@ -36,6 +37,7 @@ import com.yongf.rorder.widget.TitleLayout;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import butterknife.BindView;
@@ -75,7 +77,8 @@ public class ShoppingCartActivity extends BaseActivity {
     private View bottomSheet;
     private RecyclerView rvSelected;
 
-    private ArrayList<GoodsItem> dataList, typeList;
+    private ArrayList<GoodsItem> dataList = new ArrayList<>();
+    private ArrayList<GoodsItem> typeList = new ArrayList<>();
     private SparseArray<GoodsItem> selectedList;
     private SparseIntArray groupSelect;
     private GoodsAdapter myAdapter;
@@ -92,8 +95,6 @@ public class ShoppingCartActivity extends BaseActivity {
     protected void before() {
         nf = NumberFormat.getCurrencyInstance();
         nf.setMaximumFractionDigits(2);
-        dataList = GoodsItem.getGoodsList();
-        typeList = GoodsItem.getTypeList();
         selectedList = new SparseArray<>();
         groupSelect = new SparseIntArray();
     }
@@ -110,6 +111,11 @@ public class ShoppingCartActivity extends BaseActivity {
     }
 
     @Override
+    protected void initData() {
+        loadCookbook();
+    }
+
+    @Override
     protected void initEvent() {
         mTlTitle.setOnLeftIconClickListener(() -> finish());
 
@@ -121,6 +127,10 @@ public class ShoppingCartActivity extends BaseActivity {
 
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                if (firstVisibleItem >= dataList.size()) {
+                    return;
+                }
+
                 GoodsItem item = dataList.get(firstVisibleItem);
                 if (typeAdapter.selectTypeId != item.typeId) {
                     typeAdapter.selectTypeId = item.typeId;
@@ -369,21 +379,47 @@ public class ShoppingCartActivity extends BaseActivity {
 
                             @Override
                             public void onError(Throwable e) {
-
+                                //数据加载失败,请稍后再试
+                                AppEnv.getUserToast().simpleToast("数据加载失败,请稍后再试");
                             }
 
                             @Override
                             public void onNext(CookbookBean cookbookBean) {
-
+                                updateData(cookbookBean);
                             }
                         }));
+    }
+
+    /**
+     * 初始化数据
+     * 现在耦合性比较强,先不管了~
+     */
+    public void updateData(@NonNull CookbookBean bean) {
+        dataList.clear();
+        typeList.clear();
+
+        GoodsItem item = null;
+        List<CookbookBean.CategoriesBean> categories = bean.getCategories();
+        for (int i = 0; i < categories.size(); i++) {
+            CookbookBean.CategoriesBean categoriesBean = categories.get(i);
+            List<CookbookBean.CategoriesBean.ChildsBean> childs = categoriesBean.getChilds();
+            for (int j = 0; j < childs.size(); j++) {
+                CookbookBean.CategoriesBean.ChildsBean childsBean = childs.get(j);
+                item = new GoodsItem(childsBean.getIdX(), childsBean.getReal_price(),
+                        childsBean.getName(), categoriesBean.getCategory_info().getIdX(),
+                        categoriesBean.getCategory_info().getName());
+                dataList.add(item);
+            }
+            typeList.add(item);
+        }
+
+        myAdapter.notifyDataSetChanged();
+        typeAdapter.notifyDataSetChanged();
     }
 
     /////// ------------------- GoodsItem ------------------- ///////
     // TODO: 17-5-6 后期可以考虑干掉GoodsItem,现在先做一个桥接
     public static class GoodsItem {
-        private static ArrayList<GoodsItem> goodsList;
-        private static ArrayList<GoodsItem> typeList;
         public int id;
         public int typeId;
         public int rating;
@@ -399,34 +435,6 @@ public class ShoppingCartActivity extends BaseActivity {
             this.typeId = typeId;
             this.typeName = typeName;
             rating = new Random().nextInt(5) + 1;
-        }
-
-        public static ArrayList<GoodsItem> getGoodsList() {
-            if (goodsList == null) {
-                initData();
-            }
-            return goodsList;
-        }
-
-        // TODO: 17-5-6 明天就从这里下手
-        public static void initData() {
-            goodsList = new ArrayList<>();
-            typeList = new ArrayList<>();
-            GoodsItem item = null;
-            for (int i = 1; i < 15; i++) {
-                for (int j = 1; j < 10; j++) {
-                    item = new GoodsItem(100 * i + j, Math.random() * 100, "商品" + (100 * i + j), i, "种类" + i);
-                    goodsList.add(item);
-                }
-                typeList.add(item);
-            }
-        }
-
-        public static ArrayList<GoodsItem> getTypeList() {
-            if (typeList == null) {
-                initData();
-            }
-            return typeList;
         }
     }
 

@@ -10,13 +10,11 @@
 
 package com.yongf.rorder.app.application;
 
-import android.content.Context;
-
 import com.yongf.rorder.net.UrlCenter;
 import com.yongf.rorder.widget.toast.UserToast;
 
 /**
- * App控制中心
+ * App环境
  *
  * @author Scott Wang
  * @version 1.0, 17-1-15
@@ -28,17 +26,8 @@ public final class AppEnv {
     // TODO: 17-5-3 接入Mob的短信验证码SDK
     // TODO: 17-5-3 完成android端的登录注册功能及界面,并且和后台联调成功!
 
-    private static Context sContext;
     private static String sMainSite = UrlCenter.ALIYUN_SITE;
     private static UserToast sUserToast;
-
-    public static void init(Context context) {
-        sContext = context;
-        sUserToast = new UserToast(context);
-
-        //初始化xml配置
-        Config.init(context);
-    }
 
     public static String getMainSite() {
         return sMainSite;

@@ -28,6 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import rx.Observable;
+import rx.exceptions.Exceptions;
 
 /**
  * DataObservable
@@ -127,6 +128,7 @@ public final class DataObservable {
                     String data = parseData(json);
                     if (data == null) {
                         // TODO: 17-5-6 暂时不会手动触发onError...
+                        throw Exceptions.propagate(new Throwable("data is null"));              //抛出异常来中断序列
                     }
 
                     return new Gson().fromJson(data, classOfT);
