@@ -37,4 +37,7 @@ public class UrlCenter {
     //根据OrderDetailId获取相应的订单详情
     ///api/v1/order_detail/get/
     public static final String ORDER_DETAIL = "/api/v1/order_detail/get/";
+    //顾客端更新订单接口
+    ///api/v1/order/update
+    public static final String UPDATE_ORDER_DETAIL = "/api/v1/order/update";
 }
