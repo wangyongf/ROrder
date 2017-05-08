@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.yongf.rorder.widget.TitleLayout
+        android:id="@+id/tl_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tl_rightMode="none"
+        app:tl_titleText="订单详情" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_red_light"
+        android:padding="@dimen/app_size20">
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="正在进行"
+            android:textColor="@color/app_color_white"
+            android:textSize="@dimen/app_txt_size20" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_size10"
+        android:background="@color/app_color_divider" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_details"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

@@ -25,4 +25,13 @@ public class UrlCenter {
     //api/v1/restaurant/{id}/cookbook
     public static final String COOK_BOOK_PREFIX = "/api/v1/restaurant/";
     public static final String COOK_BOOK_SUFFIX = "/cookbook";
+
+    /////// ------------------- Order ------------------- ///////
+
+    //新建订单接口
+    //api/v1/order/order
+    public static final String NEW_ORDER = "/api/v1/order/order";
+    //根据订单号获取订单详情
+    ///api/v1/order/detail/
+    public static final String ORDER_DETAIL = "/api/v1/order/detail/";
 }

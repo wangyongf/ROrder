@@ -12,6 +12,7 @@ package com.yongf.rorder.util;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 
 /**
  * IntentHelper
@@ -31,6 +32,20 @@ public class IntentHelper {
      */
     public static void simpleJump(Context context, Class clazz) {
         Intent intent = new Intent(context, clazz);
+        context.startActivity(intent);
+    }
+
+    /**
+     * 简单地从当前页面跳转到指定页面
+     * 附带数据
+     *
+     * @param context
+     * @param clazz
+     * @param data
+     */
+    public static void simpleJump(Context context, Class clazz, Bundle data) {
+        Intent intent = new Intent(context, clazz);
+        intent.putExtras(data);
         context.startActivity(intent);
     }
 }

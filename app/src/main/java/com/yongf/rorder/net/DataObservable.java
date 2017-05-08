@@ -19,7 +19,9 @@ import com.kymjs.rxvolley.client.HttpParams;
 import com.yongf.rorder.app.application.AppEnv;
 import com.yongf.rorder.model.BaseBean;
 import com.yongf.rorder.model.login.LoginResultBean;
-import com.yongf.rorder.model.restaurant.CookbookBean;
+import com.yongf.rorder.model.order.NewOrderResultBean;
+import com.yongf.rorder.model.order.OrderDetailResultBean;
+import com.yongf.rorder.model.restaurant.CookbookResultBean;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -62,16 +64,42 @@ public final class DataObservable {
     }
 
     /**
-     * 获取商品菜单
+     * 获取餐厅菜单
      *
      * @param mode
      * @param restaurantId
      *
      * @return
      */
-    public static Observable<CookbookBean> goodsData(int mode, int restaurantId) {
+    public static Observable<CookbookResultBean> goodsData(int mode, int restaurantId) {
         return buildObservable(mode, UrlCenter.COOK_BOOK_PREFIX + restaurantId +
-                UrlCenter.COOK_BOOK_SUFFIX, RxVolley.Method.GET, null, null, CookbookBean.class);
+                UrlCenter.COOK_BOOK_SUFFIX, RxVolley.Method.GET, null, null, CookbookResultBean.class);
+    }
+
+    /**
+     * 新建订单
+     *
+     * @param mode
+     * @param jsonBody
+     *
+     * @return
+     */
+    public static Observable<NewOrderResultBean> newOrder(int mode, String jsonBody) {
+        return buildObservable(mode, UrlCenter.NEW_ORDER, RxVolley.Method.POST, null,
+                jsonBody, NewOrderResultBean.class);
+    }
+
+    /**
+     * 根据订单号获取订单详情
+     *
+     * @param mode
+     * @param orderId
+     *
+     * @return
+     */
+    public static Observable<OrderDetailResultBean> orderDetail(int mode, int orderId) {
+        return buildObservable(mode, UrlCenter.ORDER_DETAIL + orderId, RxVolley.Method.GET,
+                null, null, OrderDetailResultBean.class);
     }
 
     /**

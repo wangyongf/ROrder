@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 菜谱Cookbook
  */
-public class CookbookBean extends BaseBean {
+public class CookbookResultBean extends BaseBean {
 
     private List<CategoriesBean> categories;
 

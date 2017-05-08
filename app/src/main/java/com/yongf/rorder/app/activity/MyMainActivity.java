@@ -51,7 +51,7 @@ public class MyMainActivity extends BaseActivity {
      */
     @OnClick(R.id.rl_myorder)
     void onMyOrder() {
-
+        IntentHelper.simpleJump(this, MyOrderActivity.class);
     }
 
     /**
@@ -59,7 +59,7 @@ public class MyMainActivity extends BaseActivity {
      */
     @OnClick(R.id.rl_account)
     void onAccount() {
-
+        IntentHelper.simpleJump(this, AccountActivity.class);
     }
 
     /**
@@ -67,6 +67,6 @@ public class MyMainActivity extends BaseActivity {
      */
     @OnClick(R.id.rl_about)
     void onAbout() {
-
+        IntentHelper.simpleJump(this, AboutActivity.class);
     }
 }

@@ -53,6 +53,8 @@
         <activity android:name=".app.activity.PhoneLoginActivity" />
         <activity android:name=".app.activity.ShoppingCartActivity" />
         <activity android:name=".app.activity.MyMainActivity" />
+        <activity android:name=".app.activity.MyOrderActivity" />
+        <activity android:name=".app.activity.OrderDetailActivity" />
 
         <!--Entrance-->
         <activity android:name=".app.activity.EntranceActivity">

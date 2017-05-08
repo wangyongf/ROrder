@@ -1,5 +1,6 @@
 package com.yongf.rorder.app.activity;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -28,12 +29,17 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.flipboard.bottomsheet.BottomSheetLayout;
+import com.google.gson.Gson;
 import com.yongf.rorder.R;
 import com.yongf.rorder.app.application.AppEnv;
 import com.yongf.rorder.app.application.Config;
 import com.yongf.rorder.app.application.MyApplication;
-import com.yongf.rorder.model.restaurant.CookbookBean;
+import com.yongf.rorder.app.application.UserProfile;
+import com.yongf.rorder.model.order.NewOrderBodyBean;
+import com.yongf.rorder.model.order.NewOrderResultBean;
+import com.yongf.rorder.model.restaurant.CookbookResultBean;
 import com.yongf.rorder.net.DataObservable;
+import com.yongf.rorder.util.IntentHelper;
 import com.yongf.rorder.widget.TitleLayout;
 
 import java.text.NumberFormat;
@@ -300,7 +306,89 @@ public class ShoppingCartActivity extends BaseActivity {
 
     @OnClick(R.id.tvSubmit)
     void onSubmit() {
-        AppEnv.getUserToast().simpleToast("结算");
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle("下单确认")
+                .setMessage("确认下单?")
+                .setPositiveButton("确认", (dialog1, which) -> newOrder())
+                .setNegativeButton("取消", (dialog12, which) -> AppEnv.getUserToast().simpleToast("取消下单"))
+                .create();
+        dialog.show();
+    }
+
+    /**
+     * 下单
+     */
+    private void newOrder() {
+        AppEnv.getUserToast().simpleToast("正在下单");
+
+        String jsonBody = buildNewOrderJsonBody();
+        getSubscription().add(
+                DataObservable.newOrder(DataObservable.TYPE_NETWORK, jsonBody)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(new Subscriber<NewOrderResultBean>() {
+                            @Override
+                            public void onCompleted() {
+                                //ignore
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+                                AppEnv.getUserToast().simpleToast("下单失败,请稍后再试");
+                            }
+
+                            @Override
+                            public void onNext(NewOrderResultBean newOrderResultBean) {
+                                AppEnv.getUserToast().simpleToast("下单成功,正在跳转");
+
+                                int orderId = newOrderResultBean.getOrder_id();
+                                UserProfile.getInstance().setOrderId(orderId);
+                                go2MyOrder(orderId);
+                            }
+                        })
+        );
+    }
+
+    /**
+     * 构建新建订单时的POST请求的body
+     *
+     * @return
+     */
+    private String buildNewOrderJsonBody() {
+        NewOrderBodyBean newOrderBodyBean = new NewOrderBodyBean();
+        newOrderBodyBean.setNotes("少油微辣");
+        newOrderBodyBean.setRestaurant_info_id(Config.RESTAURANT_ID);
+        newOrderBodyBean.setStatus(0);
+        newOrderBodyBean.setTables_id(1);
+        newOrderBodyBean.setUser_info_uid(UserProfile.getInstance().getUid());
+
+        NewOrderBodyBean.DetailsBean detailsBean;
+        List<NewOrderBodyBean.DetailsBean> detailsBeanList = new ArrayList<>();
+        //SparseArray是一个HashMap...
+        for (int i = 0; i < selectedList.size(); i++) {
+            GoodsItem item = selectedList.valueAt(i);
+            detailsBean = new NewOrderBodyBean.DetailsBean();
+            detailsBean.setGoods_id(item.id);
+            detailsBean.setStatus(0);
+            detailsBean.setQuantity(item.count);
+            detailsBeanList.add(detailsBean);
+        }
+
+        newOrderBodyBean.setDetails(detailsBeanList);
+
+        return new Gson().toJson(newOrderBodyBean);
+    }
+
+    /**
+     * 跳转到我的订单页面
+     */
+    private void go2MyOrder(@NonNull int orderId) {
+//        Bundle bundle = new Bundle();
+//        bundle.putInt(MyOrderActivity.ORDER_ID, orderId);
+        IntentHelper.simpleJump(this, MyOrderActivity.class);
+
+        //结束掉当前页面
+        finish();
     }
 
     //根据商品id获取当前商品的采购数量
@@ -377,7 +465,7 @@ public class ShoppingCartActivity extends BaseActivity {
                 DataObservable.goodsData(DataObservable.TYPE_NETWORK, restaurantId)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(new Subscriber<CookbookBean>() {
+                        .subscribe(new Subscriber<CookbookResultBean>() {
                             @Override
                             public void onCompleted() {
                                 //ignore
@@ -392,8 +480,8 @@ public class ShoppingCartActivity extends BaseActivity {
                             }
 
                             @Override
-                            public void onNext(CookbookBean cookbookBean) {
-                                updateData(cookbookBean);
+                            public void onNext(CookbookResultBean cookbookResultBean) {
+                                updateData(cookbookResultBean);
                             }
                         }));
     }
@@ -423,19 +511,19 @@ public class ShoppingCartActivity extends BaseActivity {
     /**
      * 初始化数据
      */
-    private void updateData(@NonNull CookbookBean bean) {
+    private void updateData(@NonNull CookbookResultBean bean) {
         // FIXME: 17-5-7 当数据量过少时,左边的分类点击不会切换~
 
         dataList.clear();
         typeList.clear();
 
         GoodsItem item = null;
-        List<CookbookBean.CategoriesBean> categories = bean.getCategories();
+        List<CookbookResultBean.CategoriesBean> categories = bean.getCategories();
         for (int i = 0; i < categories.size(); i++) {
-            CookbookBean.CategoriesBean categoriesBean = categories.get(i);
-            List<CookbookBean.CategoriesBean.ChildsBean> childs = categoriesBean.getChilds();
+            CookbookResultBean.CategoriesBean categoriesBean = categories.get(i);
+            List<CookbookResultBean.CategoriesBean.ChildsBean> childs = categoriesBean.getChilds();
             for (int j = 0; j < childs.size(); j++) {
-                CookbookBean.CategoriesBean.ChildsBean childsBean = childs.get(j);
+                CookbookResultBean.CategoriesBean.ChildsBean childsBean = childs.get(j);
                 item = new GoodsItem(childsBean.getIdX(), childsBean.getReal_price(),
                         childsBean.getName(), categoriesBean.getCategory_info().getIdX(),
                         categoriesBean.getCategory_info().getName());

@@ -116,4 +116,14 @@ public class EntranceActivity extends BaseActivity {
     void go2MyMain() {
         IntentHelper.simpleJump(this, MyMainActivity.class);
     }
+
+    @OnClick(R.id.my_order_activity)
+    void go2MyOrder() {
+        IntentHelper.simpleJump(this, MyOrderActivity.class);
+    }
+
+    @OnClick(R.id.order_detail_activity)
+    void go2OrderDetail() {
+        IntentHelper.simpleJump(this, OrderDetailActivity.class);
+    }
 }
