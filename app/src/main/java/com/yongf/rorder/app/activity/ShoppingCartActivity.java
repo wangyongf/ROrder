@@ -40,6 +40,7 @@ import com.yongf.rorder.model.order.NewOrderResultBean;
 import com.yongf.rorder.model.restaurant.CookbookResultBean;
 import com.yongf.rorder.net.DataObservable;
 import com.yongf.rorder.util.IntentHelper;
+import com.yongf.rorder.util.SPUtils;
 import com.yongf.rorder.widget.TitleLayout;
 
 import java.text.NumberFormat;
@@ -343,6 +344,7 @@ public class ShoppingCartActivity extends BaseActivity {
 
                                 int orderId = newOrderResultBean.getOrder_id();
                                 UserProfile.getInstance().setOrderId(orderId);
+                                SPUtils.setInt(ShoppingCartActivity.this, MyOrderActivity.ORDER_ID, orderId);
                                 go2MyOrder(orderId);
                             }
                         })

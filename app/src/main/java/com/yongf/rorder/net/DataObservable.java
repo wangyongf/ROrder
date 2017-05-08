@@ -21,6 +21,7 @@ import com.yongf.rorder.model.BaseBean;
 import com.yongf.rorder.model.login.LoginResultBean;
 import com.yongf.rorder.model.order.NewOrderResultBean;
 import com.yongf.rorder.model.order.OrderDetailResultBean;
+import com.yongf.rorder.model.order.OrderDetailsResultBean;
 import com.yongf.rorder.model.restaurant.CookbookResultBean;
 
 import org.json.JSONException;
@@ -97,8 +98,21 @@ public final class DataObservable {
      *
      * @return
      */
-    public static Observable<OrderDetailResultBean> orderDetail(int mode, int orderId) {
-        return buildObservable(mode, UrlCenter.ORDER_DETAIL + orderId, RxVolley.Method.GET,
+    public static Observable<OrderDetailsResultBean> orderDetails(int mode, int orderId) {
+        return buildObservable(mode, UrlCenter.ORDER_DETAILS + orderId, RxVolley.Method.GET,
+                null, null, OrderDetailsResultBean.class);
+    }
+
+    /**
+     * 根据OrderDetailId获取相应的订单详情
+     *
+     * @param mode
+     * @param orderDetailId
+     *
+     * @return
+     */
+    public static Observable<OrderDetailResultBean> orderDetail(int mode, int orderDetailId) {
+        return buildObservable(mode, UrlCenter.ORDER_DETAIL + orderDetailId, RxVolley.Method.GET,
                 null, null, OrderDetailResultBean.class);
     }
 

@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tl_rightMode="none"
-        app:tl_titleText="订单详情" />
+        app:tl_titleText="我的订单" />
 
     <RelativeLayout
         android:layout_width="match_parent"

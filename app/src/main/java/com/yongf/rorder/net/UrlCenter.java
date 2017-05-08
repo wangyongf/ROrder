@@ -33,5 +33,8 @@ public class UrlCenter {
     public static final String NEW_ORDER = "/api/v1/order/order";
     //根据订单号获取订单详情
     ///api/v1/order/detail/
-    public static final String ORDER_DETAIL = "/api/v1/order/detail/";
+    public static final String ORDER_DETAILS = "/api/v1/order/detail/";
+    //根据OrderDetailId获取相应的订单详情
+    ///api/v1/order_detail/get/
+    public static final String ORDER_DETAIL = "/api/v1/order_detail/get/";
 }

@@ -15,9 +15,10 @@ import android.widget.TextView;
 import com.yongf.rorder.R;
 import com.yongf.rorder.app.application.AppEnv;
 import com.yongf.rorder.app.application.UserProfile;
-import com.yongf.rorder.model.order.OrderDetailResultBean;
+import com.yongf.rorder.model.order.OrderDetailsResultBean;
 import com.yongf.rorder.net.DataObservable;
 import com.yongf.rorder.util.IntentHelper;
+import com.yongf.rorder.util.SPUtils;
 import com.yongf.rorder.widget.TitleLayout;
 
 import butterknife.BindView;
@@ -66,6 +67,9 @@ public class MyOrderActivity extends BaseActivity {
     protected void initData() {
         int orderId = UserProfile.getInstance().getOrderId();
         if (orderId == -1) {
+            orderId = SPUtils.getInt(this, ORDER_ID, -1);
+        }
+        if (orderId == -1) {
             AppEnv.getUserToast().simpleToast("没有OrderId, 使用默认的1");
             orderId = 1;
         }
@@ -91,10 +95,10 @@ public class MyOrderActivity extends BaseActivity {
      */
     private void loadOrderDetail(int orderId) {
         getSubscription().add(
-                DataObservable.orderDetail(DataObservable.TYPE_NETWORK, orderId)
+                DataObservable.orderDetails(DataObservable.TYPE_NETWORK, orderId)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(new Subscriber<OrderDetailResultBean>() {
+                        .subscribe(new Subscriber<OrderDetailsResultBean>() {
                             @Override
                             public void onCompleted() {
                                 //ignore
@@ -107,8 +111,8 @@ public class MyOrderActivity extends BaseActivity {
                             }
 
                             @Override
-                            public void onNext(OrderDetailResultBean orderDetailResultBean) {
-                                mAdapter.update(orderDetailResultBean);
+                            public void onNext(OrderDetailsResultBean orderDetailsResultBean) {
+                                mAdapter.update(orderDetailsResultBean);
                             }
                         })
         );
@@ -117,15 +121,15 @@ public class MyOrderActivity extends BaseActivity {
     public static class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHolder> {
 
         private Context mContext;
-        private OrderDetailResultBean mOrderDetailResultBean;
+        private OrderDetailsResultBean mOrderDetailsResultBean;
 
-        public MyOrderAdapter(Context context, @Nullable OrderDetailResultBean orderDetailResultBean) {
+        public MyOrderAdapter(Context context, @Nullable OrderDetailsResultBean orderDetailsResultBean) {
             mContext = context;
-            mOrderDetailResultBean = orderDetailResultBean;
+            mOrderDetailsResultBean = orderDetailsResultBean;
         }
 
-        public void update(OrderDetailResultBean bean) {
-            mOrderDetailResultBean = bean;
+        public void update(OrderDetailsResultBean bean) {
+            mOrderDetailsResultBean = bean;
             notifyDataSetChanged();
         }
 
@@ -139,17 +143,17 @@ public class MyOrderActivity extends BaseActivity {
 
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
-            OrderDetailResultBean.DetailsBean detailsBean = mOrderDetailResultBean.getDetails().get(position);
+            OrderDetailsResultBean.DetailsBean detailsBean = mOrderDetailsResultBean.getDetails().get(position);
             holder.bindData(detailsBean);
         }
 
         @Override
         public int getItemCount() {
-            if (mOrderDetailResultBean == null ||
-                    mOrderDetailResultBean.getDetails() == null) {
+            if (mOrderDetailsResultBean == null ||
+                    mOrderDetailsResultBean.getDetails() == null) {
                 return 0;
             }
-            return mOrderDetailResultBean.getDetails().size();
+            return mOrderDetailsResultBean.getDetails().size();
         }
 
         public class ViewHolder extends RecyclerView.ViewHolder {
@@ -165,7 +169,7 @@ public class MyOrderActivity extends BaseActivity {
             @BindView(R.id.btn_detail)
             Button mBtnDetail;
 
-            private OrderDetailResultBean.DetailsBean mDetailsBean;
+            private OrderDetailsResultBean.DetailsBean mDetailsBean;
 
             public ViewHolder(View itemView) {
                 super(itemView);
@@ -178,7 +182,7 @@ public class MyOrderActivity extends BaseActivity {
              *
              * @param detailsBean
              */
-            public void bindData(OrderDetailResultBean.DetailsBean detailsBean) {
+            public void bindData(OrderDetailsResultBean.DetailsBean detailsBean) {
                 mDetailsBean = detailsBean;
 
                 // TODO: 17-5-7 考虑cover的事情...

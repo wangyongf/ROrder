@@ -76,7 +76,7 @@
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
             android:gravity="center"
-            android:text="消费50元起"
+            android:text="消费10元起"
             android:textColor="#fff" />
 
         <TextView

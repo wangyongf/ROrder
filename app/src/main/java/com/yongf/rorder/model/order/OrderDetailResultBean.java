@@ -2,131 +2,147 @@ package com.yongf.rorder.model.order;
 
 import com.yongf.rorder.model.BaseBean;
 
-import java.util.List;
-
 /**
- * 根据订单号获取订单详情
+ * 根据OrderDetailId获取相应的订单详情
  *
  * @author Scott Wang
- * @version 1.0, 17-5-7
+ * @version 1.0, 17-5-8
  * @see
  * @since ROder V1.0
  */
 public class OrderDetailResultBean extends BaseBean {
 
-    private List<DetailsBean> details;
+    /**
+     * goods_raw_id : 1234567890
+     * goods_id : 1
+     * name : 卤蛋
+     * original_price : 17.2
+     * real_price : 15.1
+     * cover : http://www.baidu.com
+     * pictures : 此处是一段json字符串
+     * status : 0
+     * quantity : 2
+     * order_raw_id : 1
+     * order_id : 1234
+     * created_at : 2017-05-08 17:08:27
+     * updated_at : 2017-05-08 17:08:27
+     */
 
-    public List<DetailsBean> getDetails() {
-        return details;
+    private int goods_raw_id;
+    private String goods_id;
+    private String name;
+    private double original_price;
+    private double real_price;
+    private String cover;
+    private String pictures;
+    private int status;
+    private int quantity;
+    private int order_raw_id;
+    private String order_id;
+    private String created_at;
+    private String updated_at;
+
+    public int getGoods_raw_id() {
+        return goods_raw_id;
     }
 
-    public void setDetails(List<DetailsBean> details) {
-        this.details = details;
+    public void setGoods_raw_id(int goods_raw_id) {
+        this.goods_raw_id = goods_raw_id;
     }
 
-    public static class DetailsBean {
-        /**
-         * details_id: 1
-         * goods_raw_id : 1234567890
-         * goods_id : 1
-         * name : 卤蛋
-         * original_price : 17.2
-         * real_price : 15.1
-         * cover : http://www.baidu.com
-         * pictures : 此处是一段json字符串
-         * status : 0
-         * quantity : 2
-         */
+    public String getGoods_id() {
+        return goods_id;
+    }
 
-        private int details_id;
-        private int goods_raw_id;
-        private String goods_id;
-        private String name;
-        private double original_price;
-        private double real_price;
-        private String cover;
-        private String pictures;
-        private int status;
-        private int quantity;
+    public void setGoods_id(String goods_id) {
+        this.goods_id = goods_id;
+    }
 
-        public int getGoods_raw_id() {
-            return goods_raw_id;
-        }
+    public String getName() {
+        return name;
+    }
 
-        public void setGoods_raw_id(int goods_raw_id) {
-            this.goods_raw_id = goods_raw_id;
-        }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-        public String getGoods_id() {
-            return goods_id;
-        }
+    public double getOriginal_price() {
+        return original_price;
+    }
 
-        public void setGoods_id(String goods_id) {
-            this.goods_id = goods_id;
-        }
+    public void setOriginal_price(double original_price) {
+        this.original_price = original_price;
+    }
 
-        public String getName() {
-            return name;
-        }
+    public double getReal_price() {
+        return real_price;
+    }
 
-        public void setName(String name) {
-            this.name = name;
-        }
+    public void setReal_price(double real_price) {
+        this.real_price = real_price;
+    }
 
-        public double getOriginal_price() {
-            return original_price;
-        }
+    public String getCover() {
+        return cover;
+    }
 
-        public void setOriginal_price(double original_price) {
-            this.original_price = original_price;
-        }
+    public void setCover(String cover) {
+        this.cover = cover;
+    }
 
-        public double getReal_price() {
-            return real_price;
-        }
+    public String getPictures() {
+        return pictures;
+    }
 
-        public void setReal_price(double real_price) {
-            this.real_price = real_price;
-        }
+    public void setPictures(String pictures) {
+        this.pictures = pictures;
+    }
 
-        public String getCover() {
-            return cover;
-        }
+    public int getStatus() {
+        return status;
+    }
 
-        public void setCover(String cover) {
-            this.cover = cover;
-        }
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
-        public String getPictures() {
-            return pictures;
-        }
+    public int getQuantity() {
+        return quantity;
+    }
 
-        public void setPictures(String pictures) {
-            this.pictures = pictures;
-        }
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
-        public int getStatus() {
-            return status;
-        }
+    public int getOrder_raw_id() {
+        return order_raw_id;
+    }
 
-        public void setStatus(int status) {
-            this.status = status;
-        }
+    public void setOrder_raw_id(int order_raw_id) {
+        this.order_raw_id = order_raw_id;
+    }
 
-        public int getQuantity() {
-            return quantity;
-        }
+    public String getOrder_id() {
+        return order_id;
+    }
 
-        public void setQuantity(int quantity) {
-            this.quantity = quantity;
-        }
+    public void setOrder_id(String order_id) {
+        this.order_id = order_id;
+    }
 
-        public int getDetails_id() {
-            return details_id;
-        }
+    public String getCreated_at() {
+        return created_at;
+    }
 
-        public void setDetails_id(int details_id) {
-            this.details_id = details_id;
-        }
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+
+    public String getUpdated_at() {
+        return updated_at;
+    }
+
+    public void setUpdated_at(String updated_at) {
+        this.updated_at = updated_at;
     }
 }
