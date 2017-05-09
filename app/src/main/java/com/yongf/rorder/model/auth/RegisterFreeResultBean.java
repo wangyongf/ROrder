@@ -1,18 +1,32 @@
-package com.yongf.rorder.app.application;
+package com.yongf.rorder.model.auth;
+
+import com.yongf.rorder.model.BaseBean;
 
 /**
- * 用户信息(用户资料)
+ * 免注册登录返回值
  *
  * @author Scott Wang
- * @version 1.0, 17-5-7
+ * @version 1.0, 17-5-9
  * @see
  * @since ROder V1.0
  */
-public class UserProfile {
+public class RegisterFreeResultBean extends BaseBean {
 
-    private static UserProfile sUserProfile;
+    /**
+     * uid : 00001234567890123456
+     * mobile : 15221382253
+     * nickname : rorder_1234567890123456
+     * signature : 哪有什么岁月静好,不过是有人替你负重前行
+     * sex : 0
+     * birthday : 1996-03-01 00:00:00
+     * realname : null
+     * email : 1059613472@qq.com
+     * user_avatar : http://1234.qiniuyun.com/image.png
+     * token : JKLWESJKDS83
+     * refresh_token : 34KESJ94J6K1
+     */
 
-    private int uid = 1234567890;
+    private String uid;
     private String mobile;
     private String nickname;
     private String signature;
@@ -24,17 +38,12 @@ public class UserProfile {
     private String token;
     private String refresh_token;
 
-    private int orderId = 1;
-
-    private UserProfile() {
-
+    public String getUid() {
+        return uid;
     }
 
-    public synchronized static UserProfile getInstance() {
-        if (sUserProfile == null) {
-            sUserProfile = new UserProfile();
-        }
-        return sUserProfile;
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getMobile() {
@@ -115,21 +124,5 @@ public class UserProfile {
 
     public void setRefresh_token(String refresh_token) {
         this.refresh_token = refresh_token;
-    }
-
-    public int getUid() {
-        return uid;
-    }
-
-    public void setUid(int uid) {
-        this.uid = uid;
-    }
-
-    public int getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
     }
 }

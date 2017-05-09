@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.yongf.rorder.app.application.MyApplication;
 import com.yongf.rorder.model.BaseBean;
-import com.yongf.rorder.model.login.LoginResultBean;
+import com.yongf.rorder.model.auth.LoginResultBean;
 import com.yongf.rorder.net.DataObservable;
 
 import java.util.HashMap;

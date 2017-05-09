@@ -10,7 +10,6 @@
 
 package com.yongf.rorder.app.activity;
 
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -19,6 +18,7 @@ import android.widget.TextView;
 import com.yongf.rorder.R;
 import com.yongf.rorder.presenter.splash.SplashContract;
 import com.yongf.rorder.presenter.splash.SplashPresenter;
+import com.yongf.rorder.util.IntentHelper;
 import com.yongf.rorder.util.PackageUtils;
 
 import butterknife.BindView;
@@ -27,7 +27,7 @@ import butterknife.OnClick;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
- * SplashActivity
+ * 闪屏页
  *
  * @author Scott Wang
  * @version 1.0, 17-1-7
@@ -40,10 +40,8 @@ public class SplashActivity extends BaseActivity implements SplashContract.View 
 
     @BindView(R.id.iv_splash_ad)
     ImageView mIvSplashAd;
-
     @BindView(R.id.tv_splash_app_version)
     TextView mTvSplashAppVersion;
-
     @BindView(R.id.btn_splash_skip_ad)
     Button mBtnSplashSkipAd;
 
@@ -108,8 +106,7 @@ public class SplashActivity extends BaseActivity implements SplashContract.View 
         if (isFinishing() || isDestroyed()) {
             return;
         }
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        IntentHelper.simpleJump(this, PhoneLoginActivity.class);
         finish();
     }
 }

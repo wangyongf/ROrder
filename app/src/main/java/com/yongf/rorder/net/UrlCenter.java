@@ -18,6 +18,9 @@ public class UrlCenter {
 
     //登录注册相关
     public static final String LOGIN_URL = "/Login/login.php";
+    //免注册登录
+    ///api/v1/user/register_free/
+    public static final String REGISTER_FREE = "/api/v1/user/register_free/";
 
     /////// ------------------- Restaurant ------------------- ///////
 

@@ -18,7 +18,8 @@ import com.kymjs.rxvolley.RxVolley;
 import com.kymjs.rxvolley.client.HttpParams;
 import com.yongf.rorder.app.application.AppEnv;
 import com.yongf.rorder.model.BaseBean;
-import com.yongf.rorder.model.login.LoginResultBean;
+import com.yongf.rorder.model.auth.LoginResultBean;
+import com.yongf.rorder.model.auth.RegisterFreeResultBean;
 import com.yongf.rorder.model.order.NewOrderResultBean;
 import com.yongf.rorder.model.order.OrderDetailResultBean;
 import com.yongf.rorder.model.order.OrderDetailsResultBean;
@@ -63,6 +64,19 @@ public final class DataObservable {
     public static Observable<LoginResultBean> login(int mode, Map<String, String> headers) {
         return buildObservable(mode, UrlCenter.LOGIN_URL, RxVolley.Method.POST, headers,
                 null, LoginResultBean.class);
+    }
+
+    /**
+     * 免注册登录
+     *
+     * @param mode
+     * @param mobile
+     *
+     * @return
+     */
+    public static Observable<RegisterFreeResultBean> registerFree(int mode, String mobile) {
+        return buildObservable(mode, UrlCenter.REGISTER_FREE + mobile, RxVolley.Method.POST,
+                null, null, RegisterFreeResultBean.class);
     }
 
     /**

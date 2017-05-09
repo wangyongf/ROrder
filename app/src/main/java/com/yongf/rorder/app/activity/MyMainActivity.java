@@ -5,6 +5,7 @@ import android.widget.TextView;
 
 import com.yongf.rorder.R;
 import com.yongf.rorder.util.IntentHelper;
+import com.yongf.rorder.widget.TitleLayout;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -13,6 +14,8 @@ public class MyMainActivity extends BaseActivity {
 
     private static final String TAG = MyMainActivity.class.getSimpleName();
 
+    @BindView(R.id.tl_title)
+    TitleLayout mTlTitle;
     @BindView(R.id.rl_order)
     RelativeLayout mRlOrder;
     @BindView(R.id.rl_myorder)
@@ -27,6 +30,11 @@ public class MyMainActivity extends BaseActivity {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_my_main;
+    }
+
+    @Override
+    protected void initEvent() {
+        mTlTitle.setOnLeftIconClickListener(() -> IntentHelper.simpleJump(MyMainActivity.this, EntranceActivity.class));
     }
 
     /**

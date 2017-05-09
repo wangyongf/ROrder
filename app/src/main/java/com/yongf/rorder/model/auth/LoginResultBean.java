@@ -8,7 +8,7 @@
  *  0.1         Scott Wang     17-1-15       新增：Create	
  */
 
-package com.yongf.rorder.model.login;
+package com.yongf.rorder.model.auth;
 
 import com.yongf.rorder.model.BaseBean;
 

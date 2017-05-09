@@ -19,32 +19,22 @@
         android:layout_marginTop="@dimen/app_size30"
         android:src="@drawable/playstore_icon" />
 
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/et_phone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/app_size16"
-        android:layout_marginRight="@dimen/app_size16"
-        android:layout_marginTop="@dimen/app_size30"
-        android:hint="请输入手机号"
-        android:inputType="phone"
-        app:met_iconLeft="@drawable/account_login" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/app_size16"
         android:layout_marginRight="@dimen/app_size16"
+        android:layout_marginTop="@dimen/app_size30"
         android:orientation="horizontal">
 
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/et_code"
+            android:id="@+id/et_phone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2.5"
-            android:hint="请输入验证码"
-            android:inputType="number"
-            app:met_iconLeft="@drawable/password_login" />
+            android:hint="请输入手机号"
+            android:inputType="phone"
+            app:met_iconLeft="@drawable/account_login" />
 
         <TextView
             android:id="@+id/tv_code"
@@ -56,6 +46,16 @@
             android:textColor="@color/app_color_login_blue"
             android:textSize="@dimen/app_txt_size17" />
     </LinearLayout>
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/et_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/app_size16"
+        android:layout_marginRight="@dimen/app_size16"
+        android:hint="请输入验证码"
+        android:inputType="number"
+        app:met_iconLeft="@drawable/password_login" />
 
     <Button
         android:id="@+id/btn_login"

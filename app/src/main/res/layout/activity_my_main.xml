@@ -8,9 +8,8 @@
         android:id="@+id/tl_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tl_leftMode="none"
         app:tl_rightMode="none"
-        app:tl_titleText="我的餐厅" />
+        app:tl_titleText="点菜宝" />
 
     <LinearLayout
         android:layout_width="match_parent"
