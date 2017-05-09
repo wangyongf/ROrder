@@ -2,6 +2,8 @@ package com.yongf.rorder.app.activity;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -19,6 +21,8 @@ import com.yongf.rorder.widget.TitleLayout;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -38,6 +42,9 @@ public class OrderDetailActivity extends BaseActivity {
 
     public static final String ORDER_DETAIL_ID = "order_detail_id";
     private static final String TAG = OrderDetailActivity.class.getSimpleName();
+
+    private static final int MSG_REFRESH = 0;
+    private static final int REFRESH_INTERVAL = 30 * 1000;          //每30s刷新一下数据~
 
     @BindView(R.id.tl_title)
     TitleLayout mTlTitle;
@@ -71,14 +78,42 @@ public class OrderDetailActivity extends BaseActivity {
     private Random mRandom;
     private OrderDetailResultBean mOrderDetailResultBean;
 
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case MSG_REFRESH:
+                    AppEnv.getUserToast().simpleToast("开始刷新数据");
+                    initData();             //定时刷新数据
+            }
+        }
+    };
+    private Timer mTimer = new Timer();
+    private TimerTask mTimerTask = new TimerTask() {
+        @Override
+        public void run() {
+            mHandler.sendEmptyMessage(MSG_REFRESH);
+        }
+    };
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        mTimer.cancel();
+    }
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_order_detail;
     }
 
+    // TODO: 17-5-9 定时器请求~
+
     @Override
     protected void before() {
         mRandom = new Random();
+        mTimer.schedule(mTimerTask, REFRESH_INTERVAL, REFRESH_INTERVAL);
     }
 
     @Override
@@ -166,7 +201,7 @@ public class OrderDetailActivity extends BaseActivity {
 
     /**
      * 更新状态
-     *
+     * <p>
      * 进度:
      * 0-尚未开始制作
      * 1-正在制作
