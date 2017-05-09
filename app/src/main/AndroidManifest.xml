@@ -52,7 +52,7 @@
         <activity android:name=".app.activity.OrderTempActivity" />
         <activity android:name=".app.activity.PhoneLoginActivity" />
         <activity android:name=".app.activity.ShoppingCartActivity" />
-        <activity android:name=".app.activity.MyMainActivity" >
+        <activity android:name=".app.activity.MyMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -61,6 +61,7 @@
         </activity>
         <activity android:name=".app.activity.MyOrderActivity" />
         <activity android:name=".app.activity.OrderDetailActivity" />
+        <activity android:name=".app.activity.AppEnvSettingActivity" />
 
         <!--Entrance-->
         <activity android:name=".app.activity.EntranceActivity">

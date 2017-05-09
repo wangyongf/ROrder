@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tl_rightMode="none"
-        app:tl_titleText="点菜宝" />
+        app:tl_titleText="美味宝" />
 
     <LinearLayout
         android:layout_width="match_parent"

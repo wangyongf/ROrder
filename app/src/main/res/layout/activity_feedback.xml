@@ -127,7 +127,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:div_leftMode="text"
-                app:div_leftText="在3G/4G网络下没法使用点菜宝"
+                app:div_leftText="在3G/4G网络下无法使用美味宝"
                 app:div_rightMode="none" />
 
             <View

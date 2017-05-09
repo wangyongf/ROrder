@@ -18,7 +18,7 @@ import butterknife.BindView;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
- * 点菜宝主页
+ * 美味宝主页
  *
  * @author Scott Wang
  * @version 1.0, 17-1-1

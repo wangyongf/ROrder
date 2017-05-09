@@ -19,6 +19,7 @@
             app:tl_titleText="@string/about_app" />
 
         <ImageView
+            android:id="@+id/iv_app_logo"
             android:layout_width="@dimen/app_size70"
             android:layout_height="@dimen/app_size70"
             android:layout_gravity="center_horizontal"

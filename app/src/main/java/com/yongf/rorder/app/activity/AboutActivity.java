@@ -10,10 +10,15 @@
 
 package com.yongf.rorder.app.activity;
 
+import android.widget.ImageView;
+
 import com.yongf.rorder.R;
+import com.yongf.rorder.app.application.Config;
+import com.yongf.rorder.util.IntentHelper;
 import com.yongf.rorder.widget.TitleLayout;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * AboutActivity
@@ -29,6 +34,8 @@ public class AboutActivity extends BaseActivity {
 
     @BindView(R.id.tl_title)
     TitleLayout mTitleLayout;
+    @BindView(R.id.iv_app_logo)
+    ImageView mIvAppLogo;
 
     @Override
     protected int getLayoutId() {
@@ -42,5 +49,23 @@ public class AboutActivity extends BaseActivity {
         mTitleLayout.setOnLeftIconClickListener(() -> {
             finish();
         });
+    }
+
+    @OnClick(R.id.iv_app_logo)
+    void onLogoClick() {
+        if (Config.DEBUG) {
+            Object tag = mIvAppLogo.getTag();
+            if (tag == null) {
+                mIvAppLogo.setTag("o");
+            } else if (tag instanceof String) {
+                int length = ((String) tag).length();
+                if (length < 2) {
+                    mIvAppLogo.setTag(tag + "o");
+                } else if (length == 2) {
+                    IntentHelper.simpleJump(this, AppEnvSettingActivity.class);
+                    mIvAppLogo.setTag(null);
+                }
+            }
+        }
     }
 }

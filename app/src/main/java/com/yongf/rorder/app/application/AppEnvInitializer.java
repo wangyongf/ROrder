@@ -17,7 +17,7 @@ public final class AppEnvInitializer {
 
     public static void init(Context context) {
         AppEnv.setUserToast(new UserToast(context));
-        AppEnv.setMainSite(UrlCenter.EMULATOR_SITE);
+        AppEnv.setMainSite(UrlCenter.LOCAL_SITE);
 
         //初始化xml配置
         Config.init(context);
