@@ -65,7 +65,7 @@
         android:layout_marginRight="@dimen/app_size16"
         android:layout_marginTop="@dimen/app_size15"
         android:background="@color/app_color_login_blue"
-        android:text="@string/app_text_login"
+        android:text="@string/login"
         android:textColor="@color/app_color_white"
         android:textSize="@dimen/app_txt_size18" />
 </LinearLayout>

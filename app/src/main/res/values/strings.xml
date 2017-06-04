@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">美味宝</string>
     <string name="app_version_name">版本: v</string>
-    <string name="app_text_register">注册</string>
-    <string name="app_text_login">登录</string>
+    <string name="register">注册</string>
+    <string name="login">登录</string>
     <string name="register_account">注册账户</string>
     <string name="forget_password">忘记密码?</string>
     <string name="input_password">请输入密码</string>

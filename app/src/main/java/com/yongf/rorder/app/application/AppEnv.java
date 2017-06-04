@@ -23,9 +23,6 @@ import com.yongf.rorder.widget.toast.UserToast;
  */
 public final class AppEnv {
 
-    // TODO: 17-5-3 接入Mob的短信验证码SDK
-    // TODO: 17-5-3 完成android端的登录注册功能及界面,并且和后台联调成功!
-
     private static String sMainSite = UrlCenter.ALIYUN_SITE;
     private static UserToast sUserToast;
 

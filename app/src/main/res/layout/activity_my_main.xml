@@ -42,7 +42,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:text="随便看看"
+                    android:text="浏览菜单"
                     android:textColor="@color/app_color_white"
                     android:textSize="@dimen/app_txt_size24" />
             </RelativeLayout>
